@@ -50,7 +50,7 @@ export default function ServiceCard({
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <div className="w-full h-80 lg:h-96 rounded-2xl flex items-center justify-center overflow-hidden">
+            <div className="max-w-md rounded-2xl flex items-center justify-center overflow-hidden">
               {customIllustration ? (
                 <div className="w-full h-full">{customIllustration}</div>
               ) : illustration ? (
@@ -76,17 +76,13 @@ export default function ServiceCard({
           className="flex flex-col gap-4"
         >
           <div>
-            <h3 className="text-heading-2 text-white mb-2">
-              {title}
-            </h3>
+            <h3 className="text-heading-2 text-white mb-2">{title}</h3>
 
             <p className="text-body-lg text-primary/90 font-medium mb-3">
               {subtitle}
             </p>
 
-            <p className="text-body-md text-white/80">
-              {description}
-            </p>
+            <p className="text-body-md text-white/80">{description}</p>
           </div>
 
           {/* Features List */}
