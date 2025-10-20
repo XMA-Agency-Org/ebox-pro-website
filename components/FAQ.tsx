@@ -49,7 +49,6 @@ const faqs = [
 ];
 
 export default function FAQ() {
-
   return (
     <section className="section-padding bg-navy-950 relative overflow-hidden">
       <div className="container-wide relative z-10">
@@ -90,9 +89,14 @@ export default function FAQ() {
             transition={{ duration: 0.8 }}
             className="w-full"
           >
-            <Accordion type="single" collapsible className="w-full flex flex-col gap-4">
+            <Accordion
+              type="single"
+              collapsible
+              className="w-full flex flex-col gap-4"
+            >
               {faqs.map((faq, index) => {
-                const glowColor = index % 2 === 0 ? "oklch(0.7 0.2 195)" : "oklch(0.75 0.2 45)";
+                const glowColor =
+                  index % 2 === 0 ? "oklch(0.7 0.2 195)" : "oklch(0.75 0.2 45)";
 
                 return (
                   <AccordionItem
@@ -101,19 +105,19 @@ export default function FAQ() {
                     className="border-none rounded-2xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-xl shadow-lg shadow-black/20 overflow-hidden data-[state=open]:shadow-[0_0_30px_rgba(0,0,0,0.15)] transition-all duration-300"
                     style={{
                       // @ts-ignore
-                      '--glow-color': glowColor,
+                      "--glow-color": glowColor,
                     }}
                   >
                     <AccordionTrigger
-                      className="text-white text-body-lg font-medium hover:no-underline p-6 [&[data-state=open]]:pb-4 transition-all"
+                      className="text-white cursor-pointer text-body-lg font-medium hover:no-underline p-6 [&[data-state=open]]:pb-4 transition-all"
                       style={{
                         // Apply glow color to chevron when open
-                        color: 'white',
+                        color: "white",
                       }}
                     >
                       {faq.question}
                     </AccordionTrigger>
-                    <AccordionContent className="text-white/70 text-body-md leading-relaxed px-6 pb-6">
+                    <AccordionContent className="!text-white/70 text-body-md leading-relaxed px-6 pb-6">
                       {faq.answer}
                     </AccordionContent>
                   </AccordionItem>

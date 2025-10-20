@@ -63,13 +63,13 @@ export default function ContactForm({ className }: ContactFormProps = {}) {
   ];
 
   return (
-    <section className="py-24 lg:py-32 relative overflow-hidden">
+    <section className="relative overflow-hidden">
       {/* Shipping Block */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className="bg-[#ffffff]/5 text-white flex flex-col justify-center w-full max-w-[1600px] mx-auto px-0 md:py-12 md:px-12 relative overflow-hidden"
+        className="bg-[#ffffff]/5 rounded-3xl text-white flex flex-col justify-center w-full max-w-[1600px] mx-auto px-0 md:py-12 md:px-12 relative overflow-hidden"
       >
         <div className="container-small z-10 py-12 rounded-lg backdrop-blur-[3px] px-8 md:px-0 md:backdrop-blur-none flex justify-center items-center md:justify-start md:items-start">
           {/* Shipping Content */}
@@ -304,7 +304,7 @@ export default function ContactForm({ className }: ContactFormProps = {}) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="absolute top-0 md:-right-65 w-full h-[105%] min-h-[856px] z-0 pointer-events-none"
+          className="absolute top-0 md:-right-70 w-full h-[105%] min-h-[856px] z-0 pointer-events-none"
         >
           <World
             globeConfig={{
