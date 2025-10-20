@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
+import { World } from "./ui/globe";
 
 interface FormData {
   firstName: string;
@@ -45,7 +45,9 @@ export default function ContactForm({ className }: ContactFormProps = {}) {
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -66,37 +68,42 @@ export default function ContactForm({ className }: ContactFormProps = {}) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className="rounded-3xl bg-neutral-900 text-white flex flex-col justify-center w-full max-w-[1600px] mx-auto py-32 lg:py-40 px-6 lg:px-12 relative overflow-hidden"
+        className="bg-[#ffffff]/5 text-white flex flex-col justify-center w-full max-w-[1600px] mx-auto px-0 md:py-12 md:px-12 relative overflow-hidden"
       >
-        <div className="container-small z-10">
+        <div className="container-small z-10 py-12 rounded-lg backdrop-blur-[3px] md:backdrop-blur-none flex justify-center items-center md:justify-start md:items-start">
           {/* Shipping Content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="flex flex-col gap-16 max-w-[600px]"
+            className="flex flex-col gap-16 max-w-[600px] justify-center items-center md:items-start md:justify-start w-full"
           >
-            <div className="flex flex-col gap-8">
-              <div className="rounded-full bg-neutral-900 border border-white/20 px-3 py-1 text-base font-medium text-white inline-block w-fit">
+            <div className="flex flex-col gap-8 text-center md:text-left">
+              <div className="rounded-full bg-neutral-900 border border-white/20 px-3 py-1 text-base font-medium text-white inline-block w-fit mx-auto md:mx-0">
                 Our Services
               </div>
               <h3 className="text-4xl lg:text-5xl xl:text-6xl font-medium font-space-grotesk leading-tight tracking-tighter text-white">
-                Get A Shipping <span className="whitespace-nowrap">Quote To</span> Get Started!
+                Get A Shipping{" "}
+                <span className="whitespace-nowrap">Quote To</span> Get Started!
               </h3>
               <p className="text-xl lg:text-2xl leading-relaxed text-neutral-300">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porttitor sapien vel facilisis lobortis.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Praesent porttitor sapien vel facilisis lobortis.
               </p>
             </div>
 
             {/* Shipping Form */}
-            <div className="max-w-[550px]">
+            <div className="max-w-[550px] w-full">
               <div className="mb-0">
                 {!isSubmitted && !hasError && (
                   <form onSubmit={handleSubmit} className="flex flex-col">
                     {/* Form Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-0">
                       <div className="mb-8">
-                        <label htmlFor="firstName" className="block text-base lg:text-lg font-medium text-white mb-2 pl-5">
+                        <label
+                          htmlFor="firstName"
+                          className="block text-base lg:text-lg font-medium text-white mb-2 text-center md:text-left md:pl-5"
+                        >
                           Name
                         </label>
                         <input
@@ -111,7 +118,10 @@ export default function ContactForm({ className }: ContactFormProps = {}) {
                         />
                       </div>
                       <div className="mb-8">
-                        <label htmlFor="lastName" className="block text-base lg:text-lg font-medium text-white mb-2 pl-5">
+                        <label
+                          htmlFor="lastName"
+                          className="block text-base lg:text-lg font-medium text-white mb-2 text-center md:text-left md:pl-5"
+                        >
                           Last Name
                         </label>
                         <input
@@ -126,7 +136,10 @@ export default function ContactForm({ className }: ContactFormProps = {}) {
                         />
                       </div>
                       <div className="mb-8">
-                        <label htmlFor="email" className="block text-base lg:text-lg font-medium text-white mb-2 pl-5">
+                        <label
+                          htmlFor="email"
+                          className="block text-base lg:text-lg font-medium text-white mb-2 text-center md:text-left md:pl-5"
+                        >
                           Email
                         </label>
                         <input
@@ -141,7 +154,10 @@ export default function ContactForm({ className }: ContactFormProps = {}) {
                         />
                       </div>
                       <div className="mb-8">
-                        <label htmlFor="phone" className="block text-base lg:text-lg font-medium text-white mb-2 pl-5">
+                        <label
+                          htmlFor="phone"
+                          className="block text-base lg:text-lg font-medium text-white mb-2 text-center md:text-left md:pl-5"
+                        >
                           Phone Number
                         </label>
                         <input
@@ -159,7 +175,10 @@ export default function ContactForm({ className }: ContactFormProps = {}) {
 
                     {/* Select Dropdown */}
                     <div className="mb-8">
-                      <label htmlFor="interested" className="block text-base lg:text-lg font-medium text-white mb-2 pl-5">
+                      <label
+                        htmlFor="interested"
+                        className="block text-base lg:text-lg font-medium text-white mb-2 text-center md:text-left md:pl-5"
+                      >
                         Interested in:
                       </label>
                       <div className="border border-white/[0.08] bg-white/[0.04] rounded-lg pr-4 text-base lg:text-lg leading-6">
@@ -168,13 +187,21 @@ export default function ContactForm({ className }: ContactFormProps = {}) {
                           name="interested"
                           value={formData.interested}
                           onChange={handleChange}
-                          className="w-full bg-transparent text-neutral-400 border border-black mb-0 py-3 px-4 pl-5 focus:outline-none"
+                          className="w-full bg-transparent text-neutral-400 mb-0 py-3 px-4 pl-5 focus:outline-none"
                           required
                         >
-                          <option value="" className="bg-neutral-900">Select one...</option>
-                          <option value="First" className="bg-neutral-900">First choice</option>
-                          <option value="Second" className="bg-neutral-900">Second choice</option>
-                          <option value="Third" className="bg-neutral-900">Third choice</option>
+                          <option value="" className="bg-neutral-900">
+                            Select one...
+                          </option>
+                          <option value="First" className="bg-neutral-900">
+                            First choice
+                          </option>
+                          <option value="Second" className="bg-neutral-900">
+                            Second choice
+                          </option>
+                          <option value="Third" className="bg-neutral-900">
+                            Third choice
+                          </option>
                         </select>
                       </div>
                     </div>
@@ -198,8 +225,17 @@ export default function ContactForm({ className }: ContactFormProps = {}) {
                     <div className="rounded-2xl border border-white/[0.08] bg-white/[0.04] shadow-ebox-card flex flex-col justify-start items-start py-6 px-7 relative">
                       <div className="flex items-center gap-4 mb-0">
                         <div className="w-5 h-5 flex items-center justify-center">
-                          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M8.1331 15.3332L17.022 6.44428L15.2443 4.6665L8.1331 11.7777L4.57759 8.222L2.7998 9.99989L8.1331 15.3332Z" fill="white"/>
+                          <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 20 20"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M8.1331 15.3332L17.022 6.44428L15.2443 4.6665L8.1331 11.7777L4.57759 8.222L2.7998 9.99989L8.1331 15.3332Z"
+                              fill="white"
+                            />
                           </svg>
                         </div>
                         <div className="text-lg font-medium leading-6 text-white">
@@ -220,8 +256,17 @@ export default function ContactForm({ className }: ContactFormProps = {}) {
                   >
                     <div className="flex items-center justify-start gap-1.5">
                       <div className="w-5 h-5 flex items-center justify-center">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M10.0008 18.3332C5.39844 18.3332 1.66748 14.6022 1.66748 9.99984C1.66748 5.39746 5.39844 1.6665 10.0008 1.6665C14.6031 1.6665 18.3341 5.39746 18.3341 9.99984C18.3341 14.6022 14.6031 18.3332 10.0008 18.3332ZM9.16748 9.1665V14.1665H10.8341V9.1665H9.16748ZM9.16748 5.83317V7.49984H10.8341V5.83317H9.16748Z" fill="#4D545C"/>
+                        <svg
+                          width="20"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M10.0008 18.3332C5.39844 18.3332 1.66748 14.6022 1.66748 9.99984C1.66748 5.39746 5.39844 1.6665 10.0008 1.6665C14.6031 1.6665 18.3341 5.39746 18.3341 9.99984C18.3341 14.6022 14.6031 18.3332 10.0008 18.3332ZM9.16748 9.1665V14.1665H10.8341V9.1665H9.16748ZM9.16748 5.83317V7.49984H10.8341V5.83317H9.16748Z"
+                            fill="#4D545C"
+                          />
                         </svg>
                       </div>
                       <div className="text-sm text-neutral-400">
@@ -235,19 +280,36 @@ export default function ContactForm({ className }: ContactFormProps = {}) {
           </motion.div>
         </div>
 
-        {/* Shipping Image */}
+        {/* 3D Globe Background */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="absolute top-0 -right-64 h-[105%] min-h-[856px] z-0 pointer-events-none "
+          className="absolute top-0 md:-right-65 w-full h-[105%] min-h-[856px] z-0 pointer-events-none"
         >
-          <Image
-            src="/graphics/contact-form-bg.png"
-            alt="Contact Form Background"
-            width={1756}
-            height={856}
-            className="w-full h-full object-cover opacity-45"
+          <World
+            globeConfig={{
+              pointSize: 1,
+              globeColor: "#162433",
+              showAtmosphere: true,
+              atmosphereColor: "#ffffff",
+              atmosphereAltitude: 0.1,
+              emissive: "#000000",
+              emissiveIntensity: 0.1,
+              shininess: 0.9,
+              polygonColor: "#FF6B35",
+              ambientLight: "#ffffff",
+              directionalLeftLight: "#ffffff",
+              directionalTopLight: "#ffffff",
+              pointLight: "#ffffff",
+              arcTime: 2000,
+              arcLength: 0.9,
+              rings: 1,
+              maxRings: 3,
+              autoRotate: true,
+              autoRotateSpeed: 1,
+            }}
+            data={[]}
           />
         </motion.div>
       </motion.div>

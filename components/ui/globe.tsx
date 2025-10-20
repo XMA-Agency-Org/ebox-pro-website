@@ -62,6 +62,81 @@ interface WorldProps {
 
 let numbersOfRings = [0];
 
+const defaultGlobeData: Position[] = [
+  {
+    order: 1,
+    startLat: 25.2048,
+    startLng: 55.2708,
+    endLat: 40.7128,
+    endLng: -74.006,
+    arcAlt: 0.3,
+    color: "#FF6B35",
+  },
+  {
+    order: 2,
+    startLat: 25.2048,
+    startLng: 55.2708,
+    endLat: 51.5074,
+    endLng: -0.1278,
+    arcAlt: 0.3,
+    color: "#FF6B35",
+  },
+  {
+    order: 3,
+    startLat: 25.2048,
+    startLng: 55.2708,
+    endLat: 35.6762,
+    endLng: 139.6503,
+    arcAlt: 0.3,
+    color: "#FF6B35",
+  },
+  {
+    order: 4,
+    startLat: 25.2048,
+    startLng: 55.2708,
+    endLat: -33.8688,
+    endLng: 151.2093,
+    arcAlt: 0.3,
+    color: "#FF6B35",
+  },
+  {
+    order: 5,
+    startLat: 25.2048,
+    startLng: 55.2708,
+    endLat: 52.52,
+    endLng: 13.405,
+    arcAlt: 0.3,
+    color: "#FF6B35",
+  },
+  {
+    order: 6,
+    startLat: 25.2048,
+    startLng: 55.2708,
+    endLat: 39.9042,
+    endLng: 116.4074,
+    arcAlt: 0.3,
+    color: "#FF6B35",
+  },
+  {
+    order: 7,
+    startLat: 25.2048,
+    startLng: 55.2708,
+    endLat: -23.5505,
+    endLng: -46.6333,
+    arcAlt: 0.3,
+    color: "#FF6B35",
+  },
+  {
+    order: 8,
+    startLat: 25.2048,
+    startLng: 55.2708,
+    endLat: 28.6139,
+    endLng: 77.209,
+    arcAlt: 0.3,
+    color: "#FF6B35",
+  },
+];
+
 export function Globe({ globeConfig, data }: WorldProps) {
   const globeRef = useRef<ThreeGlobe | null>(null);
   const groupRef = useRef();
@@ -69,14 +144,14 @@ export function Globe({ globeConfig, data }: WorldProps) {
 
   const defaultProps = {
     pointSize: 1,
-    atmosphereColor: "#ffffff",
+    atmosphereColor: "#FF6B35",
     showAtmosphere: true,
-    atmosphereAltitude: 0.1,
-    polygonColor: "rgba(255,255,255,0.7)",
-    globeColor: "#1d072e",
-    emissive: "#000000",
-    emissiveIntensity: 0.1,
-    shininess: 0.9,
+    atmosphereAltitude: 0.15,
+    polygonColor: "#FF6B35",
+    globeColor: "#2C3E50",
+    emissive: "#FF6B35",
+    emissiveIntensity: 0.3,
+    shininess: 0.8,
     arcTime: 2000,
     arcLength: 0.9,
     rings: 1,
@@ -145,9 +220,9 @@ export function Globe({ globeConfig, data }: WorldProps) {
       (v, i, a) =>
         a.findIndex((v2) =>
           ["lat", "lng"].every(
-            (k) => v2[k as "lat" | "lng"] === v[k as "lat" | "lng"],
-          ),
-        ) === i,
+            (k) => v2[k as "lat" | "lng"] === v[k as "lat" | "lng"]
+          )
+        ) === i
     );
 
     globeRef.current
@@ -186,7 +261,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
       .ringMaxRadius(defaultProps.maxRings)
       .ringPropagationSpeed(RING_PROPAGATION_SPEED)
       .ringRepeatPeriod(
-        (defaultProps.arcTime * defaultProps.arcLength) / defaultProps.rings,
+        (defaultProps.arcTime * defaultProps.arcLength) / defaultProps.rings
       );
   }, [
     isInitialized,
@@ -212,7 +287,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
       const newNumbersOfRings = genRandomNumbers(
         0,
         data.length,
-        Math.floor((data.length * 4) / 5),
+        Math.floor((data.length * 4) / 5)
       );
 
       const ringsData = data
@@ -247,11 +322,17 @@ export function WebGLRendererConfig() {
 }
 
 export function World(props: WorldProps) {
-  const { globeConfig } = props;
+  const { globeConfig, data } = props;
   const scene = new Scene();
-  scene.fog = new Fog(0xffffff, 400, 2000);
+  scene.fog = new Fog(0x2c3e50, 400, 2000);
+  const globeData = data.length > 0 ? data : defaultGlobeData;
+
   return (
-    <Canvas scene={scene} camera={new PerspectiveCamera(50, aspect, 180, 1800)}>
+    <Canvas
+      scene={scene}
+      camera={new PerspectiveCamera(50, aspect, 180, 1800)}
+      className="opacity-75"
+    >
       <WebGLRendererConfig />
       <ambientLight color={globeConfig.ambientLight} intensity={0.6} />
       <directionalLight
@@ -267,7 +348,7 @@ export function World(props: WorldProps) {
         position={new Vector3(-200, 500, 200)}
         intensity={0.8}
       />
-      <Globe {...props} />
+      <Globe globeConfig={globeConfig} data={globeData} />
       <OrbitControls
         enablePan={false}
         enableZoom={false}
