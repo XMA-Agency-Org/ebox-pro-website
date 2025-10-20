@@ -6,20 +6,14 @@ import { UAENetworkMap } from "@/components/UAENetworkMap";
 import { FlipWords } from "@/components/ui/flip-words";
 
 export default function Hero() {
-  const words = [
-    "Warehousing",
-    "Fulfillment",
-    "Integration",
-    "Delivery",
-    "Logistics",
-  ];
+  const words = ["Warehousing", "Fulfillment", "Integration", "Delivery", "Logistics"];
   return (
     <>
       <section className="relative pt-40 overflow-hidden min-h-screen">
         <div className="container-wide relative flex items-center z-20">
-          <div className="grid grid-cols-2 gap-12 lg:gap-20 items-center w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-20 items-center w-full">
             {/* Left Column - Copy */}
-            <div className="flex flex-col gap-8">
+            <div className="flex flex-col gap-8 col-span-2">
               <div className="flex flex-col gap-6">
                 <p className="text-white/70 mb-0 text-body-md uppercase tracking-wider">
                   Tech-Driven 3PL Warehousing
@@ -49,14 +43,16 @@ export default function Hero() {
             </div>
 
             {/* Right Column - Animated Network Map */}
-            <div className="relative w-full h-[450px] lg:h-[600px]">
+            <div className="relative w-full h-[450px] lg:h-[600px] col-span-3">
               <UAENetworkMap
                 abuDhabi={{ x: 445, y: 325 }}
                 dubai={{ x: 589, y: 161 }}
                 sharjah={{ x: 616, y: 128 }}
                 alAin={{ x: 660, y: 321 }}
               />
-              <div className="absolute top-[10%] left-[10%] w-[200px] backdrop-blur-lg bg-white/[0.06] border border-white/[0.12] rounded-2xl p-4 animate-float-gentle pointer-events-none shadow-lg shadow-black/20">
+              <div
+                className="absolute top-[10%] left-[10%] w-[200px] backdrop-blur-lg bg-white/[0.06] border border-white/[0.12] rounded-2xl p-4 animate-float-gentle pointer-events-none shadow-lg shadow-black/20"
+              >
                 <div
                   className="border-t border-transparent mb-2"
                   style={{
