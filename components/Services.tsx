@@ -1,10 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
-import ComplianceIllustration from "@/public/illustrations/compliant.svg";
 import { IntegrationIllustration } from "@/components/IntegrationIllustration";
 import { WarehouseLottie } from "@/components/WarehouseLottie";
+import { ComplianceLottie } from "@/components/ComplianceLottie";
 import { CardStack } from "@/components/CardStack";
 import ServiceCard from "@/components/ServiceCard";
 
@@ -63,13 +62,13 @@ const services: ServiceItem[] = [
       "Ongoing compliance monitoring and updates",
     ],
     illustrationPlaceholder: "[COMPLIANCE_ILLUSTRATION]",
-    illustration: ComplianceIllustration,
+    customIllustration: <ComplianceLottie />,
   },
 ];
 
 export default function Services({ className }: ServicesProps = {}) {
   const cards = services.map((service) => ({
-    id: `service-${service.title.toLowerCase().replace(/\s+/g, '-')}`,
+    id: `service-${service.title.toLowerCase().replace(/\s+/g, "-")}`,
     content: (
       <ServiceCard
         title={service.title}
@@ -93,9 +92,7 @@ export default function Services({ className }: ServicesProps = {}) {
           transition={{ duration: 0.8 }}
           className="text-center mb-0"
         >
-          <h2 className="text-display-lg text-white mb-4">
-            What We Do
-          </h2>
+          <h2 className="text-display-lg text-white mb-4">What We Do</h2>
           <p className="text-body-xl text-white/70 max-w-2xl mx-auto">
             Three core services to scale your e-commerce business in UAE
           </p>
