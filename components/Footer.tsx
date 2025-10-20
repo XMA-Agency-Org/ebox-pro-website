@@ -130,7 +130,6 @@ export default function Footer() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
-      className="pb-2"
     >
       {/* CTA Block */}
       <div
@@ -149,8 +148,8 @@ export default function Footer() {
               Launch in UAE in 2 Weeks
             </h3>
             <p className="text-base leading-6 text-primary-100">
-              From consultation to your first order shipped.
-              Join 100+ brands scaling with our tech-driven 3PL solutions.
+              From consultation to your first order shipped. Join 100+ brands
+              scaling with our tech-driven 3PL solutions.
             </p>
           </div>
           <div className="flex flex-row items-center justify-center font-space-grotesk flex-wrap gap-4">
@@ -171,7 +170,7 @@ export default function Footer() {
       </div>
 
       {/* Footer Block */}
-      <div className="rounded-3xl bg-neutral-900 text-white flex flex-col justify-center w-full max-w-[1524px] mx-auto pt-[245px] pb-10 px-[4%] relative overflow-hidden">
+      <div className="bg-white/5 text-white flex flex-col justify-center w-full max-w-[1524px] mx-auto pt-[245px] pb-10 px-[4%] relative overflow-hidden">
         <div className="relative z-10">
           {/* Footer Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 mb-12">
@@ -201,8 +200,8 @@ export default function Footer() {
                   ))}
                 </div>
                 <p className="text-sm leading-5 text-neutral-400">
-                  Tech-driven 3PL solutions for UAE e-commerce.
-                  Same-day delivery, 99%+ accuracy, no MOQ.
+                  Tech-driven 3PL solutions for UAE e-commerce. Same-day
+                  delivery, 99%+ accuracy, no MOQ.
                 </p>
               </div>
             </div>
@@ -328,7 +327,8 @@ export default function Footer() {
           {/* Footer Legal */}
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div className="text-sm leading-6 text-neutral-400">
-              © {new Date().getFullYear()} Ebox Pro. All rights reserved | Built by{" "}
+              © {new Date().getFullYear()} Ebox Pro. All rights reserved | Built
+              by{" "}
               <Link
                 href="https://xma.ae"
                 target="_blank"
