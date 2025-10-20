@@ -46,7 +46,7 @@ export default function ProcessSteps() {
   const [activeStep, setActiveStep] = useState<number | null>(null);
 
   return (
-    <section className="section-padding bg-navy-950 relative overflow-hidden">
+    <section className="section-padding relative overflow-hidden">
       <div className="container-wide relative z-10">
         {/* Header */}
         <motion.div
@@ -67,10 +67,7 @@ export default function ProcessSteps() {
         <div className="relative">
           {/* Timeline line */}
           <div
-            className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full hidden lg:block"
-            style={{
-              background: "linear-gradient(to bottom, transparent, oklch(0.7 0.2 195 / 0.3), oklch(0.75 0.2 45 / 0.3), transparent)",
-            }}
+            className="absolute bg-gradient-to-b from-transparent via-zinc-700/80 to-transparent left-1/2 transform -translate-x-1/2 w-0.5 h-full hidden lg:block"
           />
 
           <div className="space-y-12 lg:space-y-24">
@@ -85,9 +82,9 @@ export default function ProcessSteps() {
                   index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
                 }`}
               >
-                <div className="w-full lg:w-1/2 px-4">
+                <div className="w-full lg:w-1/2 px-8">
                   <motion.div
-                    className="relative p-8 rounded-3xl transition-all duration-500 border border-white/[0.08] bg-white/[0.03] backdrop-blur-xl shadow-lg shadow-black/20 group overflow-hidden"
+                    className="cursor-pointer relative p-8 rounded-3xl transition-all duration-500 border border-white/[0.08] bg-white/[0.05] backdrop-blur-xl shadow-lg shadow-black/20 hover:-translate-y-2 group overflow-hidden"
                     style={{
                       ...(activeStep === step.id && {
                         borderColor: `${step.glowColor} / 0.3`,
@@ -133,7 +130,7 @@ export default function ProcessSteps() {
                         style={{
                           background: `linear-gradient(to right, ${step.glowColor}, transparent)`,
                           boxShadow: `0 0 8px ${step.glowColor} / 0.5`,
-                          opacity: 1
+                          opacity: activeStep === step.id ? 1 : 0.5,
                         }}
                       />
                     </div>

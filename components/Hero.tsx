@@ -15,7 +15,7 @@ export default function Hero() {
   ];
   return (
     <>
-      <section className="relative pt-40 overflow-hidden min-h-screen bg-navy-950">
+      <section className="relative pt-40 overflow-hidden min-h-screen">
         <div className="container-wide relative flex items-center z-20">
           <div className="grid grid-cols-2 gap-12 lg:gap-20 items-center w-full">
             {/* Left Column - Copy */}
@@ -27,7 +27,7 @@ export default function Hero() {
                 <div className="">
                   <h1 className="text-white text-balance text-display-xl">
                     Scale Your E-Commerce with Smart
-                    <FlipWords words={words} className="text-primary" />
+                    <FlipWords words={words} className="text-carrot-400" />
                   </h1>
                   <p className="text-white/80 text-body-xl mt-6 max-w-2xl">
                     Strategic Dubai warehouse location with real-time inventory
@@ -41,7 +41,7 @@ export default function Hero() {
               <div className="flex flex-wrap gap-5 text-white mt-8">
                 <Link
                   href="/contact"
-                  className="btn-primary text-center leading-6 no-underline flex items-center justify-center"
+                  className="btn-secondary text-center leading-6 no-underline flex items-center justify-center"
                 >
                   Get Free UAE Fulfillment Assessment
                 </Link>
@@ -107,7 +107,7 @@ export default function Hero() {
                 </div>
               </div>
 
-              <div className="absolute bottom-[10%] right-[5%] w-[200px] z-30 !backdrop-blur-lg bg-white/[0.1] border border-white/[0.12] rounded-2xl p-4 shadow-lg animate-float-gentle-slow">
+              <div className="absolute bottom-[10%] right-[5%] w-[200px] z-30 !backdrop-blur-lg bg-white/[0.1] border border-white/[0.12] rounded-2xl p-4 shadow-lg animate-float-gentle">
                 <div
                   className="border-t border-transparent mb-2"
                   style={{
@@ -118,7 +118,12 @@ export default function Hero() {
                 <div className="text-[10px] uppercase tracking-wider text-white/70 mb-1.5 font-medium">
                   On-Time Rate
                 </div>
-                <div className="text-[40px] font-bold text-carrot-400">
+                <div
+                  style={{
+                    textShadow: "0 0 12px oklch(0.7 0.2 30 / 0.5)",
+                  }}
+                  className="text-[40px] font-bold text-carrot-400"
+                >
                   99.2%
                 </div>
               </div>

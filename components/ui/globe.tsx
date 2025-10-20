@@ -70,7 +70,7 @@ const defaultGlobeData: Position[] = [
     endLat: 40.7128,
     endLng: -74.006,
     arcAlt: 0.3,
-    color: "#FF6B35",
+    color: "#1d4ed8",
   },
   {
     order: 2,
@@ -79,7 +79,7 @@ const defaultGlobeData: Position[] = [
     endLat: 51.5074,
     endLng: -0.1278,
     arcAlt: 0.3,
-    color: "#FF6B35",
+    color: "#1d4ed8",
   },
   {
     order: 3,
@@ -88,7 +88,7 @@ const defaultGlobeData: Position[] = [
     endLat: 35.6762,
     endLng: 139.6503,
     arcAlt: 0.3,
-    color: "#FF6B35",
+    color: "#1d4ed8",
   },
   {
     order: 4,
@@ -97,7 +97,7 @@ const defaultGlobeData: Position[] = [
     endLat: -33.8688,
     endLng: 151.2093,
     arcAlt: 0.3,
-    color: "#FF6B35",
+    color: "#1d4ed8",
   },
   {
     order: 5,
@@ -106,7 +106,7 @@ const defaultGlobeData: Position[] = [
     endLat: 52.52,
     endLng: 13.405,
     arcAlt: 0.3,
-    color: "#FF6B35",
+    color: "#1d4ed8",
   },
   {
     order: 6,
@@ -115,7 +115,7 @@ const defaultGlobeData: Position[] = [
     endLat: 39.9042,
     endLng: 116.4074,
     arcAlt: 0.3,
-    color: "#FF6B35",
+    color: "#1d4ed8",
   },
   {
     order: 7,
@@ -124,7 +124,7 @@ const defaultGlobeData: Position[] = [
     endLat: -23.5505,
     endLng: -46.6333,
     arcAlt: 0.3,
-    color: "#FF6B35",
+    color: "#1d4ed8",
   },
   {
     order: 8,
@@ -133,7 +133,7 @@ const defaultGlobeData: Position[] = [
     endLat: 28.6139,
     endLng: 77.209,
     arcAlt: 0.3,
-    color: "#FF6B35",
+    color: "#1d4ed8",
   },
 ];
 
@@ -202,14 +202,12 @@ export function Globe({ globeConfig, data }: WorldProps) {
       points.push({
         size: defaultProps.pointSize,
         order: arc.order,
-        color: arc.color,
         lat: arc.startLat,
         lng: arc.startLng,
       });
       points.push({
         size: defaultProps.pointSize,
         order: arc.order,
-        color: arc.color,
         lat: arc.endLat,
         lng: arc.endLng,
       });

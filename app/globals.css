@@ -187,8 +187,8 @@
   --color-primary-subtle: var(--color-primary-50);
   --color-primary-text: var(--color-primary-600);
 
-  --color-secondary: var(--color-accent-500);
-  --color-secondary-hover: var(--color-base-700);
+  --color-secondary: var(--color-accent-700);
+  --color-secondary-hover: var(--color-accent-600);
   --color-secondary-active: var(--color-base-800);
   --color-secondary-subtle: var(--color-base-100);
   --color-secondary-text: var(--color-base-600);
@@ -447,9 +447,14 @@
            hover:bg-primary-hover transition-all duration-300 hover:-translate-y-0.5 cursor-pointer;
   }
 
-  .btn-secondary {
+  .btn-outline {
     @apply rounded-full border-2 border-primary text-primary px-6 py-3 text-sm lg:text-base font-medium
            hover:bg-primary hover:text-white transition-all duration-300;
+  }
+
+  .btn-secondary {
+    @apply rounded-full bg-secondary text-white px-6 py-3 text-sm lg:text-base font-medium
+           hover:bg-secondary-hover transition-all duration-300 hover:-translate-y-0.5 cursor-pointer;
   }
 
   /* Form Elements */

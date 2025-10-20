@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Logo from "@/public/Ebox - Final Logo/ebox - final logo -09.svg";
+import Logo from "@/public/Ebox - Final Logo/ebox - final logo -11.svg";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -230,7 +230,7 @@ export default function Header() {
               <div className="hidden md:flex items-center gap-2">
                 <Link
                   href="#contact"
-                  className="rounded-full bg-primary text-white text-center px-4 py-3 text-sm font-medium leading-6 no-underline flex items-center justify-center transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary-hover"
+                  className="btn-secondary rounded-full text-white text-center px-4 py-3 text-sm font-medium leading-6 no-underline transition-all duration-300 hover:bg-primary-hover"
                 >
                   Get Free Assessment
                 </Link>
@@ -239,7 +239,7 @@ export default function Header() {
               {/* Mobile menu button */}
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="md:hidden rounded-full bg-transparent transition-colors duration-300 hover:bg-white/[0.08] hover:backdrop-blur-[8px] flex justify-center items-center p-3 min-h-[44px] min-w-[44px]"
+                className="btn-secondary md:hidden rounded-full bg-transparent transition-colors duration-300 hover:bg-white/[0.08] hover:backdrop-blur-[8px] flex justify-center items-center p-3 min-h-[44px] min-w-[44px]"
               >
                 <div className="flex flex-col justify-center items-center w-6 h-6 gap-1 p-0">
                   {isMobileMenuOpen ? (
@@ -388,7 +388,7 @@ export default function Header() {
             <div className="flex flex-col items-stretch justify-center mt-6 px-4 gap-2">
               <Link
                 href="#contact"
-                className="rounded-full bg-primary text-white text-center px-4 py-3 text-sm font-medium leading-6 no-underline w-full transition-all duration-300 hover:bg-primary-hover"
+                className="btn-secondary rounded-full text-white text-center px-4 py-3 text-sm font-medium leading-6 no-underline w-full transition-all duration-300 hover:bg-primary-hover"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Get Free Assessment

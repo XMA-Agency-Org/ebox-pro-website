@@ -5,12 +5,12 @@ import ProcessSteps from "@/components/ProcessSteps";
 import FulfillmentCalculator from "@/components/FulfillmentCalculator";
 import KeyUSPs from "@/components/KeyUSPs";
 import FAQ from "@/components/FAQ";
-import ContactForm from "@/components/ContactForm";
+import ContactFormWrapper from "@/components/ContactFormWrapper";
 import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-navy-950">
+    <div className="min-h-screen bg-zinc-950">
       <Header />
       <Hero />
       <KeyUSPs />
@@ -18,7 +18,7 @@ export default function Home() {
       <ProcessSteps />
       <FulfillmentCalculator />
       <FAQ />
-      <ContactForm />
+      <ContactFormWrapper />
       <Footer />
     </div>
   );

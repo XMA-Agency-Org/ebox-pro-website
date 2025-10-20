@@ -96,11 +96,7 @@ export default function FulfillmentCalculator() {
   };
 
   return (
-    <section className="py-24 lg:py-32 relative overflow-hidden bg-gradient-to-b from-navy-950 to-navy-900">
-      {/* Background decoration */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,107,53,0.1),transparent_50%)] pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(255,107,53,0.08),transparent_50%)] pointer-events-none" />
-
+    <section className="py-24 lg:py-32 relative overflow-hidden">
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
@@ -379,7 +375,7 @@ export default function FulfillmentCalculator() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 }}
-                className="w-full cursor-pointer bg-primary hover:scale-105 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300"
+                className="w-full cursor-pointer bg-secondary hover:scale-105 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300"
               >
                 Let&apos;s talk
               </motion.button>

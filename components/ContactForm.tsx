@@ -5,6 +5,136 @@ import { motion } from "framer-motion";
 import { World } from "./ui/globe";
 import ScrollReveal from "./ui/ScrollReveal";
 
+const colors = ["#06b6d4", "#3b82f6", "#6366f1"];
+const SAMPLEARCS = [
+  {
+    order: 1,
+    startLat: -19.885592,
+    startLng: -43.951191,
+    endLat: -22.9068,
+    endLng: -43.1729,
+    arcAlt: 0.1,
+    color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  },
+  {
+    order: 1,
+    startLat: 28.6139,
+    startLng: 77.209,
+    endLat: 3.139,
+    endLng: 101.6869,
+    arcAlt: 0.2,
+    color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  },
+  {
+    order: 2,
+    startLat: -19.885592,
+    startLng: -43.951191,
+    endLat: -1.303396,
+    endLng: 36.852443,
+    arcAlt: 0.5,
+    color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  },
+  {
+    order: 3,
+    startLat: 1.3521,
+    startLng: 103.8198,
+    endLat: 35.6762,
+    endLng: 139.6503,
+    arcAlt: 0.2,
+    color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  },
+  {
+    order: 4,
+    startLat: 51.5072,
+    startLng: -0.1276,
+    endLat: 3.139,
+    endLng: 101.6869,
+    arcAlt: 0.3,
+    color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  },
+  {
+    order: 5,
+    startLat: -15.785493,
+    startLng: -47.909029,
+    endLat: 36.162809,
+    endLng: -115.119411,
+    arcAlt: 0.3,
+    color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  },
+  {
+    order: 6,
+    startLat: -33.8688,
+    startLng: 151.2093,
+    endLat: 22.3193,
+    endLng: 114.1694,
+    arcAlt: 0.3,
+    color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  },
+  {
+    order: 7,
+    startLat: 21.3099,
+    startLng: -157.8581,
+    endLat: 40.7128,
+    endLng: -74.006,
+    arcAlt: 0.3,
+    color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  },
+  {
+    order: 8,
+    startLat: -6.2088,
+    startLng: 106.8456,
+    endLat: 51.5072,
+    endLng: -0.1276,
+    arcAlt: 0.3,
+    color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  },
+  {
+    order: 9,
+    startLat: 11.986597,
+    startLng: 8.571831,
+    endLat: -15.595412,
+    endLng: -56.05918,
+    arcAlt: 0.5,
+    color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  },
+  {
+    order: 10,
+    startLat: -34.6037,
+    startLng: -58.3816,
+    endLat: 22.3193,
+    endLng: 114.1694,
+    arcAlt: 0.7,
+    color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  },
+  {
+    order: 11,
+    startLat: 51.5072,
+    startLng: -0.1276,
+    endLat: 48.8566,
+    endLng: -2.3522,
+    arcAlt: 0.1,
+    color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  },
+  {
+    order: 12,
+    startLat: 14.5995,
+    startLng: 120.9842,
+    endLat: 51.5072,
+    endLng: -0.1276,
+    arcAlt: 0.3,
+    color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  },
+  {
+    order: 13,
+    startLat: 1.3521,
+    startLng: 103.8198,
+    endLat: -33.8688,
+    endLng: 151.2093,
+    arcAlt: 0.2,
+    color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  },
+];
+
 interface FormData {
   firstName: string;
   lastName: string;
@@ -47,7 +177,7 @@ export default function ContactForm({ className }: ContactFormProps = {}) {
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) => {
     setFormData({
       ...formData,
@@ -69,9 +199,9 @@ export default function ContactForm({ className }: ContactFormProps = {}) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className="bg-[#ffffff]/5 rounded-3xl text-white flex flex-col justify-center w-full max-w-[1600px] mx-auto px-0 md:py-12 md:px-12 relative overflow-hidden"
+        className="bg-zinc-900 rounded-3xl text-white flex flex-col justify-center w-full max-w-[1600px] mx-auto px-0 md:py-12 md:px-12 relative overflow-hidden"
       >
-        <div className="container-small z-10 py-12 rounded-lg backdrop-blur-[3px] px-8 md:px-0 md:backdrop-blur-none flex justify-center items-center md:justify-start md:items-start">
+        <div className="container-small w-fit z-10 py-12 rounded-lg backdrop-blur-[3px] px-8 md:px-0 md:backdrop-blur-none flex justify-center items-center md:justify-start md:items-start">
           {/* Shipping Content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -80,11 +210,6 @@ export default function ContactForm({ className }: ContactFormProps = {}) {
             className="flex flex-col gap-16 max-w-[600px] justify-center items-center md:items-start md:justify-start w-full"
           >
             <div className="flex flex-col gap-8 text-center md:text-left">
-              <ScrollReveal direction="fade" delay={0.1}>
-                <div className="rounded-full bg-neutral-900 border border-white/20 px-3 py-1 text-base font-medium text-white inline-block w-fit mx-auto md:mx-0">
-                  Our Services
-                </div>
-              </ScrollReveal>
               <ScrollReveal direction="up" delay={0.2}>
                 <h3 className="text-4xl lg:text-5xl xl:text-6xl font-medium font-space-grotesk leading-tight tracking-tighter text-white">
                   Get A Shipping{" "}
@@ -225,7 +350,7 @@ export default function ContactForm({ className }: ContactFormProps = {}) {
                           <input
                             type="submit"
                             value="Submit"
-                            className="bg-primary text-white px-8 py-4 rounded-full text-base lg:text-lg font-medium hover:bg-primary-hover transition-colors cursor-pointer"
+                            className="btn-secondary text-white px-8 py-4 rounded-full text-base lg:text-lg font-medium hover:bg-primary-hover transition-colors cursor-pointer"
                           />
                         </form>
                       )}
@@ -304,31 +429,32 @@ export default function ContactForm({ className }: ContactFormProps = {}) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="absolute top-0 md:-right-70 w-full h-[105%] min-h-[856px] z-0 pointer-events-none"
+          className="absolute top-0 md:-right-10 w-2/3 h-[105%] min-h-[856px] z-0 pointer-events-none"
         >
           <World
             globeConfig={{
-              pointSize: 1,
-              globeColor: "#162433",
+              pointSize: 4,
+              globeColor: "#000000",
               showAtmosphere: true,
-              atmosphereColor: "#ffffff",
+              atmosphereColor: "#000000",
               atmosphereAltitude: 0.1,
-              emissive: "#000000",
+              emissive: "#062056",
               emissiveIntensity: 0.1,
               shininess: 0.9,
-              polygonColor: "#FF6B35",
-              ambientLight: "#ffffff",
+              polygonColor: "rgba(255,255,255,0.7)",
+              ambientLight: "#38bdf8",
               directionalLeftLight: "#ffffff",
               directionalTopLight: "#ffffff",
               pointLight: "#ffffff",
-              arcTime: 2000,
+              arcTime: 1000,
               arcLength: 0.9,
               rings: 1,
               maxRings: 3,
+              initialPosition: { lat: 22.3193, lng: 114.1694 },
               autoRotate: true,
-              autoRotateSpeed: 1,
+              autoRotateSpeed: 0.5,
             }}
-            data={[]}
+            data={SAMPLEARCS}
           />
         </motion.div>
       </motion.div>

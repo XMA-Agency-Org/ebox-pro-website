@@ -50,7 +50,7 @@ const faqs = [
 
 export default function FAQ() {
   return (
-    <section className="section-padding bg-navy-950 relative overflow-hidden">
+    <section className="section-padding relative overflow-hidden">
       <div className="container-wide relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           {/* Left Column - Header & Description */}

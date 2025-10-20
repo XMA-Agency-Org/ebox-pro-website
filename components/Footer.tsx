@@ -130,10 +130,11 @@ export default function Footer() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
+      className="pt-20 relative overflow-hidden"
     >
       {/* CTA Block */}
       <div
-        className="z-[2] gap-10 rounded-3xl bg-primary text-white text-center flex flex-col justify-center items-center w-full container-wide -mb-[158px] mx-auto p-12 relative"
+        className="z-[2] gap-10 rounded-3xl bg-secondary text-white text-center flex flex-col justify-center items-center w-full container-wide -mb-[158px] mx-auto p-12 relative"
         style={{
           backgroundImage:
             "url(https://cdn.prod.website-files.com/6684af61b1cc1eae182f04b5/6684af61b1cc1eae182f04d1_CTA%20BG.png)",
