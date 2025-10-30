@@ -3,11 +3,22 @@
 import Link from "next/link";
 import LogoSection from "@/components/LogoSection";
 import { UAENetworkMap } from "@/components/UAENetworkMap";
+import Aurora from "@/components/Aurora";
 
 export default function Hero() {
   return (
     <>
       <section className="relative pt-36 overflow-hidden bg-secondary">
+        {/* Aurora Background Effect */}
+        <div className="absolute inset-0 z-0 opacity-30">
+          <Aurora
+            colorStops={['#1E3A8A', '#FF6B35', '#1E3A8A']}
+            amplitude={1.5}
+            blend={0.6}
+            speed={0.8}
+          />
+        </div>
+
         <div className="container-wide relative flex items-center z-20">
           <div className="grid grid-cols-1 lg:grid-cols-3 items-center w-full">
             {/* Left Column - Copy */}
