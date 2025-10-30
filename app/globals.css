@@ -468,6 +468,11 @@
            hover:bg-secondary-hover transition-all duration-300 hover:-translate-y-0.5 cursor-pointer;
   }
 
+  .btn-white {
+    @apply rounded-full bg-white text-foreground px-6 py-3 text-sm lg:text-base font-medium border border-border
+           hover:bg-surface-hover transition-all duration-300 hover:-translate-y-0.5 cursor-pointer;
+  }
+
   /* Form Elements */
   .form-input {
     @apply w-full py-2.5 px-4 text-sm lg:text-base rounded-lg
