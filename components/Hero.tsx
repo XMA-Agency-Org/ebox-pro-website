@@ -3,30 +3,27 @@
 import Link from "next/link";
 import LogoSection from "@/components/LogoSection";
 import { UAENetworkMap } from "@/components/UAENetworkMap";
-import { FlipWords } from "@/components/ui/flip-words";
 
 export default function Hero() {
-  const words = ["Warehousing", "Fulfillment", "Integration", "Delivery", "Logistics"];
   return (
     <>
-      <section className="relative pt-40 overflow-hidden min-h-screen">
-        <div className="container-wide relative flex items-center z-20">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-20 items-center w-full">
+      <section className="relative pt-36 overflow-hidden min-h-screen bg-secondary">
+        <div className="container-wide relative flex items-center z-20 pb-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 items-center w-full">
             {/* Left Column - Copy */}
-            <div className="flex flex-col gap-8 col-span-2">
+            <div className="flex flex-col gap-8 col-span-2 px-5">
               <div className="flex flex-col gap-6">
-                <p className="text-white/70 mb-0 text-body-md uppercase tracking-wider">
-                  Tech-Driven 3PL Warehousing
-                </p>
-                <div className="">
+                    <div>
                   <h1 className="text-white text-balance text-display-xl">
-                    Scale Your E-Commerce with Smart
-                    <FlipWords words={words} className="text-carrot-400" />
+                  All-in-One Fulfillment
                   </h1>
-                  <p className="text-white/80 text-body-xl mt-6 max-w-2xl">
-                    Strategic Dubai warehouse location with real-time inventory
-                    management. Seamless multi-channel integration for Amazon,
-                    Noon, and your store.
+                  <h1 className="text-primary text-balance text-display-xl">
+                  Where Smart Logistics Meets</h1>
+                  <h1 className="text-primary text-balance text-display-xl">
+                  Seamless Speed</h1>
+                  <p className="text-white/80 text-body-xl mt-6">
+We orchestrate your entire supply chain—from factory floor to customer door.
+Leverage our strategic Dubai fulfilment centre to scale your e-commerce business with our seamless multi-channel integration (Amazon, Noon, Shopify and more), Real-time inventory and guaranteed same-day delivery.
                   </p>
                 </div>
               </div>
@@ -35,15 +32,20 @@ export default function Hero() {
               <div className="flex flex-wrap gap-5 text-white mt-8">
                 <Link
                   href="/contact"
-                  className="btn-secondary text-center leading-6 no-underline flex items-center justify-center"
+                  className="py-5! px-12! btn-primary text-center leading-6 no-underline flex items-center justify-center rounded-lg!"
                 >
                   Get Free UAE Fulfillment Assessment
                 </Link>
+                <Link
+                  href="/contact"
+                  className="py-5! px-12! text-md! btn-primary bg-slate-50! text-slate-900! text-center leading-6 no-underline flex items-center justify-center rounded-lg!"
+                >
+                  Calculate Your Savings
+                </Link>
               </div>
             </div>
-
             {/* Right Column - Animated Network Map */}
-            <div className="relative w-full h-[450px] lg:h-[600px] col-span-3">
+            <div className="relative w-full h-[450px] lg:h-[600px] col-span-1 -z-10">
               <UAENetworkMap
                 abuDhabi={{ x: 445, y: 325 }}
                 dubai={{ x: 589, y: 161 }}
@@ -103,7 +105,7 @@ export default function Hero() {
                 </div>
               </div>
 
-              <div className="absolute bottom-[10%] right-[5%] w-[200px] z-30 !backdrop-blur-lg bg-white/[0.1] border border-white/[0.12] rounded-2xl p-4 shadow-lg animate-float-gentle">
+              <div className="absolute bottom-[10%] left-[40%] w-[200px] z-30 !backdrop-blur-lg bg-white/[0.1] border border-white/[0.12] rounded-2xl p-4 shadow-lg animate-float-gentle">
                 <div
                   className="border-t border-transparent mb-2"
                   style={{

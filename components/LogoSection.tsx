@@ -65,7 +65,7 @@ export default function LogoSection() {
   ];
 
   return (
-    <section className="py-16 overflow-hidden">
+    <section className="py-11 overflow-hidden bg-slate-200">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
