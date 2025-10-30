@@ -170,6 +170,7 @@
   --color-surface: 255 255 255;
   --color-surface-hover: var(--color-base-50);
   --color-surface-active: var(--color-base-100);
+  --color-surface-subtle: var(--color-base-100);
 
   --color-border: var(--color-base-200);
   --color-border-strong: var(--color-base-300);
@@ -374,6 +375,11 @@
     background-color: var(--color-secondary-bg);
   }
 
+  /* Semantic surface utilities */
+  .bg-surface-subtle {
+    background-color: var(--color-surface-subtle);
+  }
+
   /* Gradients */
   .gradient-navy-section {
     background: linear-gradient(
@@ -398,11 +404,11 @@
 
   /* Section Padding */
   .section-padding {
-    @apply py-16 lg:py-24;
+    @apply py-12 lg:py-16;
   }
 
   .section-padding-sm {
-    @apply py-12 lg:py-16;
+    @apply py-10 lg:py-12;
   }
 
   /* Typography Scale */

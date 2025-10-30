@@ -7,8 +7,8 @@ import { UAENetworkMap } from "@/components/UAENetworkMap";
 export default function Hero() {
   return (
     <>
-      <section className="relative pt-36 overflow-hidden min-h-screen bg-secondary">
-        <div className="container-wide relative flex items-center z-20 pb-6">
+      <section className="relative pt-36 overflow-hidden bg-secondary">
+        <div className="container-wide relative flex items-center z-20">
           <div className="grid grid-cols-1 lg:grid-cols-3 items-center w-full">
             {/* Left Column - Copy */}
             <div className="flex flex-col gap-8 col-span-2 px-5">
@@ -22,7 +22,6 @@ export default function Hero() {
                   <h1 className="text-primary text-balance text-display-xl">
                   Seamless Speed</h1>
                   <p className="text-white/80 text-body-xl mt-6">
-We orchestrate your entire supply chain—from factory floor to customer door.
 Leverage our strategic Dubai fulfilment centre to scale your e-commerce business with our seamless multi-channel integration (Amazon, Noon, Shopify and more), Real-time inventory and guaranteed same-day delivery.
                   </p>
                 </div>

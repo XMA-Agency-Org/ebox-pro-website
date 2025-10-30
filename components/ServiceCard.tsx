@@ -40,8 +40,8 @@ export default function ServiceCard({
   customIllustration,
 }: ServiceCardProps) {
   return (
-    <div className="w-[98vw] max-w-[1400px] h-auto !backdrop-blur-3xl rounded-3xl p-12 lg:p-16 border border-white/20 bg-white/5">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <div className="w-[98vw] max-w-[1400px] h-auto rounded-3xl p-8 lg:p-12 border border-border bg-surface-subtle shadow-lg shadow-black/10">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         {/* Illustration */}
         {(customIllustration || illustration) && (
           <motion.div
@@ -76,13 +76,13 @@ export default function ServiceCard({
           className="flex flex-col gap-4"
         >
           <div>
-            <h3 className="text-heading-2 text-white mb-2">{title}</h3>
+            <h3 className="text-heading-2 text-foreground mb-2">{title}</h3>
 
-            <p className="text-body-lg text-primary/90 font-medium mb-3">
+            <p className="text-body-lg text-primary font-medium mb-3">
               {subtitle}
             </p>
 
-            <p className="text-body-md text-white/80">{description}</p>
+            <p className="text-body-md text-muted-foreground">{description}</p>
           </div>
 
           {/* Features List */}
@@ -102,7 +102,7 @@ export default function ServiceCard({
                 <div className="flex-shrink-0 w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center mt-0.5">
                   <CheckIcon />
                 </div>
-                <span className="text-white/70 text-sm lg:text-base leading-relaxed">
+                <span className="text-muted-foreground text-sm lg:text-base leading-relaxed">
                   {feature}
                 </span>
               </motion.li>

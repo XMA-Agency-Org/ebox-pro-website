@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { HiShieldCheck } from "react-icons/hi";
 import { TbRocket } from "react-icons/tb";
 import { RiCheckboxMultipleLine } from "react-icons/ri";
+import { Badge } from "./ui/Badge";
 
 const usps = [
   {
@@ -28,8 +29,12 @@ const usps = [
 
 export default function KeyUSPs() {
   return (
-    <section className="section-padding relative overflow-hidden">
+    <section className="section-padding relative overflow-hidden bg-background">
       <div className="container-wide relative z-10">
+        <div className="mx-auto mb-8 w-fit px-6 py-2.5 rounded-full border border-[#2563eb]/10 bg-[#2563eb]/5 flex items-center gap-3 text-[#2563eb] text-base font-semibold shadow-none">
+          <span className="w-3 h-3 rounded-full bg-[#2563eb]"></span>
+          Why Ebox?
+        </div>
         {/* USPs Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
           {usps.map((usp, index) => {
@@ -44,7 +49,7 @@ export default function KeyUSPs() {
                 className="group relative"
               >
                 {/* Card */}
-                <div className="relative h-full rounded-2xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-xl p-8 lg:p-10 shadow-lg shadow-black/20 transition-all duration-500 hover:-translate-y-2 overflow-hidden">
+                <div className="relative h-full rounded-2xl border border-border bg-surface-subtle p-8 lg:p-10 shadow-lg shadow-black/20 transition-all duration-500 hover:-translate-y-2 overflow-hidden">
                   {/* Glow overlay on hover */}
                   <div
                     className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"
@@ -65,7 +70,7 @@ export default function KeyUSPs() {
                         }}
                       ></div>
                       <div
-                        className="relative w-16 h-16 lg:w-20 lg:h-20 rounded-2xl bg-white/[0.05] flex items-center justify-center border border-white/[0.1] group-hover:scale-110 transition-all duration-500"
+                        className="relative w-16 h-16 lg:w-20 lg:h-20 rounded-2xl bg-surface flex items-center justify-center border border-border group-hover:scale-110 transition-all duration-500"
                         style={{
                           boxShadow: `0 0 20px ${usp.glowColor} / 0.2`,
                         }}
@@ -79,10 +84,10 @@ export default function KeyUSPs() {
 
                     {/* Text content */}
                     <div className="flex flex-col gap-3 flex-grow">
-                      <h3 className="text-heading-3 text-white transition-colors duration-300">
+                      <h3 className="text-heading-3 text-foreground transition-colors duration-300">
                         {usp.title}
                       </h3>
-                      <p className="text-body-md text-white/70 leading-relaxed">
+                      <p className="text-body-md text-muted-foreground leading-relaxed">
                         {usp.description}
                       </p>
                     </div>

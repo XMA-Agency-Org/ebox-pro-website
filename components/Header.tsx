@@ -15,6 +15,9 @@ import {
 import { cn } from "@/lib/utils";
 
 const navigationLinks = {
+  home: [
+    { name: "Home", href: "/" },
+  ],
   services: [
     { name: "E-commerce Fulfillment", href: "#services" },
     { name: "Amazon & Noon Integration", href: "#services" },
@@ -30,6 +33,11 @@ const navigationLinks = {
     { name: "Custom Packaging", href: "#services" },
     { name: "Kitting & Bundling", href: "#services" },
     { name: "COD Processing", href: "#transport" },
+  ],
+  partner: [
+    { name: "Become a Courier Partner", href: "/partner-courier" },
+    { name: "For Brands & Retailers", href: "/partner-brands" },
+    { name: "Apply as a Vendor", href: "/partner-vendor" },
   ],
   company: [
     { name: "About Us", href: "/about" },
@@ -63,8 +71,23 @@ export default function Header() {
             <div className="flex-1 flex justify-center items-center">
               <NavigationMenu className="hidden md:block">
                 <NavigationMenuList>
+                  {/* Home Link */}
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className="rounded-full bg-transparent text-white px-4 py-3 text-sm leading-6 transition-colors duration-300 hover:bg-white/10 hover:backdrop-blur-[8px] data-[state=open]:bg-white/10 data-[state=open]:backdrop-blur-[8px] data-[state=open]:text-white">
+                    <NavigationMenuLink asChild>
+                      <Link
+                        href={navigationLinks.home[0].href}
+                        className={cn(
+                          "block select-none rounded-md px-4 py-2 text-white hover:bg-white/10 hover:text-white transition-colors",
+                          "flex items-center justify-center text-sm font-medium"
+                        )}
+                      >
+                        {navigationLinks.home[0].name}
+                      </Link>
+                    </NavigationMenuLink>
+                  </NavigationMenuItem>
+                  {/* Services Dropdown */}
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger className="rounded-full bg-transparent text-white px-4 py-3 text-sm leading-6 transition-colors duration-300 hover:bg-white/10 hover:backdrop-blur-sm data-[state=open]:bg-white/10 data-[state=open]:backdrop-blur-sm data-[state=open]:text-white">
                       Services
                     </NavigationMenuTrigger>
                     <NavigationMenuContent className="bg-white/95 backdrop-blur-xl border border-white/20">
@@ -84,26 +107,9 @@ export default function Header() {
                                 </span>
                                 {link.new && (
                                   <span className="flex items-center gap-1 text-xs">
-                                    <svg
-                                      width="16"
-                                      height="16"
-                                      viewBox="0 0 16 16"
-                                      fill="none"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <circle
-                                        cx="8.00016"
-                                        cy="8.00016"
-                                        r="6.66667"
-                                        fill="#F74B45"
-                                        fillOpacity="0.16"
-                                      />
-                                      <circle
-                                        cx="8"
-                                        cy="8"
-                                        r="2"
-                                        fill="#F74B45"
-                                      />
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <circle cx="8.00016" cy="8.00016" r="6.66667" fill="#F74B45" fillOpacity="0.16" />
+                                      <circle cx="8" cy="8" r="2" fill="#F74B45" />
                                     </svg>
                                     <span>New</span>
                                   </span>
@@ -115,9 +121,9 @@ export default function Header() {
                       </ul>
                     </NavigationMenuContent>
                   </NavigationMenuItem>
-
+                  {/* Solutions Dropdown */}
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className="rounded-full bg-transparent text-white px-4 py-3 text-sm leading-6 transition-colors duration-300 hover:bg-white/10 hover:backdrop-blur-[8px] data-[state=open]:bg-white/10 data-[state=open]:backdrop-blur-[8px] data-[state=open]:text-white">
+                    <NavigationMenuTrigger className="rounded-full bg-transparent text-white px-4 py-3 text-sm leading-6 transition-colors duration-300 hover:bg-white/10 hover:backdrop-blur-sm data-[state=open]:bg-white/10 data-[state=open]:backdrop-blur-sm data-[state=open]:text-white">
                       Solutions
                     </NavigationMenuTrigger>
                     <NavigationMenuContent className="bg-white/95 backdrop-blur-xl border border-white/20">
@@ -137,26 +143,9 @@ export default function Header() {
                                 </span>
                                 {link.new && (
                                   <span className="flex items-center gap-1 text-xs">
-                                    <svg
-                                      width="16"
-                                      height="16"
-                                      viewBox="0 0 16 16"
-                                      fill="none"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <circle
-                                        cx="8.00016"
-                                        cy="8.00016"
-                                        r="6.66667"
-                                        fill="#F74B45"
-                                        fillOpacity="0.16"
-                                      />
-                                      <circle
-                                        cx="8"
-                                        cy="8"
-                                        r="2"
-                                        fill="#F74B45"
-                                      />
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <circle cx="8.00016" cy="8.00016" r="6.66667" fill="#F74B45" fillOpacity="0.16" />
+                                      <circle cx="8" cy="8" r="2" fill="#F74B45" />
                                     </svg>
                                     <span>New</span>
                                   </span>
@@ -168,9 +157,36 @@ export default function Header() {
                       </ul>
                     </NavigationMenuContent>
                   </NavigationMenuItem>
-
+                  {/* Partner with Us Dropdown */}
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className="rounded-full bg-transparent text-white px-4 py-3 text-sm leading-6 transition-colors duration-300 hover:bg-white/10 hover:backdrop-blur-[8px] data-[state=open]:bg-white/10 data-[state=open]:backdrop-blur-[8px] data-[state=open]:text-white">
+                    <NavigationMenuTrigger className="rounded-full bg-transparent text-white px-4 py-3 text-sm leading-6 transition-colors duration-300 hover:bg-white/10 hover:backdrop-blur-sm data-[state=open]:bg-white/10 data-[state=open]:backdrop-blur-sm data-[state=open]:text-white">
+                      Partner with Us
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent className="bg-white/95 backdrop-blur-xl border border-white/20">
+                      <ul className="grid gap-1 p-4 md:w-[350px]">
+                        {navigationLinks.partner.map((link) => (
+                          <li key={link.name}>
+                            <NavigationMenuLink asChild>
+                              <Link
+                                href={link.href}
+                                className={cn(
+                                  "block select-none rounded-md px-3 py-2 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+                                  "flex items-start justify-between",
+                                )}
+                              >
+                                <span className="text-sm font-medium leading-none">
+                                  {link.name}
+                                </span>
+                              </Link>
+                            </NavigationMenuLink>
+                          </li>
+                        ))}
+                      </ul>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                  {/* Company Dropdown */}
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger className="rounded-full bg-transparent text-white px-4 py-3 text-sm leading-6 transition-colors duration-300 hover:bg-white/10 hover:backdrop-blur-sm data-[state=open]:bg-white/10 data-[state=open]:backdrop-blur-sm data-[state=open]:text-white">
                       Company
                     </NavigationMenuTrigger>
                     <NavigationMenuContent className="bg-white/95 backdrop-blur-xl border border-white/20">
@@ -339,6 +355,25 @@ export default function Header() {
                           <span>New</span>
                         </span>
                       )}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {/* Partner with Us Section */}
+              <div className="border-b border-black/[0.08]">
+                <div className="text-black px-4 py-4 text-xs font-medium uppercase tracking-wide">
+                  Partner with Us
+                </div>
+                <div className="px-4 pb-4">
+                  {navigationLinks.partner.map((link) => (
+                    <Link
+                      key={link.name}
+                      href={link.href}
+                      className="flex items-center justify-between text-black/80 hover:text-black px-2 py-3 text-sm transition-colors"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      <span>{link.name}</span>
                     </Link>
                   ))}
                 </div>

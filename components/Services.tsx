@@ -82,18 +82,18 @@ export default function Services({ className }: ServicesProps = {}) {
   }));
 
   return (
-    <section className="relative">
+    <section className="relative bg-background">
       {/* Header */}
-      <div className="container-wide pt-16 lg:pt-24 relative z-10">
+      <div className="container-wide pt-16 pb-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-0"
+          className="text-center"
         >
-          <h2 className="text-display-lg text-white mb-4">What We Do</h2>
-          <p className="text-body-xl text-white/70 max-w-2xl mx-auto">
+          <h2 className="text-display-lg text-foreground mb-4">What We Do</h2>
+          <p className="text-body-xl text-muted-foreground max-w-2xl mx-auto">
             Three core services to scale your e-commerce business in UAE
           </p>
         </motion.div>
