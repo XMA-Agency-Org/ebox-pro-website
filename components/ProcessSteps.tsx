@@ -67,37 +67,13 @@ export default function ProcessSteps() {
 
         {/* Desktop Layout */}
         <div className="hidden lg:block">
-          {/* Timeline with numbered circles */}
-          <div className="relative mb-12">
-            <div className="flex justify-between items-center max-w-6xl mx-auto px-8">
-              {steps.map((step, index) => (
-                <div key={step.id} className="flex items-center flex-1">
-                  {/* Circle */}
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="relative z-10"
-                  >
-                    <div className="w-20 h-20 rounded-full bg-[#ea580c] flex items-center justify-center shadow-lg shadow-orange-500/30">
-                      <span className="text-3xl font-bold text-white">
-                        {step.number}
-                      </span>
-                    </div>
-                  </motion.div>
-
-                  {/* Dashed line connector */}
-                  {index < steps.length - 1 && (
-                    <div className="flex-1 h-0.5 mx-4 border-t-2 border-dashed border-[#ea580c]/50" />
-                  )}
-                </div>
-              ))}
+          <div className="grid grid-cols-4 gap-6 max-w-6xl mx-auto relative">
+            {/* Connecting lines background */}
+            <div className="absolute top-10 left-0 right-0 flex items-center px-[10%]">
+              <div className="w-full h-0.5 border-t-4 border-dashed border-[#ea580c]/50" />
             </div>
-          </div>
 
-          {/* Cards */}
-          <div className="grid grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {/* Steps with numbers and cards */}
             {steps.map((step, index) => (
               <motion.div
                 key={step.id}
@@ -105,9 +81,25 @@ export default function ProcessSteps() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group"
+                className="flex flex-col items-center"
               >
-                <div className="bg-white rounded-2xl p-8 h-full shadow-xl transition-all duration-300 hover:-translate-y-1">
+                {/* Circle */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="relative z-10 mb-8"
+                >
+                  <div className="w-20 h-20 rounded-full bg-[#ea580c] flex items-center justify-center shadow-lg shadow-orange-500/30">
+                    <span className="text-3xl font-bold text-white">
+                      {step.number}
+                    </span>
+                  </div>
+                </motion.div>
+
+                {/* Card */}
+                <div className="bg-white rounded-2xl p-8 h-full shadow-xl transition-all duration-300 hover:-translate-y-1 w-full">
                   <h3 className="text-2xl font-bold text-[#1a3456] mb-4">
                     {step.title}
                   </h3>
