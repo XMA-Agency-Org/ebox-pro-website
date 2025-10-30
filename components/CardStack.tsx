@@ -68,7 +68,7 @@ const CardStack = ({ cards, headerText, className = "" }: CardStackProps) => {
   return (
     <main
       ref={container}
-      className={`relative flex w-full flex-col items-center justify-center pb-[50vh]  ${className}`}
+      className={`relative flex w-full flex-col items-center justify-center pb-[20vh]  ${className}`}
     >
       {cards.map((card, i) => {
         const targetScale = Math.max(0.5, 1 - (cards.length - i - 1) * 0.1);
