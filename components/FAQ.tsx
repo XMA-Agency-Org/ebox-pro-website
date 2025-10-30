@@ -50,81 +50,56 @@ const faqs = [
 
 export default function FAQ() {
   return (
-    <section className="section-padding relative overflow-hidden">
-      <div className="container-wide relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-          {/* Left Column - Header & Description */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="flex flex-col gap-6 lg:sticky lg:top-24"
+    <section className="section-padding relative bg-white">
+      <div className="container-narrow">
+        <div className="flex flex-col items-center gap-6">
+          <h2 className="text-display-lg text-center text-[#142337] font-bold">
+            Frequently Asked Questions
+          </h2>
+          <p className="text-body-lg text-center text-gray-500 max-w-xl">
+            Everything you need to know about partnering with Ebox Pro
+          </p>
+        </div>
+        <div className="mt-12 w-full max-w-2xl mx-auto">
+          <Accordion
+            type="single"
+            collapsible
+            className="w-full flex flex-col gap-2"
           >
-            <h2 className="text-display-lg text-white">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-body-xl text-white/70 leading-relaxed">
-              Everything you need to know about our 3PL fulfillment services
-            </p>
-
-            {/* Contact CTA */}
-            <div className="text-body-lg text-white/80 mt-4">
-              Still have questions?{" "}
-              <Link
-                href="/contact"
-                className="font-medium transition-colors duration-300"
-                style={{ color: "oklch(0.7 0.2 195)" }}
+            {faqs.map((faq, idx) => (
+              <AccordionItem
+                key={faq.id}
+                value={faq.id}
+                className="bg-white border border-gray-200 rounded-xl mb-2"
               >
-                Contact Us →
-              </Link>
-            </div>
-          </motion.div>
-
-          {/* Right Column - FAQ Items */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="w-full"
-          >
-            <Accordion
-              type="single"
-              collapsible
-              className="w-full flex flex-col gap-4"
-            >
-              {faqs.map((faq, index) => {
-                const glowColor =
-                  index % 2 === 0 ? "oklch(0.7 0.2 195)" : "oklch(0.75 0.2 45)";
-
-                return (
-                  <AccordionItem
-                    key={faq.id}
-                    value={faq.id}
-                    className="border-none rounded-2xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-xl shadow-lg shadow-black/20 overflow-hidden data-[state=open]:shadow-[0_0_30px_rgba(0,0,0,0.15)] transition-all duration-300"
-                    style={{
-                      // @ts-ignore
-                      "--glow-color": glowColor,
-                    }}
+                <AccordionTrigger
+                  className="text-[#142337] text-body-lg font-semibold hover:no-underline px-6 py-5 data-[state=open]:pb-2 transition-all flex items-center justify-between"
+                  style={{ color: '#142337' }}
+                >
+                  <span>{faq.question}</span>
+                  <svg
+                    className="ml-4 w-6 h-6 text-gray-400 transform transition-transform duration-200 data-[state=open]:rotate-180"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    data-slot="custom-chevron"
                   >
-                    <AccordionTrigger
-                      className="text-white cursor-pointer text-body-lg font-medium hover:no-underline p-6 [&[data-state=open]]:pb-4 transition-all"
-                      style={{
-                        // Apply glow color to chevron when open
-                        color: "white",
-                      }}
-                    >
-                      {faq.question}
-                    </AccordionTrigger>
-                    <AccordionContent className="!text-white/70 text-body-md leading-relaxed px-6 pb-6">
-                      {faq.answer}
-                    </AccordionContent>
-                  </AccordionItem>
-                );
-              })}
-            </Accordion>
-          </motion.div>
+                    <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </AccordionTrigger>
+                <AccordionContent className="text-gray-600 text-body-md leading-relaxed px-6 pb-5">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+        <div className="mt-10 text-center">
+          <span className="text-gray-700 text-body-lg">Still have questions?{' '}
+            <Link href="/contact" className="text-[#0e68de] font-medium hover:underline transition-colors">
+              Contact us →
+            </Link>
+          </span>
         </div>
       </div>
     </section>

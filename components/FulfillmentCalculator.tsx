@@ -63,7 +63,7 @@ export default function FulfillmentCalculator() {
   };
 
   return (
-    <section className="section-padding relative overflow-hidden bg-gradient-to-b from-neutral-50 to-white">
+    <section className="section-padding relative overflow-hidden bg-white">
       <BackgroundBeams className="absolute top-1/4 left-0 w-full h-3/4" />
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         {/* Pill above card */}

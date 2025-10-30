@@ -135,7 +135,7 @@ export default function ProcessSteps() {
                   {step.id === 4 && (
                     <div className="w-full aspect-square max-h-32 mb-6 flex items-center justify-center">
                       <DotLottieReact
-                        src="https://lottie.host/c6ab9f50-81ef-45e4-bf2f-7b1619c2d85e/rPPpY922Sp.lottie"
+                        src="https://lottie.host/4e0e6604-62f6-4719-88a2-e74c51a1b5af/xwQpDKNYcg.lottie"
                         loop
                         autoplay
                       />
