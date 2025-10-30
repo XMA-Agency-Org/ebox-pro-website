@@ -246,7 +246,7 @@ export default function Header() {
               <div className="hidden lg:flex items-center gap-2">
                 <Link
                   href="#contact"
-                  className="btn-secondary rounded-full text-white text-center px-4 py-3 text-sm font-medium leading-6 no-underline transition-all duration-300 hover:bg-primary-hover"
+                  className="btn-primary rounded-full text-white text-center px-4 py-3 text-sm font-medium leading-6 no-underline transition-all duration-300 hover:bg-primary-hover"
                 >
                   Get Free Assessment
                 </Link>

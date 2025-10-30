@@ -52,54 +52,60 @@ export default function FAQ() {
   return (
     <section className="section-padding relative bg-background">
       <div className="container-narrow">
-        <div className="flex flex-col items-center gap-6">
-          <h2 className="text-display-lg text-center text-[#142337] font-bold">
-            Frequently Asked Questions
-          </h2>
-          <p className="text-body-lg text-center text-gray-500 max-w-xl">
-            Everything you need to know about partnering with Ebox Pro
-          </p>
-        </div>
-        <div className="mt-12 w-full max-w-2xl mx-auto">
-          <Accordion
-            type="single"
-            collapsible
-            className="w-full flex flex-col gap-2"
-          >
-            {faqs.map((faq, idx) => (
-              <AccordionItem
-                key={faq.id}
-                value={faq.id}
-                className="bg-background border border-gray-200 rounded-xl mb-2"
-              >
-                <AccordionTrigger
-                  className="text-[#142337] text-body-lg font-semibold hover:no-underline px-6 py-5 data-[state=open]:pb-2 transition-all flex items-center justify-between"
-                  style={{ color: '#142337' }}
+        <div className="grid grid-cols-1 lg:grid-cols-[400px_1fr] gap-12 lg:gap-16 items-start">
+          {/* Left side - Introduction */}
+          <div className="flex flex-col gap-6 lg:sticky lg:top-24">
+            <h2 className="text-display-lg text-[#142337] font-bold">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-body-lg text-gray-500 leading-relaxed">
+              Everything you need to know about our 3PL fulfillment services
+            </p>
+            <div className="mt-4">
+              <span className="text-gray-700 text-body-lg">
+                Still have questions?{' '}
+                <Link href="/contact" className="text-[#0e68de] font-medium hover:underline transition-colors">
+                  Contact Us →
+                </Link>
+              </span>
+            </div>
+          </div>
+
+          {/* Right side - FAQ Accordion */}
+          <div className="w-full">
+            <Accordion
+              type="single"
+              collapsible
+              className="w-full flex flex-col gap-2"
+            >
+              {faqs.map((faq) => (
+                <AccordionItem
+                  key={faq.id}
+                  value={faq.id}
+                  className="bg-background border border-gray-200 rounded-xl mb-2"
                 >
-                  <span>{faq.question}</span>
-                  <svg
-                    className="ml-4 w-6 h-6 text-gray-400 transform transition-transform duration-200 data-[state=open]:rotate-180"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    data-slot="custom-chevron"
+                  <AccordionTrigger
+                    className="text-[#142337] text-body-lg font-semibold hover:no-underline px-6 py-5 data-[state=open]:pb-2 transition-all flex items-center justify-between"
+                    style={{ color: '#142337' }}
                   >
-                    <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </AccordionTrigger>
-                <AccordionContent className="text-gray-600 text-body-md leading-relaxed px-6 pb-5">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
-        <div className="mt-10 text-center">
-          <span className="text-gray-700 text-body-lg">Still have questions?{' '}
-            <Link href="/contact" className="text-[#0e68de] font-medium hover:underline transition-colors">
-              Contact us →
-            </Link>
-          </span>
+                    <span>{faq.question}</span>
+                    <svg
+                      className="ml-4 w-6 h-6 text-gray-400 transform transition-transform duration-200 data-[state=open]:rotate-180"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      data-slot="custom-chevron"
+                    >
+                      <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </AccordionTrigger>
+                  <AccordionContent className="text-gray-600 text-body-md leading-relaxed px-6 pb-5">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
         </div>
       </div>
     </section>

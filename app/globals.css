@@ -391,7 +391,7 @@
 
   /* Container Widths */
   .container-narrow {
-    @apply max-w-5xl mx-auto px-6 lg:px-8;
+    @apply max-w-[1600px] mx-auto px-6 lg:px-20;
   }
 
   .container-default {

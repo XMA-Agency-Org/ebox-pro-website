@@ -4,7 +4,6 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import FooterCTA from "./FooterCTA";
 
 const footerLinks = {
   services: [
@@ -131,13 +130,10 @@ export default function Footer() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
-      className="relative overflow-hidden bg-secondary"
+      className="relative overflow-hidden bg-neutral-50 border-t border-neutral-200"
     >
-      {/* CTA Block */}
-      <FooterCTA />
-
       {/* Footer Block */}
-      <div className="text-white flex flex-col justify-center w-full max-w-[1524px] mx-auto pt-[245px] pb-10 px-[4%] relative overflow-hidden">
+      <div className="text-neutral-900 flex flex-col justify-center w-full max-w-[1524px] mx-auto pt-16 pb-10 px-[4%] relative overflow-hidden">
         <div className="relative z-10">
           {/* Footer Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 mb-12">
@@ -145,7 +141,7 @@ export default function Footer() {
             <div className="flex flex-col gap-6">
               <Link href="/" className="inline-block">
                 <Image
-                  src="/Ebox - Final Logo/ebox - final logo -11.svg"
+                  src="/Ebox - Final Logo/ebox - final logo -08.svg"
                   alt="Ebox Pro Footer Logo"
                   width={500}
                   height={100}
@@ -160,13 +156,13 @@ export default function Footer() {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-neutral-400 hover:text-white transition-colors"
+                      className="text-neutral-500 hover:text-neutral-900 transition-colors"
                     >
                       {social.icon}
                     </a>
                   ))}
                 </div>
-                <p className="text-sm leading-5 text-neutral-400">
+                <p className="text-sm leading-5 text-neutral-600">
                   Tech-driven 3PL solutions for UAE e-commerce. Same-day
                   delivery, 99%+ accuracy, no MOQ.
                 </p>
@@ -175,7 +171,7 @@ export default function Footer() {
 
             {/* Services Column */}
             <div className="flex flex-col gap-6">
-              <div className="text-xs font-medium leading-5 tracking-wide text-white uppercase">
+              <div className="text-xs font-medium leading-5 tracking-wide text-neutral-900 uppercase">
                 Services
               </div>
               <div className="flex flex-col gap-6">
@@ -183,7 +179,7 @@ export default function Footer() {
                   <Link
                     key={link.name}
                     href={link.href}
-                    className="text-neutral-300 hover:text-white transition-colors text-sm flex items-center gap-2"
+                    className="text-neutral-600 hover:text-neutral-900 transition-colors text-sm flex items-center gap-2"
                   >
                     <div>{link.name}</div>
                     {link.new && (
@@ -214,7 +210,7 @@ export default function Footer() {
 
             {/* Solutions Column */}
             <div className="flex flex-col gap-6">
-              <div className="text-xs font-medium leading-5 tracking-wide text-white uppercase">
+              <div className="text-xs font-medium leading-5 tracking-wide text-neutral-900 uppercase">
                 Solutions
               </div>
               <div className="flex flex-col gap-6">
@@ -222,7 +218,7 @@ export default function Footer() {
                   <Link
                     key={link.name}
                     href={link.href}
-                    className="text-neutral-300 hover:text-white transition-colors text-sm flex items-center gap-2"
+                    className="text-neutral-600 hover:text-neutral-900 transition-colors text-sm flex items-center gap-2"
                   >
                     <div>{link.name}</div>
                     {link.new && (
@@ -253,7 +249,7 @@ export default function Footer() {
 
             {/* Company Column */}
             <div className="flex flex-col gap-6">
-              <div className="text-xs font-medium leading-5 tracking-wide text-white uppercase">
+              <div className="text-xs font-medium leading-5 tracking-wide text-neutral-900 uppercase">
                 Company
               </div>
               <div className="flex flex-col gap-6">
@@ -261,7 +257,7 @@ export default function Footer() {
                   <Link
                     key={link.name}
                     href={link.href}
-                    className="text-neutral-300 hover:text-white transition-colors text-sm flex items-center gap-2"
+                    className="text-neutral-600 hover:text-neutral-900 transition-colors text-sm flex items-center gap-2"
                   >
                     <div>{link.name}</div>
                     {link.new && (
@@ -292,14 +288,14 @@ export default function Footer() {
           </div>
 
           {/* Footer Legal */}
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-            <div className="text-sm leading-6 text-neutral-400">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 pt-8 border-t border-neutral-200">
+            <div className="text-sm leading-6 text-neutral-500">
               © {new Date().getFullYear()} Ebox Pro. All rights reserved | Built
               by{" "}
               <Link
                 href="https://xma.ae"
                 target="_blank"
-                className="hover:text-white transition-colors"
+                className="hover:text-neutral-900 transition-colors"
               >
                 XMA
               </Link>

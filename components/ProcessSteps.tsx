@@ -80,18 +80,18 @@ export default function ProcessSteps() {
             {steps.map((step, index) => (
               <motion.div
                 key={step.id}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0.3, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true, amount: 0.1, margin: "0px 0px -150px 0px" }}
+                transition={{ duration: 0.8, delay: index * 0.15, ease: "easeOut" }}
                 className="flex flex-col items-center"
               >
                 {/* Circle */}
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.5 }}
+                  initial={{ opacity: 0.3, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true, amount: 0.1, margin: "0px 0px -150px 0px" }}
+                  transition={{ duration: 0.6, delay: index * 0.15, ease: "easeOut" }}
                   className="relative z-10 mb-8"
                 >
                   <div className="w-20 h-20 rounded-full bg-[#ea580c] flex items-center justify-center shadow-lg shadow-orange-500/30">
@@ -161,7 +161,7 @@ export default function ProcessSteps() {
               key={step.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="relative"
             >

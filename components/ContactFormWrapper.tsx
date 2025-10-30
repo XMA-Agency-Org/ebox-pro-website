@@ -40,7 +40,7 @@ export default function ContactFormWrapper() {
         </div>
         {/* Right: Form */}
         <div className="flex-1 flex items-center justify-center">
-          <div className="w-full max-w-none md:max-w-md lg:max-w-lg bg-background rounded-2xl shadow-2xl px-16 py-10 md:p-10">
+          <div className="w-full max-w-none md:max-w-md lg:max-w-lg bg-background/10 rounded-2xl shadow-2xl px-16 py-10 md:p-10">
             <ContactForm variant="assessment" />
           </div>
         </div>

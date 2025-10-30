@@ -44,9 +44,9 @@ export default function ContactForm({ className, variant = "default" }: ContactF
 
   if (variant === "assessment") {
     return (
-      <form onSubmit={handleSubmit} className="flex flex-col gap-5 w-full">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-6 w-full">
         <div>
-          <label htmlFor="name" className="block text-[15px] font-semibold text-[#24364b] mb-2">
+          <label htmlFor="name" className="form-label text-white">
             Full Name
           </label>
           <input
@@ -57,11 +57,11 @@ export default function ContactForm({ className, variant = "default" }: ContactF
             placeholder="John Smith"
             value={formData.name}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-[#e3eaf2] rounded-md focus:outline-none focus:ring-2 focus:ring-[#F26422] bg-[#F8FBFF] text-[#22334B] placeholder:text-[#bcd0df] text-base"
+            className="form-input bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:border-primary focus:ring-2 focus:ring-primary/20"
           />
         </div>
         <div>
-          <label htmlFor="email" className="block text-[15px] font-semibold text-[#24364b] mb-2">
+          <label htmlFor="email" className="form-label text-white">
             Email Address
           </label>
           <input
@@ -72,11 +72,11 @@ export default function ContactForm({ className, variant = "default" }: ContactF
             placeholder="john@company.com"
             value={formData.email}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-[#e3eaf2] rounded-md focus:outline-none focus:ring-2 focus:ring-[#F26422] bg-[#F8FBFF] text-[#22334B] placeholder:text-[#bcd0df] text-base"
+            className="form-input bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:border-primary focus:ring-2 focus:ring-primary/20"
           />
         </div>
         <div>
-          <label htmlFor="company" className="block text-[15px] font-semibold text-[#24364b] mb-2">
+          <label htmlFor="company" className="form-label text-white">
             Company Name
           </label>
           <input
@@ -87,11 +87,11 @@ export default function ContactForm({ className, variant = "default" }: ContactF
             placeholder="Your Company Ltd."
             value={formData.company}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-[#e3eaf2] rounded-md focus:outline-none focus:ring-2 focus:ring-[#F26422] bg-[#F8FBFF] text-[#22334B] placeholder:text-[#bcd0df] text-base"
+            className="form-input bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:border-primary focus:ring-2 focus:ring-primary/20"
           />
         </div>
         <div>
-          <label htmlFor="volume" className="block text-[15px] font-semibold text-[#24364b] mb-2">
+          <label htmlFor="volume" className="form-label text-white">
             Monthly Order Volume
           </label>
           <input
@@ -102,20 +102,24 @@ export default function ContactForm({ className, variant = "default" }: ContactF
             placeholder="e.g., 500"
             value={formData.volume}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-[#e3eaf2] rounded-md focus:outline-none focus:ring-2 focus:ring-[#F26422] bg-[#F8FBFF] text-[#22334B] placeholder:text-[#bcd0df] text-base"
+            className="form-input bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:border-primary focus:ring-2 focus:ring-primary/20"
           />
         </div>
         <button
           type="submit"
-          className="mt-4 w-full bg-[#F26422] hover:bg-[#e85614] text-white text-lg font-bold rounded-md px-4 py-3 shadow-[0_2px_8px_0_rgba(242,100,34,0.15)] transition-colors"
+          className="mt-2 w-full btn-primary text-base lg:text-lg font-semibold py-4 shadow-lg"
         >
           Request My Free Assessment
         </button>
         {isSubmitted && (
-          <div className="text-green-600 pt-2 font-semibold text-center">Thank you! We&apos;ll be in touch soon.</div>
+          <div className="text-success font-semibold text-center bg-success-subtle border border-success/20 rounded-xl py-3 px-4">
+            Thank you! We&apos;ll be in touch soon.
+          </div>
         )}
         {hasError && (
-          <div className="text-red-600 pt-2 font-semibold text-center">An error occurred. Please try again.</div>
+          <div className="text-danger font-semibold text-center bg-danger-subtle border border-danger/20 rounded-xl py-3 px-4">
+            An error occurred. Please try again.
+          </div>
         )}
       </form>
     );

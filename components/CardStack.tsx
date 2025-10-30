@@ -29,8 +29,8 @@ const StickyCard = ({
   // Apply opacity fade with delay - first card starts at 1, others fade in
   const opacityRange = i === 0
     ? [0, 0, 1]
-    : [range[0] + 0.03, range[0] + 0.1, range[0] + 0.2];
-  const opacityValues = i === 0 ? [1, 1, 1] : [0, 0.6, 1];
+    : [range[0], range[0] + 0.05, range[0] + 0.15];
+  const opacityValues = i === 0 ? [1, 1, 1] : [0.3, 0.7, 1];
   const opacity = useTransform(progress, opacityRange, opacityValues);
 
   return (
