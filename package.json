@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.1",
-    "@lottiefiles/dotlottie-react": "^0.17.5",
+    "@lottiefiles/dotlottie-react": "^0.17.6",
     "@radix-ui/react-accordion": "^1.2.12",
     "@radix-ui/react-dropdown-menu": "^2.1.16",
     "@radix-ui/react-navigation-menu": "^1.2.14",

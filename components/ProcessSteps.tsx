@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import TechEffects from "@/components/TechEffects";
 
 interface StepItem {
@@ -104,6 +105,42 @@ export default function ProcessSteps() {
 
                 {/* Card */}
                 <div className="bg-white rounded-2xl p-8 h-full shadow-xl transition-all duration-300 hover:-translate-y-1 w-full">
+                  {step.id === 1 && (
+                    <div className="w-full aspect-square max-h-32 mb-6 flex items-center justify-center">
+                      <DotLottieReact
+                        src="https://lottie.host/8d4fbde2-17a3-437c-b356-adca166704d1/oWNaqQr1Sv.lottie"
+                        loop
+                        autoplay
+                      />
+                    </div>
+                  )}
+                  {step.id === 2 && (
+                    <div className="w-full aspect-square max-h-32 mb-6 flex items-center justify-center">
+                      <DotLottieReact
+                        src="https://lottie.host/e3ffcd8a-43d3-4d19-86e5-0513e0119db0/U6oIBxxln0.lottie"
+                        loop
+                        autoplay
+                      />
+                    </div>
+                  )}
+                  {step.id === 3 && (
+                    <div className="w-full aspect-square max-h-32 mb-6 flex items-center justify-center">
+                      <DotLottieReact
+                        src="https://lottie.host/ff1c2492-42ab-4e30-bcb7-070fad7d0e72/1c4b9XpMhT.lottie"
+                        loop
+                        autoplay
+                      />
+                    </div>
+                  )}
+                  {step.id === 4 && (
+                    <div className="w-full aspect-square max-h-32 mb-6 flex items-center justify-center">
+                      <DotLottieReact
+                        src="https://lottie.host/c6ab9f50-81ef-45e4-bf2f-7b1619c2d85e/rPPpY922Sp.lottie"
+                        loop
+                        autoplay
+                      />
+                    </div>
+                  )}
                   <h3 className="text-2xl font-bold text-[#1a3456] mb-4">
                     {step.title}
                   </h3>
@@ -146,6 +183,42 @@ export default function ProcessSteps() {
                 {/* Card */}
                 <div className="flex-1">
                   <div className="bg-white rounded-2xl p-6 shadow-xl">
+                    {step.id === 1 && (
+                      <div className="w-full aspect-square max-h-24 mb-4 flex items-center justify-center">
+                        <DotLottieReact
+                          src="https://lottie.host/8d4fbde2-17a3-437c-b356-adca166704d1/oWNaqQr1Sv.lottie"
+                          loop
+                          autoplay
+                        />
+                      </div>
+                    )}
+                    {step.id === 2 && (
+                      <div className="w-full aspect-square max-h-24 mb-4 flex items-center justify-center">
+                        <DotLottieReact
+                          src="https://lottie.host/e3ffcd8a-43d3-4d19-86e5-0513e0119db0/U6oIBxxln0.lottie"
+                          loop
+                          autoplay
+                        />
+                      </div>
+                    )}
+                    {step.id === 3 && (
+                      <div className="w-full aspect-square max-h-24 mb-4 flex items-center justify-center">
+                        <DotLottieReact
+                          src="https://lottie.host/ff1c2492-42ab-4e30-bcb7-070fad7d0e72/1c4b9XpMhT.lottie"
+                          loop
+                          autoplay
+                        />
+                      </div>
+                    )}
+                    {step.id === 4 && (
+                      <div className="w-full aspect-square max-h-24 mb-4 flex items-center justify-center">
+                        <DotLottieReact
+                          src="https://lottie.host/c6ab9f50-81ef-45e4-bf2f-7b1619c2d85e/rPPpY922Sp.lottie"
+                          loop
+                          autoplay
+                        />
+                      </div>
+                    )}
                     <h3 className="text-xl font-bold text-[#1a3456] mb-3">
                       {step.title}
                     </h3>
