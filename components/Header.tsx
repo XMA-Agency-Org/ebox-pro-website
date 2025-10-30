@@ -54,8 +54,8 @@ export default function Header() {
   return (
     <>
       <header className="absolute top-0 left-0 right-0 z-30 bg-transparent">
-        <div className="bg-transparent flex justify-center items-center py-8 px-4">
-          <div className="flex justify-between items-center w-full container-wide px-4 gap-8">
+        <div className="bg-transparent flex justify-center items-center py-8">
+          <div className="flex justify-between items-center w-full container-wide gap-8">
             {/* Logo Left */}
             <Link href="/" className="flex-shrink-0">
               <Image
@@ -69,7 +69,7 @@ export default function Header() {
 
             {/* Navigation Center */}
             <div className="flex-1 flex justify-center items-center">
-              <NavigationMenu className="hidden md:block">
+              <NavigationMenu className="hidden lg:block">
                 <NavigationMenuList>
                   {/* Home Link */}
                   <NavigationMenuItem>
@@ -243,7 +243,7 @@ export default function Header() {
 
             {/* CTA and Mobile Menu Right */}
             <div className="flex items-center gap-2">
-              <div className="hidden md:flex items-center gap-2">
+              <div className="hidden lg:flex items-center gap-2">
                 <Link
                   href="#contact"
                   className="btn-secondary rounded-full text-white text-center px-4 py-3 text-sm font-medium leading-6 no-underline transition-all duration-300 hover:bg-primary-hover"
@@ -255,7 +255,7 @@ export default function Header() {
               {/* Mobile menu button */}
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="btn-secondary md:hidden rounded-full bg-transparent transition-colors duration-300 hover:bg-white/[0.08] hover:backdrop-blur-[8px] flex justify-center items-center p-3 min-h-[44px] min-w-[44px]"
+                className="btn-secondary lg:hidden rounded-full bg-transparent transition-colors duration-300 hover:bg-white/[0.08] hover:backdrop-blur-[8px] flex justify-center items-center p-3 min-h-[44px] min-w-[44px]"
               >
                 <div className="flex flex-col justify-center items-center w-6 h-6 gap-1 p-0">
                   {isMobileMenuOpen ? (
@@ -278,7 +278,7 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden rounded-b-3xl bg-black/[0.1] backdrop-blur-[10px] flex flex-col pb-8 overflow-hidden max-h-[85vh] overflow-y-auto">
+          <div className="lg:hidden rounded-b-3xl bg-black/[0.1] backdrop-blur-[10px] flex flex-col pb-8 overflow-hidden max-h-[85vh] overflow-y-auto">
             <div className="flex flex-col">
               {/* Services Section */}
               <div className="border-b border-black/[0.08]">

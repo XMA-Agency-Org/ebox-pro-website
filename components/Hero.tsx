@@ -3,50 +3,67 @@
 import Link from "next/link";
 import LogoSection from "@/components/LogoSection";
 import { UAENetworkMap } from "@/components/UAENetworkMap";
+import { useEffect, useState } from "react";
 
 export default function Hero() {
+  const [isRowLayout, setIsRowLayout] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsRowLayout(window.innerWidth >= 1275);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   return (
     <>
-      <section className="relative pt-36 overflow-hidden bg-secondary">
-        {/* Background animation removed */}
-
-        <div className="container-wide relative flex items-center z-20">
-          <div className="grid grid-cols-1 lg:grid-cols-6 items-center w-full">
+      <section className="relative min-h-screen overflow-hidden bg-secondary flex items-center pt-32 lg:pt-40">
+        <div className="container-wide relative z-20 w-full pb-16 lg:pb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center w-full">
             {/* Left Column - Copy */}
-            <div className="flex flex-col gap-5 lg:gap-8 col-span-3 px-5 items-center lg:items-start">
-              <div className="flex flex-col gap-6 w-full">
-                    <div className="text-center lg:text-left">
+            <div className="flex flex-col gap-8 justify-center">
+              <div className="flex flex-col gap-6">
+                <div className="text-center lg:text-left">
                   <h1 className="text-white text-balance text-display-xl">
-                  All-in-One Fulfillment
+                    All-in-One Fulfillment
                   </h1>
                   <h1 className="text-primary text-balance text-display-xl">
-                  Where Smart Logistics Meets</h1>
-                  <h1 className="text-primary text-balance text-display-xl">
-                  Seamless Speed</h1>
-                  <p className="text-white/80 text-body-xl mt-6">
-Leverage our strategic Dubai fulfilment centre to scale your e-commerce business with our seamless multi-channel integration (Amazon, Noon, Shopify and more), Real-time inventory and guaranteed same-day delivery.
+                    Smart, Seamless, Fast
+                  </h1>
+                  <p className="text-white/80 text-body-xl mt-6 max-w-2xl mx-auto lg:mx-0">
+                    Scale your e-commerce business with our Dubai fulfilment centre: seamless multichannel integration (Amazon, Noon, Shopify & more), real-time inventory, and same-day delivery.
                   </p>
                 </div>
               </div>
 
-              {/* Header Details */}
-              <div className="flex flex-col sm:flex-row items-center sm:items-start justify-center sm:justify-start gap-5 text-white mt-6 lg:mt-8">
+              {/* CTA Buttons */}
+              <div
+                className={`flex gap-4 text-white w-full ${
+                  isRowLayout
+                    ? 'flex-row items-start justify-start max-w-none'
+                    : 'flex-col items-center justify-center max-w-lg mx-auto lg:mx-0 lg:items-start lg:justify-start'
+                }`}
+              >
                 <Link
                   href="/contact"
-                  className="btn-primary text-center leading-6 no-underline flex items-center justify-center"
+                  className="btn-primary text-center leading-6 no-underline flex items-center justify-center w-full whitespace-nowrap"
+                  style={{ minWidth: 'fit-content', width: isRowLayout ? 'auto' : '100%' }}
                 >
                   Get Free UAE Fulfillment Assessment
                 </Link>
                 <Link
                   href="/contact"
-                  className="btn-white text-center leading-6 no-underline flex items-center justify-center"
+                  className="btn-white text-center leading-6 no-underline flex items-center justify-center w-full whitespace-nowrap"
+                  style={{ minWidth: 'fit-content', width: isRowLayout ? 'auto' : '100%' }}
                 >
                   Calculate Your Savings
                 </Link>
               </div>
             </div>
             {/* Right Column - Animated Network Map */}
-            <div className="relative w-full h-[450px] lg:h-[600px] col-span-3 z-0 lg:-z-10 my-10 lg:mt-0 filter brightness-120 saturate-150 lg:filter-none">
+            <div className="relative w-full h-[450px] lg:h-[600px] flex items-center justify-center">
               <UAENetworkMap
                 abuDhabi={{ x: 445, y: 325 }}
                 dubai={{ x: 589, y: 161 }}
@@ -129,8 +146,8 @@ Leverage our strategic Dubai fulfilment centre to scale your e-commerce business
             </div>
           </div>
         </div>
-        <LogoSection />
       </section>
+      <LogoSection />
     </>
   );
 }

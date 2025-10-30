@@ -404,11 +404,11 @@
 
   /* Section Padding */
   .section-padding {
-    @apply py-12 lg:py-16;
+    @apply py-16 lg:py-24;
   }
 
   .section-padding-sm {
-    @apply py-10 lg:py-12;
+    @apply py-12 lg:py-14;
   }
 
   /* Typography Scale */
