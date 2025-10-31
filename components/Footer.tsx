@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
-const footerLinks = {
+const navigationLinks = {
   services: [
     { name: "E-commerce Fulfillment", href: "#services" },
     { name: "Amazon & Noon Integration", href: "#services" },
@@ -134,121 +134,53 @@ export default function Footer() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
-      className="relative overflow-hidden bg-neutral-50 border-t border-neutral-200"
+      className="relative overflow-hidden footer-bg"
     >
       {/* Footer Block */}
-      <div className="text-neutral-900 flex flex-col justify-center w-full container-wide pt-16 pb-10 relative overflow-hidden">
+      <div className="flex flex-col justify-center w-full container-wide pt-16 pb-10 relative overflow-hidden">
         <div className="relative z-10">
-          {/* Footer Grid - Links Only */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 mb-12">
-            {/* Services Column */
-            }
+          {/* Brand and Description */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-12">
+            {/* Brand Column */}
             <div className="flex flex-col gap-6">
-              <div className="text-xs font-medium leading-5 tracking-wide text-neutral-900 uppercase">
-                Services
-              </div>
-              <div className="flex flex-col gap-6">
-                {footerLinks.services.map((link) => (
-                  <Link
-                    key={link.name}
-                    href={link.href}
-                    className="text-neutral-600 hover:text-neutral-900 transition-colors text-sm flex items-center gap-2"
+              <Link href="/" className="inline-block">
+                <Image
+                  src="/Ebox - Final Logo/ebox - final logo -11.svg"
+                  alt="Ebox Pro Footer Logo"
+                  width={200}
+                  height={60}
+                  className="h-12 w-auto"
+                />
+              </Link>
+              <p className="text-sm leading-relaxed footer-text max-w-xs">
+                Tech-driven 3PL warehousing and fulfillment at the speed of now. Your strategic partner for e-commerce growth in the UAE.
+              </p>
+              <div className="flex items-center gap-4">
+                {socialLinks.map((social) => (
+                  <a
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition-colors hover:opacity-80 footer-text"
                   >
-                    <div>{link.name}</div>
-                    {link.new && (
-                      <div className="flex items-center gap-1 text-xs">
-                        <svg
-                          width="16"
-                          height="16"
-                          viewBox="0 0 16 16"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <circle
-                            cx="8.00016"
-                            cy="8.00016"
-                            r="6.66667"
-                            fill="#F74B45"
-                            fillOpacity="0.16"
-                          />
-                          <circle cx="8" cy="8" r="2" fill="#F74B45" />
-                        </svg>
-                        <div>New</div>
-                      </div>
-                    )}
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            {/* Solutions Column */}
-            <div className="flex flex-col gap-6">
-              <div className="text-xs font-medium leading-5 tracking-wide text-neutral-900 uppercase">
-                Solutions
-              </div>
-              <div className="flex flex-col gap-6">
-                {footerLinks.solutions.map((link) => (
-                  <Link
-                    key={link.name}
-                    href={link.href}
-                    className="text-neutral-600 hover:text-neutral-900 transition-colors text-sm flex items-center gap-2"
-                  >
-                    <div>{link.name}</div>
-                    {link.new && (
-                      <div className="flex items-center gap-1 text-xs">
-                        <svg
-                          width="16"
-                          height="16"
-                          viewBox="0 0 16 16"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <circle
-                            cx="8.00016"
-                            cy="8.00016"
-                            r="6.66667"
-                            fill="#F74B45"
-                            fillOpacity="0.16"
-                          />
-                          <circle cx="8" cy="8" r="2" fill="#F74B45" />
-                        </svg>
-                        <div>New</div>
-                      </div>
-                    )}
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            {/* Partner with Us Column */}
-            <div className="flex flex-col gap-6">
-              <div className="text-xs font-medium leading-5 tracking-wide text-neutral-900 uppercase">
-                Partner with Us
-              </div>
-              <div className="flex flex-col gap-6">
-                {footerLinks.partner.map((link) => (
-                  <Link
-                    key={link.name}
-                    href={link.href}
-                    className="text-neutral-600 hover:text-neutral-900 transition-colors text-sm flex items-center gap-2"
-                  >
-                    <div>{link.name}</div>
-                  </Link>
+                    {social.icon}
+                  </a>
                 ))}
               </div>
             </div>
 
             {/* Company Column */}
             <div className="flex flex-col gap-6">
-              <div className="text-xs font-medium leading-5 tracking-wide text-neutral-900 uppercase">
+              <div className="text-xs font-bold leading-5 tracking-wide uppercase footer-heading">
                 Company
               </div>
-              <div className="flex flex-col gap-6">
-                {footerLinks.company.map((link) => (
+              <div className="flex flex-col gap-4">
+                {navigationLinks.company.map((link) => (
                   <Link
                     key={link.name}
                     href={link.href}
-                    className="text-neutral-600 hover:text-neutral-900 transition-colors text-sm flex items-center gap-2"
+                    className="transition-colors text-sm flex items-center gap-2 hover:opacity-80 footer-text"
                   >
                     <div>{link.name}</div>
                     {link.new && (
@@ -276,48 +208,216 @@ export default function Footer() {
                 ))}
               </div>
             </div>
+
+            {/* Services Column */}
+            <div className="flex flex-col gap-6">
+              <div className="text-xs font-bold leading-5 tracking-wide uppercase footer-heading">
+                Services
+              </div>
+              <div className="flex flex-col gap-4">
+                {navigationLinks.services.map((link) => (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    className="transition-colors text-sm flex items-center gap-2 hover:opacity-80 footer-text"
+                  >
+                    <div>{link.name}</div>
+                    {link.new && (
+                      <div className="flex items-center gap-1 text-xs">
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <circle
+                            cx="8.00016"
+                            cy="8.00016"
+                            r="6.66667"
+                            fill="#F74B45"
+                            fillOpacity="0.16"
+                          />
+                          <circle cx="8" cy="8" r="2" fill="#F74B45" />
+                        </svg>
+                        <div>New</div>
+                      </div>
+                    )}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Contact Column */}
+            <div className="flex flex-col gap-6">
+              <div className="text-xs font-bold leading-5 tracking-wide uppercase footer-heading">
+                Contact
+              </div>
+              <div className="flex flex-col gap-4">
+                <div className="flex items-start gap-3">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="flex-shrink-0 mt-0.5 text-primary"
+                  >
+                    <path
+                      d="M10 10C11.3807 10 12.5 8.88071 12.5 7.5C12.5 6.11929 11.3807 5 10 5C8.61929 5 7.5 6.11929 7.5 7.5C7.5 8.88071 8.61929 10 10 10Z"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                    />
+                    <path
+                      d="M10 17.5C13.3333 14.1667 16.25 11.2426 16.25 8.125C16.25 4.67525 13.4518 2.5 10 2.5C6.54822 2.5 3.75 4.67525 3.75 8.125C3.75 11.2426 6.66667 14.1667 10 17.5Z"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                    />
+                  </svg>
+                  <div className="flex flex-col gap-1">
+                    <div className="text-sm footer-text">Dubai Industrial Park</div>
+                    <div className="text-sm footer-text">Dubai, UAE</div>
+                  </div>
+                </div>
+                <a
+                  href="tel:+971501234567"
+                  className="flex items-center gap-3 transition-colors hover:opacity-80"
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="flex-shrink-0 text-primary"
+                  >
+                    <path
+                      d="M3.75 5C3.75 4.30964 4.30964 3.75 5 3.75H6.87868C7.24114 3.75 7.56613 3.98439 7.68075 4.32848L8.79543 7.55812C8.88834 7.83776 8.81607 8.14693 8.60658 8.35642L7.14645 9.81655C7.63228 10.8789 8.62107 11.8677 9.68345 12.3536L11.1436 10.8934C11.3531 10.6839 11.6622 10.6117 11.9419 10.7046L15.1715 11.8192C15.5156 11.9339 15.75 12.2589 15.75 12.6213V14.5C15.75 15.1904 15.1904 15.75 14.5 15.75H13.5C7.97715 15.75 3.75 11.5228 3.75 6V5Z"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                    />
+                  </svg>
+                  <div className="text-sm footer-text">+971 50 123 4567</div>
+                </a>
+                <a
+                  href="mailto:contact@eboxpro.ae"
+                  className="flex items-center gap-3 transition-colors hover:opacity-80"
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="flex-shrink-0 text-primary"
+                  >
+                    <path
+                      d="M2.5 6.25L9.42462 10.7131C9.78486 10.9291 10.2151 10.9291 10.5754 10.7131L17.5 6.25M4.16667 15H15.8333C16.7538 15 17.5 14.2538 17.5 13.3333V6.66667C17.5 5.74619 16.7538 5 15.8333 5H4.16667C3.24619 5 2.5 5.74619 2.5 6.66667V13.3333C2.5 14.2538 3.24619 15 4.16667 15Z"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                    />
+                  </svg>
+                  <div className="text-sm footer-text">contact@eboxpro.ae</div>
+                </a>
+              </div>
+            </div>
           </div>
 
-          {/* Brand Row at Bottom */}
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-8">
-            <Link href="/" className="inline-block">
-              <Image
-                src="/Ebox - Final Logo/ebox - final logo -08.svg"
-                alt="Ebox Pro Footer Logo"
-                width={300}
-                height={80}
-                className="h-16 w-auto"
-              />
-            </Link>
-            <div className="flex items-center gap-4">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-neutral-500 hover:text-neutral-900 transition-colors"
-                >
-                  {social.icon}
-                </a>
-              ))}
+          {/* Second Row - Solutions and Partner */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-12">
+            {/* Solutions Column */}
+            <div className="flex flex-col gap-6">
+              <div className="text-xs font-bold leading-5 tracking-wide uppercase footer-heading">
+                Solutions
+              </div>
+              <div className="flex flex-col gap-4">
+                {navigationLinks.solutions.map((link) => (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    className="transition-colors text-sm flex items-center gap-2 hover:opacity-80 footer-text"
+                  >
+                    <div>{link.name}</div>
+                    {link.new && (
+                      <div className="flex items-center gap-1 text-xs">
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <circle
+                            cx="8.00016"
+                            cy="8.00016"
+                            r="6.66667"
+                            fill="#F74B45"
+                            fillOpacity="0.16"
+                          />
+                          <circle cx="8" cy="8" r="2" fill="#F74B45" />
+                        </svg>
+                        <div>New</div>
+                      </div>
+                    )}
+                  </Link>
+                ))}
+              </div>
             </div>
-            <p className="text-sm leading-5 text-neutral-600 md:text-right">
-              Tech-driven 3PL solutions for UAE e-commerce. Same-day delivery, 99%+ accuracy, no MOQ.
-            </p>
+
+            {/* Partner Column */}
+            <div className="flex flex-col gap-6">
+              <div className="text-xs font-bold leading-5 tracking-wide uppercase footer-heading">
+                Partner with Us
+              </div>
+              <div className="flex flex-col gap-4">
+                {navigationLinks.partner.map((link) => (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    className="transition-colors text-sm flex items-center gap-2 hover:opacity-80 footer-text"
+                  >
+                    <div>{link.name}</div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Empty spaces for alignment */}
+            <div className="hidden lg:block"></div>
+            <div className="hidden lg:block"></div>
           </div>
 
           {/* Footer Legal */}
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 pt-8 border-t border-neutral-200">
-            <div className="text-sm leading-6 text-neutral-500">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 pt-8 border-t footer-border">
+            <div className="text-sm leading-6 footer-text opacity-50">
               © {new Date().getFullYear()} Ebox Pro. All rights reserved | Built
               by{" "}
               <Link
                 href="https://xma.ae"
                 target="_blank"
-                className="hover:text-neutral-900 transition-colors"
+                className="text-sm footer-text hover:opacity-100 transition-opacity"
               >
                 XMA
+              </Link>
+            </div>
+            <div className="flex items-center gap-6">
+              <Link
+                href="/privacy-policy"
+                className="text-sm footer-text opacity-50 hover:opacity-80 transition-opacity"
+              >
+                Privacy Policy
+              </Link>
+              <Link
+                href="/terms-of-service"
+                className="text-sm footer-text opacity-50 hover:opacity-80 transition-opacity"
+              >
+                Terms of Service
+              </Link>
+              <Link
+                href="/cookie-policy"
+                className="text-sm footer-text opacity-50 hover:opacity-80 transition-opacity"
+              >
+                Cookie Policy
               </Link>
             </div>
           </div>
