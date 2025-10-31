@@ -3,9 +3,11 @@
 import Link from "next/link";
 import LogoSection from "@/components/LogoSection";
 import { UAENetworkMap } from "@/components/UAENetworkMap";
+import { FlipWords } from "@/components/ui/flip-words";
 import { useEffect, useState } from "react";
 
 export default function Hero() {
+  const words = ["Warehousing", "Fulfillment", "Integration", "Delivery", "Logistics"];
   const [isRowLayout, setIsRowLayout] = useState(false);
 
   useEffect(() => {
@@ -27,13 +29,13 @@ export default function Hero() {
               <div className="flex flex-col gap-6">
                 <div className="text-center lg:text-left">
                   <h1 className="text-white text-balance text-display-xl">
-                    All-in-One Fulfillment
-                  </h1>
-                  <h1 className="text-primary text-balance text-display-xl">
-                    Smart, Seamless, Fast
+                    Scale Your E-Commerce with Smart
+                    <FlipWords words={words} className="text-carrot-400" />
                   </h1>
                   <p className="text-white/80 text-body-xl mt-6 max-w-2xl mx-auto lg:mx-0">
-                    Scale your e-commerce business with our Dubai fulfilment centre: seamless multichannel integration (Amazon, Noon, Shopify & more), real-time inventory, and same-day delivery.
+                    Strategic Dubai warehouse location with real-time inventory
+                    management. Seamless multi-channel integration for Amazon,
+                    Noon, and your store.
                   </p>
                 </div>
               </div>
