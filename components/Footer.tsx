@@ -22,13 +22,17 @@ const footerLinks = {
     { name: "Kitting & Bundling", href: "#services" },
     { name: "COD Processing", href: "#transport" },
   ],
+  partner: [
+    { name: "Become a Courier Partner", href: "/partner-courier" },
+    { name: "For Brands & Retailers", href: "/partner-brands" },
+    { name: "Apply as a Vendor", href: "/partner-vendor" },
+  ],
   company: [
     { name: "About Us", href: "/about" },
     { name: "How It Works", href: "#process" },
     { name: "Pricing", href: "/pricing" },
     { name: "FAQ", href: "#faq" },
     { name: "Contact", href: "#contact", new: true },
-    { name: "Get Assessment", href: "#contact" },
   ],
 };
 
@@ -135,41 +139,10 @@ export default function Footer() {
       {/* Footer Block */}
       <div className="text-neutral-900 flex flex-col justify-center w-full container-wide pt-16 pb-10 relative overflow-hidden">
         <div className="relative z-10">
-          {/* Footer Grid */}
+          {/* Footer Grid - Links Only */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 mb-12">
-            {/* Main Column */}
-            <div className="flex flex-col gap-6">
-              <Link href="/" className="inline-block">
-                <Image
-                  src="/Ebox - Final Logo/ebox - final logo -08.svg"
-                  alt="Ebox Pro Footer Logo"
-                  width={500}
-                  height={100}
-                  className="h-24 w-auto"
-                />
-              </Link>
-              <div className="flex flex-col gap-6">
-                <div className="flex items-center gap-4">
-                  {socialLinks.map((social) => (
-                    <a
-                      key={social.name}
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-neutral-500 hover:text-neutral-900 transition-colors"
-                    >
-                      {social.icon}
-                    </a>
-                  ))}
-                </div>
-                <p className="text-sm leading-5 text-neutral-600">
-                  Tech-driven 3PL solutions for UAE e-commerce. Same-day
-                  delivery, 99%+ accuracy, no MOQ.
-                </p>
-              </div>
-            </div>
-
-            {/* Services Column */}
+            {/* Services Column */
+            }
             <div className="flex flex-col gap-6">
               <div className="text-xs font-medium leading-5 tracking-wide text-neutral-900 uppercase">
                 Services
@@ -247,6 +220,24 @@ export default function Footer() {
               </div>
             </div>
 
+            {/* Partner with Us Column */}
+            <div className="flex flex-col gap-6">
+              <div className="text-xs font-medium leading-5 tracking-wide text-neutral-900 uppercase">
+                Partner with Us
+              </div>
+              <div className="flex flex-col gap-6">
+                {footerLinks.partner.map((link) => (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    className="text-neutral-600 hover:text-neutral-900 transition-colors text-sm flex items-center gap-2"
+                  >
+                    <div>{link.name}</div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
             {/* Company Column */}
             <div className="flex flex-col gap-6">
               <div className="text-xs font-medium leading-5 tracking-wide text-neutral-900 uppercase">
@@ -285,6 +276,35 @@ export default function Footer() {
                 ))}
               </div>
             </div>
+          </div>
+
+          {/* Brand Row at Bottom */}
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-8">
+            <Link href="/" className="inline-block">
+              <Image
+                src="/Ebox - Final Logo/ebox - final logo -08.svg"
+                alt="Ebox Pro Footer Logo"
+                width={300}
+                height={80}
+                className="h-16 w-auto"
+              />
+            </Link>
+            <div className="flex items-center gap-4">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-neutral-500 hover:text-neutral-900 transition-colors"
+                >
+                  {social.icon}
+                </a>
+              ))}
+            </div>
+            <p className="text-sm leading-5 text-neutral-600 md:text-right">
+              Tech-driven 3PL solutions for UAE e-commerce. Same-day delivery, 99%+ accuracy, no MOQ.
+            </p>
           </div>
 
           {/* Footer Legal */}
