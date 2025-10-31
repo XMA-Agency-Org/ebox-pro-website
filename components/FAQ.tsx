@@ -69,22 +69,24 @@ export default function FAQ() {
               <AccordionItem
                 key={faq.id}
                 value={faq.id}
-                className="bg-background border border-gray-200 rounded-xl"
+                className="bg-background border border-gray-200 rounded-xl transition-colors hover:border-gray-300"
               >
                 <AccordionTrigger
-                  className="text-[#142337] text-body-lg font-semibold hover:no-underline px-6 py-5 data-[state=open]:pb-2 transition-all flex items-center justify-between"
+                  className="text-[#142337] text-body-lg font-semibold hover:no-underline px-6 py-5 data-[state=open]:pb-2 transition-all flex items-center justify-between cursor-pointer rounded-xl hover:bg-gray-50 group"
                   style={{ color: '#142337' }}
                 >
                   <span>{faq.question}</span>
-                  <svg
-                    className="ml-4 w-6 h-6 text-gray-400 transform transition-transform duration-200 data-[state=open]:rotate-180"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    data-slot="custom-chevron"
-                  >
-                    <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+                  <span className="ml-4 inline-flex items-center justify-center w-8 h-8 rounded-full transition-colors group-hover:bg-gray-100">
+                    <svg
+                      className="w-5 h-5 text-gray-400 transform transition-transform duration-200 data-[state=open]:rotate-180"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      data-slot="custom-chevron"
+                    >
+                      <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
                 </AccordionTrigger>
                 <AccordionContent className="text-gray-600 text-body-md leading-relaxed px-6 pb-5">
                   {faq.answer}
