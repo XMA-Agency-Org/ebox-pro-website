@@ -44,7 +44,7 @@ export default function ServiceCard({
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         {/* Illustration */}
         {(customIllustration || illustration) && (
-          <motion.div
+          <div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -64,7 +64,7 @@ export default function ServiceCard({
                 </div>
               ) : null}
             </div>
-          </motion.div>
+          </div>
         )}
 
         {/* Content */}
