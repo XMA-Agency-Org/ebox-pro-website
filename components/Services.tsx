@@ -6,6 +6,7 @@ import { WarehouseLottie } from "@/components/WarehouseLottie";
 import { ComplianceLottie } from "@/components/ComplianceLottie";
 import { CardStack } from "@/components/CardStack";
 import ServiceCard from "@/components/ServiceCard";
+import SectionBadge from "@/components/SectionBadge";
 
 interface ServiceItem {
   title: string;
@@ -38,7 +39,7 @@ const services: ServiceItem[] = [
   },
   {
     title: "Multi-Platform Integration",
-    subtitle: "One Inventory Pool Across All Sales Channels",
+    subtitle: "Sell Everywhere, Manage from One Place",
     description:
       "Seamlessly connect all your e-commerce platforms to our centralized system. Whether you sell on Amazon, Noon, Shopify, or your own website, manage everything from one unified inventory pool. No more manual updates or stock discrepancies across channels.",
     features: [
@@ -51,7 +52,7 @@ const services: ServiceItem[] = [
     customIllustration: <IntegrationIllustration />,
   },
   {
-    title: "UAE Market Entry Support",
+    title: "Seamless UAE Market Entry",
     subtitle: "Complete Regulatory Compliance & Product Registration",
     description:
       "Navigate UAE market requirements effortlessly with our comprehensive registration and compliance services. We handle all the paperwork, certifications, and approvals needed to legally sell your products in the UAE market, from customs clearance to ministry-level certifications.",
@@ -92,7 +93,8 @@ export default function Services({ className }: ServicesProps = {}) {
           transition={{ duration: 0.8 }}
           className="text-center"
         >
-          <h2 className="text-display-lg text-foreground mb-4">What We Do</h2>
+          <SectionBadge>What We Do</SectionBadge>
+          <h2 className="text-display-xl text-foreground mb-4">One Platform, Total E-commerce Command</h2>
           <p className="text-body-xl text-muted-foreground mx-auto">
             Three core services to scale your e-commerce business in UAE
           </p>

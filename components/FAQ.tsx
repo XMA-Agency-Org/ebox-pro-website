@@ -6,6 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import SectionBadge from "@/components/SectionBadge";
 
 const faqs = [
   {
@@ -50,12 +51,13 @@ export default function FAQ() {
   return (
     <section className="section-padding relative bg-background">
       <div className="container-wide">
-        <div className="flex flex-col gap-6">
-          <h2 className="text-display-lg text-[#142337] font-bold">
-            Frequently Asked Questions
+        <div className="">
+          <SectionBadge>FAQ</SectionBadge>
+          <h2 className="text-display-lg font-bold mb-4">
+            Everything You Need to Know
           </h2>
           <p className="text-body-lg text-gray-500 leading-relaxed">
-            Everything you need to know about our 3PL fulfillment services
+            Common questions about our 3PL fulfillment services
           </p>
         </div>
 

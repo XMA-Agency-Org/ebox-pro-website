@@ -1,6 +1,7 @@
 "use client";
 
 import ContactForm from "@/components/ContactForm";
+import SectionBadge from "@/components/SectionBadge";
 
 const CHECKMARK_SVG = (
   <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0">
@@ -23,6 +24,7 @@ export default function ContactFormWrapper() {
       <div className="relative container-wide p-8 w-full flex flex-col items-center md:items-stretch md:flex-row gap-12 md:gap-8 lg:gap-28">
         {/* Left: Content */}
         <div className="max-w-xl flex-1 flex flex-col justify-center items-center md:items-start text-center md:text-left">
+          <SectionBadge className="bg-white/10 text-white mb-4">Get Started</SectionBadge>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
             Ready to Fulfill Your <br className="hidden sm:inline" /> E-commerce Potential?
           </h2>

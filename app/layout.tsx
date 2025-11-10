@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Inter, Krub } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const fontPrimary = Inter({
   subsets: ["latin"],
+  weight: ["400", "600"],
+  variable: "--font-primary",
 });
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+const fontSecondary = Krub({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  variable: "--font-secondary",
+  weight: ["500", "700"],
 });
 
 export const metadata: Metadata = {
@@ -26,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${spaceGrotesk.variable} font-inter antialiased`}
+        className={`${fontPrimary.variable} ${fontSecondary.variable} antialiased`}
       >
         {children}
       </body>

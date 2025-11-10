@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import SectionBadge from "@/components/SectionBadge";
 
 export default function Capabilities() {
   const capabilities = [
@@ -98,11 +99,12 @@ export default function Capabilities() {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl lg:text-6xl font-medium font-space-grotesk leading-tight tracking-tighter text-text mb-4">
-            Ebox Pro Logistics Capabilities
+          <SectionBadge>Our Capabilities</SectionBadge>
+          <h2 className="text-4xl lg:text-6xl font-medium leading-tight tracking-tighter text-text mb-4">
+            Delivering Possibilities, Globally
           </h2>
           <p className="text-lg leading-6 text-text-secondary mb-0">
-            Delivering Possibilities, Globally
+            Proven performance metrics that drive success
           </p>
         </motion.div>
 
@@ -130,7 +132,7 @@ export default function Capabilities() {
 
               <div className="flex flex-col gap-3">
                 <div
-                  className="text-6xl lg:text-8xl font-bold leading-none font-space-grotesk text-transparent"
+                  className="text-6xl lg:text-8xl font-bold leading-none text-transparent"
                   style={{
                     WebkitTextStroke: '2px var(--color-primary)',
                     textStroke: '2px var(--color-primary)'

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import WarehouseImage from "@/public/Industrial Warehouse Activity.png";
+import SectionBadge from "@/components/SectionBadge";
 
 const transportCards = [
   {
@@ -68,7 +69,7 @@ export default function TransportSolutions() {
 
               {/* Transport Content */}
               <div className="flex flex-col gap-2 px-5">
-                <h3 className="text-xl font-medium font-space-grotesk text-text leading-tight">
+                <h3 className="text-xl font-medium text-text leading-tight">
                   {card.title}
                 </h3>
                 <p className="text-sm leading-relaxed text-text-secondary">
@@ -92,10 +93,8 @@ export default function TransportSolutions() {
             className="flex flex-col gap-8"
           >
             <div className="flex flex-col gap-6">
-              <div className="border border-text rounded-full px-2 py-0.5 text-sm font-medium text-text inline-block w-fit">
-                UAE Operations
-              </div>
-              <h3 className="text-3xl lg:text-4xl font-medium font-space-grotesk leading-tight tracking-tighter text-text">
+              <SectionBadge>UAE Operations</SectionBadge>
+              <h3 className="text-3xl lg:text-4xl font-medium leading-tight tracking-tighter text-text">
                 Local expertise, global standards.
               </h3>
               <p className="text-lg leading-6 text-text-secondary">

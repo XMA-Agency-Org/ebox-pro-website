@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
- 
+import SectionBadge from "@/components/SectionBadge";
+
 
 interface StepItem {
   id: number;
@@ -60,11 +61,12 @@ export default function ProcessSteps() {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <h2 className="text-5xl md:text-6xl font-bold text-white mb-4">
-            How It Works
+          <SectionBadge className="bg-white/10 text-white">How It Works</SectionBadge>
+          <h2 className="text-display-xl text-white mb-4">
+            Your Simple Path to Fulfillment Success
           </h2>
-          <p className="text-xl text-white/70 max-w-3xl mx-auto">
-            From setup to delivery, we&apos;ve streamlined every step. Get started in under 2 weeks.
+          <p className="text-body-xl text-white/70 max-w-3xl mx-auto">
+            Four streamlined steps from warehouse to customer doorstep
           </p>
         </motion.div>
 

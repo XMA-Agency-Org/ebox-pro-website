@@ -24,7 +24,7 @@ export default function ProcessStepCard({
         className="mb-6"
       >
         <span
-          className="text-7xl lg:text-8xl font-bold leading-none font-space-grotesk text-transparent"
+          className="text-7xl lg:text-8xl font-bold leading-none text-transparent"
           style={{
             WebkitTextStroke: "2px var(--color-primary-400)",
             textStroke: "2px var(--color-primary-400)",
@@ -42,7 +42,7 @@ export default function ProcessStepCard({
         transition={{ duration: 0.5, delay: 0.2 }}
         className="flex flex-col gap-4"
       >
-        <h3 className="text-2xl lg:text-3xl font-medium font-space-grotesk text-white">
+        <h3 className="text-2xl lg:text-3xl font-medium text-white">
           {title}
         </h3>
         <p className="text-base lg:text-lg text-white/80 leading-relaxed">

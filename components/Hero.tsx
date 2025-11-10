@@ -28,8 +28,8 @@ export default function Hero() {
             <div className="flex flex-col gap-8 justify-center">
               <div className="flex flex-col gap-6">
                 <div className="text-center lg:text-left">
-                  <h1 className="text-white text-balance text-display-xl">
-                    Scale Your E-Commerce with Smart
+                  <h1 className="text-white text-display-xl">
+                    Scale Your E-Commerce <br/> with Smart
                     <FlipWords words={words} className="text-carrot-400" />
                   </h1>
                   <p className="text-white/80 text-body-xl mt-6 max-w-2xl mx-auto lg:mx-0">

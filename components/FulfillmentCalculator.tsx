@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import ScrollReveal from "./ui/ScrollReveal";
 import { BackgroundBeams } from "./ui/background-beams";
+import SectionBadge from "@/components/SectionBadge";
 
 interface CalculatorInputs {
   monthlyOrderVolume: number;
@@ -102,15 +103,19 @@ export default function FulfillmentCalculator() {
       <div className="container-wide relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
+          <ScrollReveal direction="up" delay={0.1}>
+            <SectionBadge>Cost Calculator</SectionBadge>
+          </ScrollReveal>
+
           <ScrollReveal direction="up" delay={0.2}>
-            <h2 className="text-4xl lg:text-5xl xl:text-6xl font-medium font-space-grotesk leading-tight tracking-tighter text-neutral-900 mb-6">
+            <h2 className="text-display-xl text-neutral-900 mb-6">
               How much can you
               <span className="block text-primary">actually save?</span>
             </h2>
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.3}>
-            <p className="text-xl lg:text-2xl text-neutral-600 max-w-3xl mx-auto">
+            <p className="text-body-xl text-neutral-600 max-w-3xl mx-auto">
               Tweak the numbers below and see the difference
             </p>
           </ScrollReveal>
@@ -120,7 +125,7 @@ export default function FulfillmentCalculator() {
           {/* Input Section */}
           <ScrollReveal direction="left" delay={0.4}>
             <div className="bg-neutral-50/50 backdrop-blur-sm border border-neutral-200 rounded-2xl p-8 lg:p-10 shadow-lg">
-              <h3 className="text-2xl font-semibold font-space-grotesk text-neutral-900 mb-8">
+              <h3 className="text-2xl font-semibold text-neutral-900 mb-8">
                 Your numbers
               </h3>
 
