@@ -7,6 +7,7 @@ export const navigationLinks = {
     { name: "Customization & Branding", href: "/services/customization" },
   ],
   whatWeDo: { name: "What We Do", href: "/what-we-do" },
+  why: { name: "Why Ebox Pro", href: "/why-ebox-pro" },
   about: { name: "About Us", href: "/about" },
   contact: { name: "Contact Us", href: "#contact" },
 };

@@ -1,6 +1,11 @@
 "use client";
 
-import { motion, useScroll, useTransform, type MotionValue } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  type MotionValue,
+} from "framer-motion";
 import React, { useRef, ReactNode } from "react";
 
 interface CardItem {

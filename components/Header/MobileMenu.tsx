@@ -91,11 +91,26 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                   ))}
                 </motion.div>
 
-                {/* About Us Link */}
+                {/* Why Ebox Pro Link */}
                 <motion.div
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.2 }}
+                >
+                  <Link
+                    href={navigationLinks.why.href}
+                    className="flex items-center text-base-900 hover:text-primary-600 rounded-lg px-4 py-4 text-lg font-medium transition-colors border-b border-base-200"
+                    onClick={onClose}
+                  >
+                    {navigationLinks.why.name}
+                  </Link>
+                </motion.div>
+
+                {/* About Us Link */}
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.25 }}
                 >
                   <Link
                     href={navigationLinks.about.href}
@@ -110,7 +125,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 <motion.div
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.25 }}
+                  transition={{ delay: 0.3 }}
                 >
                   <Link
                     href={navigationLinks.contact.href}

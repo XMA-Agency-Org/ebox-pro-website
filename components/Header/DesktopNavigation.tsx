@@ -82,6 +82,9 @@ export default function DesktopNavigation() {
             {navigationLinks.whatWeDo.name}
           </NavLinkItem>
           <ServicesDropdown />
+          <NavLinkItem href={navigationLinks.why.href}>
+            {navigationLinks.why.name}
+          </NavLinkItem>
           <NavLinkItem href={navigationLinks.about.href}>
             {navigationLinks.about.name}
           </NavLinkItem>
