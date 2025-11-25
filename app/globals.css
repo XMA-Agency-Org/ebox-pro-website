@@ -185,6 +185,20 @@ html {
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
   --color-foreground: var(--foreground);
+  --animate-marquee: marquee var(--duration, 30s) linear infinite;
+  --color-sky-500: var(----sky-500);
+  --color-sky-400: var(----sky-400);
+
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @keyframes marquee {
+  to {
+    transform: translateX(-50%);
+    }
+  }
 }
 
 :root {
@@ -221,6 +235,8 @@ html {
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --sky-400: #38bdf8;
+  --sky-500: #0ea5e9;
 }
 
 .dark {
@@ -255,6 +271,8 @@ html {
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+  --sky-400: #38bdf8;
+  --sky-500: #0ea5e9;
 }
 
 @layer base {
@@ -420,6 +438,30 @@ html {
 
   .footer-border {
     border-color: var(--color-base-200);
+  }
+
+  /* Service Page Utilities */
+  .service-hero {
+    @apply bg-background relative;
+  }
+
+  .service-hero-accent {
+    @apply absolute -right-20 -top-20 w-96 h-96 rounded-full opacity-10 pointer-events-none;
+    filter: blur(80px);
+  }
+
+  .bento-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+  }
+
+  .bento-featured {
+    @apply md:col-span-2;
+  }
+
+  .feature-card {
+    @apply p-6 lg:p-8 rounded-2xl border border-border bg-surface
+           transition-all duration-300 hover:border-primary/30
+           hover:shadow-lg hover:-translate-y-1;
   }
 }
 

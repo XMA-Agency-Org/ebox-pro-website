@@ -7,16 +7,19 @@ import Logo from "./Logo";
 import DesktopNavigation from "./DesktopNavigation";
 import MobileMenuButton from "./MobileMenuButton";
 import MobileMenu from "./MobileMenu";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname()
 
   // Handle scroll to make header sticky
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 0);
     };
+    handleScroll()
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -37,14 +40,29 @@ export default function Header() {
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
+  function handleHeaderBackground() {
+    if (pathname !== "/" ) {
+      if (isScrolled) {
+        return "fixed bg-black/50 backdrop-blur-md"
+      } else {
+        return "fixed bg-transparent"
+      }
+    }
+
+
+    if (isScrolled) {
+      return "fixed bg-black/50 backdrop-blur-md"
+    } else {
+      return "relative bg-linear-to-r from-[#8A8C8C] via-[#939696] to-[#8A8C8C]"
+    }
+  }
+
   return (
     <>
       <header
         className={cn(
           "top-0 left-0 right-0 z-50 transition-all duration-300",
-          isScrolled
-            ? "fixed bg-black/50 backdrop-blur-md"
-            : "relative bg-linear-to-r from-[#8A8C8C] via-[#939696] to-[#8A8C8C]"
+          handleHeaderBackground()
         )}
       >
         <div className="bg-transparent flex justify-center items-center py-4">

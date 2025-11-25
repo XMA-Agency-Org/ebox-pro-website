@@ -162,6 +162,8 @@ export function IntegrationIllustration() {
         gradientStartColor="#FED530"
         gradientStopColor="#F26422"
         reverse
+        startXOffset={50}
+        endYOffset={50}
       />
       <AnimatedBeam
         containerRef={containerRef}
@@ -172,6 +174,8 @@ export function IntegrationIllustration() {
         pathOpacity={0.15}
         gradientStartColor="#95BF47"
         gradientStopColor="#F26422"
+        startYOffset={30}
+        endYOffset={30}
       />
       <AnimatedBeam
         containerRef={containerRef}
@@ -183,6 +187,10 @@ export function IntegrationIllustration() {
         gradientStartColor="#96588A"
         gradientStopColor="#F26422"
         reverse
+        startXOffset={50}
+        startYOffset={30}
+        endYOffset={-10}
+        endXOffset={10}
       />
     </div>
   );

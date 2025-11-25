@@ -1,85 +1,89 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { IntegrationIllustration } from "@/components/IntegrationIllustration";
 import { WarehouseLottie } from "@/components/WarehouseLottie";
 import { ComplianceLottie } from "@/components/ComplianceLottie";
+import { OrderFulfillmentLottie } from "@/components/OrderFulfillmentLottie";
+import { BrandLottie } from "@/components/BrandLottie";
 import { CardStack } from "@/components/CardStack";
-import ServiceCard from "@/components/ServiceCard";
 import SectionBadge from "@/components/SectionBadge";
-
-interface ServiceItem {
-  title: string;
-  subtitle: string;
-  description: string;
-  features: string[];
-  illustrationPlaceholder: string;
-  illustration?: any; // Can be StaticImageData or string path
-  customIllustration?: React.ReactNode; // For custom React components
-}
+import { allServices, IllustrationType, ServiceData } from "@/lib/services-data";
+import { TbArrowRight } from "react-icons/tb";
 
 interface ServicesProps {
   className?: string;
 }
 
-const services: ServiceItem[] = [
-  {
-    title: "Warehousing & Fulfillment",
-    subtitle: "Strategic Dubai Location with Real-Time Operations",
-    description:
-      "Store your inventory in our state-of-the-art Dubai warehouse facility. We handle everything from receiving and shelving to picking, packing, and shipping. Our strategic location in Dubai Industrial Park ensures quick access to all UAE markets with optimized delivery routes.",
-    features: [
-      "Climate-controlled storage for sensitive products",
-      "Real-time inventory tracking via WMS platform",
-      "99%+ picking accuracy with 3-step quality control",
-      "Same-day dispatch for orders before 8 PM cutoff",
-    ],
-    illustrationPlaceholder: "[WAREHOUSE_ILLUSTRATION]",
-    customIllustration: <WarehouseLottie />,
-  },
-  {
-    title: "Multi-Platform Integration",
-    subtitle: "Sell Everywhere, Manage from One Place",
-    description:
-      "Seamlessly connect all your e-commerce platforms to our centralized system. Whether you sell on Amazon, Noon, Shopify, or your own website, manage everything from one unified inventory pool. No more manual updates or stock discrepancies across channels.",
-    features: [
-      "Official Amazon SPN Partner with priority handling",
-      "Approved Noon logistics partner integration",
-      "Shopify, WooCommerce, and Magento ready",
-      "Real-time sync prevents overselling",
-    ],
-    illustrationPlaceholder: "[INTEGRATION_ILLUSTRATION]",
-    customIllustration: <IntegrationIllustration />,
-  },
-  {
-    title: "Seamless UAE Market Entry",
-    subtitle: "Complete Regulatory Compliance & Product Registration",
-    description:
-      "Navigate UAE market requirements effortlessly with our comprehensive registration and compliance services. We handle all the paperwork, certifications, and approvals needed to legally sell your products in the UAE market, from customs clearance to ministry-level certifications.",
-    features: [
-      "Product registration with UAE authorities",
-      "Customs documentation and clearance",
-      "Ministry certifications and approvals",
-      "Ongoing compliance monitoring and updates",
-    ],
-    illustrationPlaceholder: "[COMPLIANCE_ILLUSTRATION]",
-    customIllustration: <ComplianceLottie />,
-  },
-];
+function getIllustration(type: IllustrationType) {
+  switch (type) {
+    case "warehouse":
+      return <WarehouseLottie />;
+    case "integration":
+      return <IntegrationIllustration />;
+    case "compliance":
+      return <ComplianceLottie />;
+    case "fulfillment":
+      return <OrderFulfillmentLottie />;
+    case "customization":
+      return <BrandLottie />;
+    default:
+      return <WarehouseLottie />;
+  }
+}
+
+function ServiceCardItem({ service }: { service: ServiceData }) {
+  return (
+    <Link
+      href={`/services/${service.slug}`}
+      className="block w-full h-[400px] lg:h-[450px] rounded-3xl p-8 lg:p-12 border border-border bg-surface shadow-lg shadow-black/10 hover:border-primary/30 transition-all duration-300 group"
+    >
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center h-full">
+        {/* Illustration */}
+        <div className="h-full rounded-2xl flex items-center justify-center overflow-hidden">
+          <div className="w-full h-full">
+            {getIllustration(service.illustration)}
+          </div>
+        </div>
+
+        {/* Content */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="flex flex-col gap-4"
+        >
+          <div>
+            <h3 className="text-heading-2 text-foreground mb-2 group-hover:text-primary transition-colors">
+              {service.title}
+            </h3>
+
+            <p className="text-body-lg text-primary font-medium mb-3">
+              {service.tagline}
+            </p>
+
+            <p className="text-body-md text-muted-foreground">
+              {service.description}
+            </p>
+          </div>
+
+          {/* CTA */}
+          <div className="flex items-center text-primary text-base font-medium mt-2">
+            <span>Learn more about this service</span>
+            <TbArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform" />
+          </div>
+        </motion.div>
+      </div>
+    </Link>
+  );
+}
 
 export default function Services({ className }: ServicesProps = {}) {
-  const cards = services.map((service) => ({
-    id: `service-${service.title.toLowerCase().replace(/\s+/g, "-")}`,
-    content: (
-      <ServiceCard
-        title={service.title}
-        subtitle={service.subtitle}
-        description={service.description}
-        features={service.features}
-        illustration={service.illustration}
-        customIllustration={service.customIllustration}
-      />
-    ),
+  const cards = allServices.map((service) => ({
+    id: `service-${service.slug}`,
+    content: <ServiceCardItem service={service} />,
   }));
 
   return (
@@ -96,13 +100,13 @@ export default function Services({ className }: ServicesProps = {}) {
           <SectionBadge>What We Do</SectionBadge>
           <h2 className="text-display-xl text-foreground mb-4">One Platform, Total E-commerce Command</h2>
           <p className="text-body-xl text-muted-foreground mx-auto">
-            Three core services to scale your e-commerce business in UAE
+            Five core services to scale your e-commerce business in UAE
           </p>
         </motion.div>
       </div>
 
       {/* Card Stack */}
-      <div className="container-wide">
+      <div className="container-narrow mx-auto">
         <CardStack cards={cards} />
       </div>
     </section>

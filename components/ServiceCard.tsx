@@ -40,21 +40,16 @@ export default function ServiceCard({
   customIllustration,
 }: ServiceCardProps) {
   return (
-    <div className="w-full h-auto rounded-3xl p-8 lg:p-12 border border-border bg-surface-subtle shadow-lg shadow-black/10">
+    <div className="w-full h-auto rounded-3xl p-8 lg:p-12 border border-border bg-white shadow-lg shadow-black/10">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         {/* Illustration */}
         {(customIllustration || illustration) && (
-          <div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="max-w-md rounded-2xl flex items-center justify-center overflow-hidden">
+          <div className="w-full h-full">
+            <div className="rounded-2xl flex items-center justify-center overflow-hidden h-full w-full">
               {customIllustration ? (
                 <div className="w-full h-full">{customIllustration}</div>
               ) : illustration ? (
-                <div className="relative w-full aspect-[4/3] p-10 lg:p-12">
+                <div className="relative w-full aspect-4/3 p-10 lg:p-12">
                   <Image
                     src={illustration}
                     alt={title}
