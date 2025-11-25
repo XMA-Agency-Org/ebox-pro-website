@@ -2,7 +2,6 @@
 
 import type { ServiceCoverage } from "@/content/why-ebox-pro";
 import { Check } from "lucide-react";
-import ScrollReveal from "@/components/ui/ScrollReveal";
 
 type ServiceCoverageSectionProps = {
   services: ServiceCoverage[];
@@ -12,7 +11,7 @@ export default function ServiceCoverageSection({
   services,
 }: ServiceCoverageSectionProps) {
   return (
-    <section className="section-padding mx-auto  max-w-4xl bg-background">
+    <section className="section-padding mx-auto container-wide bg-background">
       <div className="container-wide">
         <div className="text-center mb-12">
           <h2 className="text-display-xl text-foreground mb-6">
@@ -25,29 +24,19 @@ export default function ServiceCoverageSection({
         </div>
 
         <div className="mb-8">
-          <h3 className="text-heading-2 text-foreground mb-6">
-            What We Manage For You
-          </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {services.map((service, index) => (
-              <ScrollReveal
-                key={service.title}
-                direction="up"
-                delay={index * 0.1}
-                threshold={0.1}
-              >
-                <div className="flex items-start gap-3">
-                  <Check className="text-green-500 w-6 h-6 mt-1 shrink-0" />
-                  <div>
-                    <h4 className="text-heading-4 text-foreground mb-2">
-                      {service.title}
-                    </h4>
-                    <p className="text-body-base text-muted-foreground">
-                      {service.description}
-                    </p>
-                  </div>
+            {services.map((service) => (
+              <div key={service.title} className="flex items-start gap-3">
+                <Check className="text-green-500 w-6 h-6 mt-1 shrink-0" />
+                <div>
+                  <h4 className="text-heading-4 text-foreground mb-2">
+                    {service.title}
+                  </h4>
+                  <p className="text-body-base text-muted-foreground">
+                    {service.description}
+                  </p>
                 </div>
-              </ScrollReveal>
+              </div>
             ))}
           </div>
         </div>

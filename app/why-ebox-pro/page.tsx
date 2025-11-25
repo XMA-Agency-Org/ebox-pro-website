@@ -5,7 +5,6 @@ import Footer from "@/components/Footer";
 import HeroSection from "@/components/why-ebox-pro/HeroSection";
 import ExperiencePromisesSection from "@/components/why-ebox-pro/ExperiencePromisesSection";
 import ServiceCoverageSection from "@/components/why-ebox-pro/ServiceCoverageSection";
-import ScrollReveal from "@/components/ui/ScrollReveal";
 import SecondaryCallToAction from "@/components/SecondaryCallToAction";
 import { experiencePromises, serviceCoverage } from "@/content/why-ebox-pro";
 
@@ -21,25 +20,10 @@ export default function WhyChooseEboxProPage() {
     <div className="min-h-screen bg-background">
       <Header />
       <main>
-        <ScrollReveal direction="up" threshold={0.2}>
-          <HeroSection />
-        </ScrollReveal>
-        <ScrollReveal direction="up" threshold={0.2} delay={0.1}>
-          <WhyEboxPro />
-        </ScrollReveal>
-        <ScrollReveal direction="up" threshold={0.2} delay={0.2}>
-          <ExperiencePromisesSection promises={experiencePromises} />
-        </ScrollReveal>
-        <ScrollReveal direction="up" threshold={0.2} delay={0.3}>
-          <ServiceCoverageSection services={serviceCoverage} />
-        </ScrollReveal>
-        <SecondaryCallToAction
-          className="bg-background"
-          text="With Ebox Pro Logistics managing your entire fulfillment journey,
-            you gain the operational advantages of having local infrastructure
-            in every GCC market without the capital investment and complexity of
-            establishing it yourself."
-        />
+        <HeroSection />
+        <WhyEboxPro />
+        <ExperiencePromisesSection promises={experiencePromises} />
+        <ServiceCoverageSection services={serviceCoverage} />
         <ContactFormWrapper />
         <Footer />
       </main>

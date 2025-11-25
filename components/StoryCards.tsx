@@ -14,33 +14,33 @@ interface WhyItem {
 const reasons: WhyItem[] = [
   {
     number: "01",
-    title: "The Problem: Logistics Distracting from Growth",
+    title: "E-commerce Should Be Focused on Growth, Not Logistics",
     description:
-      "E-commerce businesses were spending too much time managing warehousing, inventory, and delivery instead of scaling their brand. Ebox Pro was founded to eliminate this distraction—we're your strategic growth partner that handles the complexity so you can focus on innovation.",
+      "Managing warehousing, inventory, and last-mile delivery shouldn't distract you from what matters most: scaling your brand and delighting your customers. Ebox Pro was founded to eliminate this distraction—we're your strategic growth partner in the Gulf region that handles the complexity so you can focus on innovation and growth.",
     lottieSrc:
       "https://lottie.host/905eff22-2ae3-4011-9007-977ef42d8d29/0CdYNLz2rm.lottie",
   },
   {
     number: "02",
-    title: "The Problem: Barriers to GCC Market Entry",
+    title: "GCC Market Entry Should Be Accessible",
     description:
-      "Entering the GCC market was traditionally complex and expensive, preventing e-commerce businesses from accessing world-class fulfillment infrastructure. Ebox Pro eliminates these barriers, providing instant access to turnkey solutions for both startups and established brands.",
+      "Entering the GCC market should be simple and affordable, not complex and expensive. Ebox Pro was founded to eliminate the traditional barriers, providing e-commerce businesses of all sizes with instant access to world-class fulfillment infrastructure. Whether you're a startup launching your first product or an established international brand expanding regionally, we handle the complexity of logistics so you can focus on innovation and growth.",
     lottieSrc:
-      "https://lottie.host/107a23b3-5ff2-48b9-b0a8-e07566531da7/QvEadXAp3g.lottie",
+      "https://lottie.host/219717d5-adfe-46f2-8935-41667f1fb0cb/ZJvxCDLe7p.lottie",
   },
   {
     number: "03",
-    title: "The Problem: Fulfillment That Wasn't Seamless or Stress-Free",
+    title: "E-commerce Fulfillment Should Be Seamless and Stress-Free",
     description:
-      "E-commerce fulfillment was often complicated, unscalable, and stressful. Ebox Pro was founded to make fulfillment seamless, scalable, and stress-free. With cutting-edge technology and a customer-first approach, we ensure every order strengthens your brand reputation.",
+      "E-commerce fulfillment should be seamless, scalable, and stress-free. Our mission is to make this a reality. With cutting-edge technology, strategic UAE location, and a customer-first approach, we don't just store and ship your products—we become an extension of your team, working tirelessly to ensure every order strengthens your brand reputation.",
     lottieSrc:
       "https://lottie.host/ff1c2492-42ab-4e30-bcb7-070fad7d0e72/1c4b9XpMhT.lottie",
   },
   {
     number: "04",
-    title: "The Problem: Excessive Costs and Hidden Complexity",
+    title: "Logistics Should Be Transparent and Affordable",
     description:
-      "Exceptional logistics shouldn't come with excessive costs, yet businesses faced long-term contracts, hidden fees, and complicated pricing. Ebox Pro changed this—we've eliminated hidden fees, offering transparent, month-to-month agreements that grow with your business.",
+      "Exceptional logistics shouldn't come with excessive costs or complexity. That's why we've eliminated long-term contracts, hidden fees, and complicated pricing structures. We offer transparent, month-to-month agreements that grow with your business, giving you the flexibility to scale up or down based on your needs.",
     lottieSrc:
       "https://lottie.host/4e0e6604-62f6-4719-88a2-e74c51a1b5af/xwQpDKNYcg.lottie",
   },
@@ -60,7 +60,7 @@ export default function StoryCards() {
         >
           <SectionBadge>About Ebox Pro</SectionBadge>
           <h2 className="text-display-xl text-foreground mb-4">
-            The Reasons EboxPro Was Founded
+            How Ebox Pro Logistics Was Founded
           </h2>
           <p className="text-body-xl text-muted-foreground mx-auto">
             Four core advantages that set us apart in the GCC fulfillment

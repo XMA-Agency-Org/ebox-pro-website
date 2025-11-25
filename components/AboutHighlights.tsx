@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import SectionBadge from "@/components/SectionBadge";
 
 export default function AboutHighlights() {
   return (
@@ -14,9 +13,6 @@ export default function AboutHighlights() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-3xl mx-auto space-y-6"
         >
-          <SectionBadge className="mx-auto bg-primary/10 text-primary border-primary/20">
-            About Ebox Pro
-          </SectionBadge>
           <h1 className="text-display-lg text-foreground">
             Empowering E-commerce Success Across the GCC
           </h1>

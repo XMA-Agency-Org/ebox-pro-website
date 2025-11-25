@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
+import FeatureSteps from "@/components/mvpblocks/feature-2";
 import { enablementPillars } from "@/content/why-ebox-pro";
 
 const testimonialImages = [
@@ -24,6 +24,15 @@ const enablementTestimonials = enablementPillars.map((pillar, index) => ({
     `${testimonialImages[index % testimonialImages.length]}&sig=${index}`,
 }));
 
+const enablementFeatureSteps = enablementTestimonials.map(
+  (testimonial, index) => ({
+    step: `Advantage ${index + 1}`,
+    title: testimonial.name,
+    content: testimonial.quote,
+    image: testimonial.src,
+  })
+);
+
 export default function WhyEboxPro() {
   return (
     <section className="relative bg-background section-padding">
@@ -42,15 +51,14 @@ export default function WhyEboxPro() {
         </motion.div>
       </div>
 
-      {/* Animated Testimonials Reuse */}
+      {/* Feature Steps Visual */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         className="mt-10"
       >
-        <AnimatedTestimonials testimonials={enablementTestimonials} autoplay />
+        <FeatureSteps features={enablementFeatureSteps} showHeader={false} />
       </motion.div>
     </section>
   );
