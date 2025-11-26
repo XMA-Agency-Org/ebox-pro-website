@@ -5,7 +5,6 @@ import { cn } from "@/lib/utils";
 import { AnimatedBeam } from "@/components/AnimatedBeam";
 import Image from "next/image";
 import NoonLogo from "@/public/illustrations/noon-com-vector-logo-seeklogo/noon-com-seeklogo.svg";
-import { Home, LucideWarehouse } from "lucide-react";
 import Logo from "@/public/Ebox - Final Logo/ebox - final logo -08.svg";
 
 const Circle = forwardRef<
@@ -16,8 +15,8 @@ const Circle = forwardRef<
     <div
       ref={ref}
       className={cn(
-        "z-10 flex size-16 items-center justify-center rounded-full border-2 border-primary/20 bg-white p-3 shadow-lg",
-        className,
+        "z-10 flex size-10 sm:size-12 md:size-14 lg:size-16 items-center justify-center rounded-full border-2 border-primary/20 bg-white p-1.5 sm:p-2 md:p-2.5 lg:p-3 shadow-lg",
+        className
       )}
     >
       {children}
@@ -37,6 +36,7 @@ const AmazonIcon = () => (
     viewBox="0 0 122.879 111.709"
     enableBackground="new 0 0 122.879 111.709"
     xmlSpace="preserve"
+    className="w-full h-full"
   >
     <g>
       <path d="M33.848,54.85c0-5.139,1.266-9.533,3.798-13.182c2.532-3.649,5.995-6.404,10.389-8.266 c4.021-1.713,8.974-2.941,14.858-3.687c2.01-0.223,5.287-0.521,9.83-0.894v-1.899c0-4.766-0.521-7.968-1.564-9.607 c-1.564-2.235-4.021-3.351-7.373-3.351h-0.893c-2.458,0.223-4.581,1.005-6.368,2.345c-1.787,1.341-2.942,3.202-3.463,5.586 c-0.298,1.489-1.042,2.345-2.234,2.569l-12.847-1.564c-1.266-0.298-1.899-0.968-1.899-2.011c0-0.223,0.037-0.484,0.111-0.781 c1.266-6.628,4.375-11.543,9.328-14.746C50.473,2.161,56.264,0.373,62.893,0h2.793c8.488,0,15.117,2.197,19.885,6.591 c0.746,0.748,1.438,1.55,2.066,2.401c0.631,0.856,1.135,1.62,1.506,2.29c0.373,0.67,0.709,1.639,1.006,2.904 c0.299,1.267,0.521,2.142,0.672,2.625c0.148,0.484,0.26,1.527,0.334,3.129c0.074,1.601,0.111,2.55,0.111,2.848v27.034 c0,1.936,0.279,3.705,0.838,5.306c0.559,1.602,1.1,2.756,1.619,3.463c0.521,0.707,1.379,1.844,2.57,3.406 c0.447,0.672,0.67,1.268,0.67,1.789c0,0.596-0.297,1.115-0.895,1.563c-6.18,5.363-9.531,8.268-10.053,8.715 c-0.893,0.67-1.973,0.744-3.24,0.223c-1.041-0.895-1.953-1.75-2.736-2.57c-0.781-0.818-1.34-1.414-1.676-1.787 c-0.334-0.371-0.875-1.098-1.619-2.178s-1.268-1.807-1.564-2.178c-4.17,4.543-8.266,7.373-12.287,8.49 c-2.533,0.744-5.661,1.117-9.384,1.117c-5.735,0-10.445-1.77-14.131-5.307C35.691,66.336,33.848,61.328,33.848,54.85L33.848,54.85z M53.062,52.615c0,2.905,0.727,5.232,2.178,6.982c1.453,1.75,3.407,2.625,5.865,2.625c0.224,0,0.54-0.037,0.95-0.111 c0.408-0.076,0.688-0.113,0.838-0.113c3.127-0.818,5.547-2.828,7.26-6.031c0.82-1.415,1.434-2.96,1.844-4.636 c0.41-1.675,0.633-3.035,0.67-4.078c0.037-1.042,0.057-2.755,0.057-5.138v-2.793c-4.32,0-7.596,0.298-9.83,0.894 C56.338,42.077,53.062,46.21,53.062,52.615L53.062,52.615z" />
@@ -49,7 +49,13 @@ const AmazonIcon = () => (
 );
 
 const NoonIcon = () => (
-  <Image src={NoonLogo} alt="Noon Logo" width={64} height={64} />
+  <Image
+    src={NoonLogo}
+    alt="Noon Logo"
+    width={64}
+    height={64}
+    className="w-full h-full object-contain"
+  />
 );
 
 const ShopifyIcon = () => (
@@ -58,6 +64,7 @@ const ShopifyIcon = () => (
     width={256}
     height={292}
     viewBox="0 0 256 292"
+    className="w-full h-full"
   >
     <path
       fill="#95bf46"
@@ -80,6 +87,7 @@ const WooCommerceIcon = () => (
     width={128}
     height={128}
     viewBox="0 0 128 128"
+    className="w-full h-full"
   >
     <path
       fill="#7f54b3"
@@ -103,10 +111,10 @@ export function IntegrationIllustration() {
 
   return (
     <div
-      className="relative flex h-full w-full items-center justify-center overflow-hidden p-10"
+      className="relative flex h-full w-full items-center justify-center overflow-hidden p-2 sm:p-4 md:p-6 lg:p-10"
       ref={containerRef}
     >
-      <div className="flex size-full max-w-lg flex-col items-stretch justify-between gap-10">
+      <div className="flex size-full max-w-full sm:max-w-md md:max-w-lg flex-col items-stretch justify-between gap-2 sm:gap-4 md:gap-6 lg:gap-10">
         {/* Top Row */}
         <div className="flex flex-row items-center justify-between">
           <Circle ref={amazonRef}>
@@ -119,14 +127,17 @@ export function IntegrationIllustration() {
 
         {/* Center Hub */}
         <div className="flex flex-row items-center justify-center">
-          <Circle ref={centerRef} className="size-24">
+          <Circle
+            ref={centerRef}
+            className="size-12 sm:size-16 md:size-20 lg:size-24"
+          >
             <Image
               src={Logo}
               alt="Ebox Logo"
               width={64}
               height={64}
-              className="size-16"
-              />
+              className="size-6 sm:size-8 md:size-12 lg:size-16"
+            />
           </Circle>
         </div>
 
@@ -162,8 +173,8 @@ export function IntegrationIllustration() {
         gradientStartColor="#FED530"
         gradientStopColor="#F26422"
         reverse
-        startXOffset={50}
-        endYOffset={50}
+        startXOffset={30}
+        endYOffset={30}
       />
       <AnimatedBeam
         containerRef={containerRef}
@@ -187,12 +198,11 @@ export function IntegrationIllustration() {
         gradientStartColor="#96588A"
         gradientStopColor="#F26422"
         reverse
-        startXOffset={50}
-        startYOffset={30}
-        endYOffset={-10}
-        endXOffset={10}
+        startXOffset={30}
+        startYOffset={20}
+        endYOffset={-5}
+        endXOffset={5}
       />
     </div>
   );
 }
-

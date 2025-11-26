@@ -40,8 +40,8 @@ export default function ServiceCard({
   customIllustration,
 }: ServiceCardProps) {
   return (
-    <div className="w-full h-auto rounded-3xl p-8 lg:p-12 border border-border bg-white shadow-lg shadow-black/10">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+    <div className="w-full h-auto rounded-3xl p-4 sm:p-6 md:p-8 lg:p-12 border border-border bg-white shadow-lg shadow-black/10">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-12 items-center">
         {/* Illustration */}
         {(customIllustration || illustration) && (
           <div className="w-full h-full">
@@ -49,7 +49,7 @@ export default function ServiceCard({
               {customIllustration ? (
                 <div className="w-full h-full">{customIllustration}</div>
               ) : illustration ? (
-                <div className="relative w-full aspect-4/3 p-10 lg:p-12">
+                <div className="relative w-full aspect-4/3 p-4 sm:p-6 md:p-8 lg:p-12">
                   <Image
                     src={illustration}
                     alt={title}

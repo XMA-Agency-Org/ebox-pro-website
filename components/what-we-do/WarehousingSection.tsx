@@ -142,7 +142,7 @@ export default function WarehousingSection() {
             className="relative flex items-center justify-center lg:col-span-1"
           >
             {/* Capacity Stats */}
-            <div className="w-full max-w-lg scale-110 lg:scale-125">
+            <div className="w-full max-w-lg scale-90 sm:scale-100 md:scale-110 lg:scale-125">
               <WarehouseLottie />
             </div>
 

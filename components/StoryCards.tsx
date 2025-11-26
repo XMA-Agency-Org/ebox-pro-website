@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import SectionBadge from "@/components/SectionBadge";
-import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import { ResponsiveLottie } from "@/components/ResponsiveLottie";
 
 interface WhyItem {
   number: string;
@@ -89,12 +89,13 @@ export default function StoryCards() {
                   }`}
                 >
                   <div className="flex flex-col items-center text-primary">
-                    <DotLottieReact
-                      src={reason.lottieSrc}
-                      loop
-                      autoplay
-                      className="w-48 h-48 lg:h-full lg:w-full"
-                    />
+                    <div className="w-48 h-48 lg:h-full lg:w-full">
+                      <ResponsiveLottie
+                        src={reason.lottieSrc}
+                        loop
+                        autoplay
+                      />
+                    </div>
                   </div>
                 </div>
 

@@ -15,7 +15,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import ProcessSteps from "../ProcessSteps";
-import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import { ResponsiveLottie } from "@/components/ResponsiveLottie";
 
 interface StepItem {
   id: number;
@@ -247,109 +247,14 @@ export default function FulfillmentSection() {
           viewport={{ once: true, margin: "-100px" }}
           className="mt-16"
         >
-          <div className="hidden lg:block">
-            <div className="grid grid-cols-4 gap-6 relative">
-              {/* Connecting lines background */}
-              <div className="absolute top-10 left-0 right-0 flex items-center px-[10%]">
-                <div className="w-full h-0.5 border-t-4 border-dashed border-[#ea580c]/50" />
-              </div>
-
-              {/* Steps with numbers and cards */}
-              {steps.map((step, index) => (
-                <motion.div
-                  key={step.id}
-                  initial={{ opacity: 0.3, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{
-                    once: true,
-                    amount: 0.1,
-                    margin: "0px 0px -150px 0px",
-                  }}
-                  transition={{
-                    duration: 0.8,
-                    delay: index * 0.15,
-                    ease: "easeOut",
-                  }}
-                  className="flex flex-col items-center"
-                >
-                  {/* Circle */}
-                  <motion.div
-                    initial={{ opacity: 0.3, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{
-                      once: true,
-                      amount: 0.1,
-                      margin: "0px 0px -150px 0px",
-                    }}
-                    transition={{
-                      duration: 0.6,
-                      delay: index * 0.15,
-                      ease: "easeOut",
-                    }}
-                    className="relative z-10 mb-8"
-                  >
-                    <div className="w-20 h-20 rounded-full bg-[#ea580c] flex items-center justify-center shadow-lg shadow-orange-500/30">
-                      <span className="text-3xl font-bold text-white">
-                        {step.number}
-                      </span>
-                    </div>
-                  </motion.div>
-
-                  {/* Card */}
-                  <div className="bg-background rounded-2xl p-8 h-full shadow-sm transition-all duration-300 hover:-translate-y-1 w-full">
-                    {step.id === 1 && (
-                      <div className="w-full aspect-square max-h-32 mb-6 flex items-center justify-center">
-                        <DotLottieReact
-                          src="https://lottie.host/5715c593-1b30-4c59-b040-d593bf2f8f99/aAxcNN2CbD.lottie"
-                          loop
-                          autoplay
-                        />
-                      </div>
-                    )}
-                    {step.id === 2 && (
-                      <div className="w-full aspect-square max-h-32 mb-6 flex items-center justify-center">
-                        <DotLottieReact
-                          src="https://lottie.host/e3ffcd8a-43d3-4d19-86e5-0513e0119db0/U6oIBxxln0.lottie"
-                          loop
-                          autoplay
-                        />
-                      </div>
-                    )}
-                    {step.id === 3 && (
-                      <div className="w-full aspect-square max-h-32 mb-6 flex items-center justify-center">
-                        <DotLottieReact
-                          src="https://lottie.host/ff1c2492-42ab-4e30-bcb7-070fad7d0e72/1c4b9XpMhT.lottie"
-                          loop
-                          autoplay
-                        />
-                      </div>
-                    )}
-                    {step.id === 4 && (
-                      <div className="w-full aspect-square max-h-32 mb-6 flex items-center justify-center">
-                        <DotLottieReact
-                          src="https://lottie.host/4e0e6604-62f6-4719-88a2-e74c51a1b5af/xwQpDKNYcg.lottie"
-                          loop
-                          autoplay
-                        />
-                      </div>
-                    )}
-                    <h3 className="text-2xl font-bold text-[#1a3456] mb-4">
-                      {step.title}
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed mb-6">
-                      {step.description}
-                    </p>
-                    <div className="text-[#ea580c] font-semibold text-lg">
-                      {step.timeframe}
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
+          {/* Unified Responsive Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-6 relative">
+            {/* Connecting lines background - Desktop only */}
+            <div className="hidden lg:flex absolute top-10 left-0 right-0 items-center px-[10%]">
+              <div className="w-full h-0.5 border-t-4 border-dashed border-[#ea580c]/50" />
             </div>
-          </div>
 
-          {/* Mobile Layout */}
-          <div className="lg:hidden space-y-8">
+            {/* Steps */}
             {steps.map((step, index) => (
               <motion.div
                 key={step.id}
@@ -357,70 +262,69 @@ export default function FulfillmentSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="relative"
+                className="flex flex-col lg:flex-col items-center relative"
               >
-                {/* Circle and line */}
-                <div className="flex items-start mb-4">
-                  <div className="flex flex-col items-center mr-4">
-                    <div className="w-16 h-16 rounded-full bg-[#ea580c] flex items-center justify-center shadow-lg shadow-orange-500/30">
-                      <span className="text-2xl font-bold text-white">
-                        {step.number}
-                      </span>
-                    </div>
-                    {index < steps.length - 1 && (
-                      <div className="w-0.5 h-24 border-l-2 border-dashed border-[#ea580c]/50 my-2 hidden lg:block" />
-                    )}
+                {/* Circle */}
+                <motion.div
+                  initial={{ opacity: 0.3, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true, amount: 0.1 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="relative z-10 mb-4 lg:mb-8"
+                >
+                  <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-[#ea580c] flex items-center justify-center shadow-lg shadow-orange-500/30">
+                    <span className="text-2xl lg:text-3xl font-bold text-white">
+                      {step.number}
+                    </span>
                   </div>
+                </motion.div>
 
-                  {/* Card */}
-                  <div className="flex-1">
-                    <div className="bg-background rounded-2xl p-6 shadow-sm">
-                      {step.id === 1 && (
-                        <div className="w-full aspect-square max-h-24 mb-4 flex items-center justify-center">
-                          <DotLottieReact
-                            src="https://lottie.host/8d4fbde2-17a3-437c-b356-adca166704d1/oWNaqQr1Sv.lottie"
-                            loop
-                            autoplay
-                          />
-                        </div>
-                      )}
-                      {step.id === 2 && (
-                        <div className="w-full aspect-square max-h-24 mb-4 flex items-center justify-center">
-                          <DotLottieReact
-                            src="https://lottie.host/e3ffcd8a-43d3-4d19-86e5-0513e0119db0/U6oIBxxln0.lottie"
-                            loop
-                            autoplay
-                          />
-                        </div>
-                      )}
-                      {step.id === 3 && (
-                        <div className="w-full aspect-square max-h-24 mb-4 flex items-center justify-center">
-                          <DotLottieReact
-                            src="https://lottie.host/ff1c2492-42ab-4e30-bcb7-070fad7d0e72/1c4b9XpMhT.lottie"
-                            loop
-                            autoplay
-                          />
-                        </div>
-                      )}
-                      {step.id === 4 && (
-                        <div className="w-full aspect-square max-h-24 mb-4 flex items-center justify-center">
-                          <DotLottieReact
-                            src="https://lottie.host/c6ab9f50-81ef-45e4-bf2f-7b1619c2d85e/rPPpY922Sp.lottie"
-                            loop
-                            autoplay
-                          />
-                        </div>
-                      )}
-                      <h3 className="text-xl font-bold text-[#1a3456] mb-3">
-                        {step.title}
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed mb-4">
-                        {step.description}
-                      </p>
-                      <div className="text-[#ea580c] font-semibold">
-                        {step.timeframe}
-                      </div>
+                {/* Card */}
+                <div className="bg-background rounded-2xl p-4 sm:p-5 md:p-6 lg:p-8 h-full shadow-sm transition-all duration-300 hover:-translate-y-1 w-full">
+                  {step.id === 1 && (
+                    <div className="w-full aspect-square max-h-20 sm:max-h-24 md:max-h-28 lg:max-h-32 mb-3 sm:mb-4 md:mb-5 lg:mb-6 flex items-center justify-center">
+                      <ResponsiveLottie
+                        src="https://lottie.host/5715c593-1b30-4c59-b040-d593bf2f8f99/aAxcNN2CbD.lottie"
+                        loop
+                        autoplay
+                      />
                     </div>
+                  )}
+                  {step.id === 2 && (
+                    <div className="w-full aspect-square max-h-20 sm:max-h-24 md:max-h-28 lg:max-h-32 mb-3 sm:mb-4 md:mb-5 lg:mb-6 flex items-center justify-center">
+                      <ResponsiveLottie
+                        src="https://lottie.host/e3ffcd8a-43d3-4d19-86e5-0513e0119db0/U6oIBxxln0.lottie"
+                        loop
+                        autoplay
+                      />
+                    </div>
+                  )}
+                  {step.id === 3 && (
+                    <div className="w-full aspect-square max-h-20 sm:max-h-24 md:max-h-28 lg:max-h-32 mb-3 sm:mb-4 md:mb-5 lg:mb-6 flex items-center justify-center">
+                      <ResponsiveLottie
+                        src="https://lottie.host/ff1c2492-42ab-4e30-bcb7-070fad7d0e72/1c4b9XpMhT.lottie"
+                        loop
+                        autoplay
+                      />
+                    </div>
+                  )}
+                  {step.id === 4 && (
+                    <div className="w-full aspect-square max-h-20 sm:max-h-24 md:max-h-28 lg:max-h-32 mb-3 sm:mb-4 md:mb-5 lg:mb-6 flex items-center justify-center">
+                      <ResponsiveLottie
+                        src="https://lottie.host/4e0e6604-62f6-4719-88a2-e74c51a1b5af/xwQpDKNYcg.lottie"
+                        loop
+                        autoplay
+                      />
+                    </div>
+                  )}
+                  <h3 className="text-xl sm:text-xl lg:text-2xl font-bold text-[#1a3456] mb-3 lg:mb-4">
+                    {step.title}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed mb-4 lg:mb-6 text-sm sm:text-base">
+                    {step.description}
+                  </p>
+                  <div className="text-[#ea580c] font-semibold text-base lg:text-lg">
+                    {step.timeframe}
                   </div>
                 </div>
               </motion.div>

@@ -1,11 +1,10 @@
 "use client";
 
-import React from 'react';
-import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import { ResponsiveLottie } from "@/components/ResponsiveLottie";
 
 export const BrandLottie = () => {
   return (
-    <DotLottieReact
+    <ResponsiveLottie
       src="/services-lottie/Brand Identity.lottie"
       loop
       autoplay
