@@ -39,9 +39,6 @@ export default function WhatWeDoPage() {
         <WarehousingSection />
         <IntegrationsSection />
         <FulfillmentSection />
-        <TransportationSection />
-        <ReturnsManagement />
-        <ValueAddedServices />
         <ImageSection
           src="/futuristic-dubai-landscape.jpg"
           alt="Modern warehouse with inventory tracking and digital interface"
@@ -54,6 +51,9 @@ and regulatory compliance. Save months of setup time & fixed cost by leveraging 
 established infrastructure and local expertise."
         />
         <PowerfulToolsSection />
+        <TransportationSection />
+        <ReturnsManagement />
+        <ValueAddedServices />
         <ContactFormWrapper />
       </main>
       <Footer />

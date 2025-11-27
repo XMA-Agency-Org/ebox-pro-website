@@ -43,7 +43,7 @@ export default function Header() {
   function handleHeaderBackground() {
     if (pathname !== "/" ) {
       if (isScrolled) {
-        return "fixed bg-black/50 backdrop-blur-md"
+        return "fixed bg-black/35 backdrop-blur-sm"
       } else {
         return "fixed bg-transparent"
       }

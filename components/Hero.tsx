@@ -2,27 +2,8 @@
 
 import Link from "next/link";
 import { FlipWords } from "@/components/ui/flip-words";
-import { useEffect, useState } from "react";
 
 export default function Hero() {
-  const words = [
-    "Warehousing",
-    "Fulfillment",
-    "Integration",
-    "Delivery",
-    "Logistics",
-  ];
-  const [isRowLayout, setIsRowLayout] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsRowLayout(window.innerWidth >= 1275);
-    };
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
   return (
     <>
       <section
@@ -63,28 +44,22 @@ export default function Hero() {
 
               {/* CTA Buttons */}
               <div
-                className={`flex items-center justify-center gap-4 text-white w-full ${
-                  isRowLayout
-                    ? "flex-row-reverse items-start justify-start max-w-none"
-                    : "flex-col items-center justify-center max-w-lg mx-auto lg:mx-0 lg:items-start lg:justify-start"
-                }`}
+                className="flex items-center justify-center gap-4 text-white w-full flex-col max-w-lg mx-auto lg:mx-0 lg:items-start lg:justify-start min-[1275px]:flex-row-reverse min-[1275px]:items-start min-[1275px]:justify-start min-[1275px]:max-w-none"
               >
                 <Link
                   href="#calculator"
-                  className="btn-white text-center leading-6 no-underline flex items-center justify-center w-full whitespace-nowrap"
+                  className="btn-white text-center leading-6 no-underline flex items-center justify-center w-full whitespace-nowrap min-[1275px]:w-auto"
                   style={{
                     minWidth: "fit-content",
-                    width: isRowLayout ? "auto" : "100%",
                   }}
                 >
                   Calculate Your Savings
                 </Link>
                 <Link
                   href="#contact"
-                  className="btn-primary text-center leading-6 no-underline flex items-center justify-center w-full whitespace-nowrap"
+                  className="btn-primary text-center leading-6 no-underline flex items-center justify-center w-full whitespace-nowrap min-[1275px]:w-auto"
                   style={{
                     minWidth: "fit-content",
-                    width: isRowLayout ? "auto" : "100%",
                   }}
                 >
                   Get Free Fulfillment Assessment

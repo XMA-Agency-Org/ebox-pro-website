@@ -170,7 +170,7 @@ export default function TransportationSection() {
               </AnimatePresence>
 
               {/* Stats Overlay */}
-              <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-sm rounded-xl p-4 border border-base-200">
+              <div className="md:absolute hidden md:block bottom-4 left-4 right-4 bg-white/95 backdrop-blur-sm rounded-xl p-4 border border-base-200">
                 <div className="grid grid-cols-3 gap-4 text-center">
                   <div>
                     <p className="text-lg font-bold text-navy-900">UAE-Wide</p>

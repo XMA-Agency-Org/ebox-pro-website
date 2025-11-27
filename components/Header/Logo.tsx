@@ -10,7 +10,6 @@ interface LogoProps {
 
 export default function Logo({ variant = "light", onClick }: LogoProps) {
   const logoSrc = variant === "light" ? LogoImage : LogoDark;
-  const height = variant === "light" ? "h-20" : "h-12";
 
   return (
     <Link href="/" className="shrink-0" onClick={onClick}>
@@ -19,7 +18,7 @@ export default function Logo({ variant = "light", onClick }: LogoProps) {
         alt="Ebox Pro"
         width={120}
         height={40}
-        className={`${height} w-auto`}
+        className="md:h-20 h-16 w-auto"
       />
     </Link>
   );

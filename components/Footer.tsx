@@ -130,7 +130,7 @@ export default function Footer() {
                   alt="Ebox Pro Footer Logo"
                   width={280}
                   height={84}
-                  className="h-20 w-auto"
+                  className="md:h-20 w-auto"
                 />
               </Link>
               <p className="text-sm leading-relaxed footer-text max-w-xs mb-6">

@@ -46,7 +46,7 @@ export default function MobileMenu({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[9998] lg:hidden"
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-9998 lg:hidden"
             onClick={onClose}
           />
 
@@ -60,10 +60,10 @@ export default function MobileMenu({
               damping: 30,
               stiffness: 300,
             }}
-            className="fixed top-0 right-0 bottom-0 w-full sm:w-96 bg-white z-[9999] lg:hidden flex flex-col"
+            className="fixed top-0 right-0 bottom-0 w-full sm:w-96 bg-white z-9999 lg:hidden flex flex-col"
           >
             {/* Menu Header with Logo and Close */}
-            <div className="flex justify-between items-center p-6 border-b border-base-200">
+            <div className="flex justify-between items-center p-4 border-b border-base-200">
               <Logo variant="dark" onClick={onClose} />
               <button
                 onClick={onClose}
@@ -113,7 +113,7 @@ export default function MobileMenu({
                   className="border-b border-base-200"
                 >
                   <Link
-                    href="#"
+                    href="#services"
                     onClick={(e) => e.preventDefault()}
                     className="relative flex items-center rounded-lg px-4 py-4 text-lg font-medium transition-all border-b border-base-200 text-base-900 hover:text-primary-600"
                   >
