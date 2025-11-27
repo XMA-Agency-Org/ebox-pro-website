@@ -39,7 +39,7 @@ const returnSteps = [
 
 export default function ReturnsManagement() {
   return (
-    <section id="returns" className="section-padding bg-base-50">
+    <section id="returns" className="section-padding bg-base-50 overflow-hidden">
       <div className="container-wide">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12">
           {/* Left Column - Content */}
@@ -89,12 +89,12 @@ export default function ReturnsManagement() {
                 <motion.div
                   key={index}
                   variants={fadeInUp}
-                  className="flex gap-4"
+                  className="flex gap-4 min-w-0"
                 >
                   <div className="w-10 h-10 rounded-lg bg-carrot-50 flex items-center justify-center text-carrot-500 shrink-0">
                     <Icon className="w-5 h-5" />
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <h4 className="font-semibold text-base-900 mb-1">
                       {step.title}
                     </h4>
