@@ -18,7 +18,7 @@ export default function Logo({ variant = "light", onClick }: LogoProps) {
         alt="Ebox Pro"
         width={120}
         height={40}
-        className="md:h-20 h-16 w-auto"
+        className="h-16 w-auto"
       />
     </Link>
   );

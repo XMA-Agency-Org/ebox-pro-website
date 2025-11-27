@@ -49,7 +49,7 @@ function NavLinkItem({ href, children, pathname }: NavLinkItemProps) {
           href={href}
           className={cn(
             "relative block select-none rounded-sm px-4 py-2 text-white",
-            "flex items-center justify-center text-xl font-medium",
+            "flex items-center justify-center text-base font-medium",
             "transition-all duration-300",
             "hover:bg-primary-400",
             isActive && "text-white"
@@ -81,7 +81,7 @@ function ServicesDropdown({ pathname }: ServicesDropdownProps) {
     <NavigationMenuItem>
       <NavigationMenuTrigger
         className={cn(
-          "relative rounded-sm bg-transparent text-white px-4 py-5 text-xl",
+          "relative rounded-sm bg-transparent text-white px-4 py-5 text-base",
           "transition-all duration-300",
           "hover:bg-primary-400",
           "data-[state=open]:bg-primary-400",
