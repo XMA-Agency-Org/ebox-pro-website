@@ -81,7 +81,7 @@ const FeatureCard = ({ feature }: { feature: FeatureItem }) => {
     <div>
       <div
         className={cn(
-          "relative rounded-2xl px-4 pt-4 pb-4 text-sm",
+          "relative rounded-2xl px-4 pt-4 pb-4 text-xs",
           "bg-base-50 ring-base-200 ring",
           feature.cornerStyle
         )}
@@ -89,8 +89,8 @@ const FeatureCard = ({ feature }: { feature: FeatureItem }) => {
         <div className="text-carrot-500 mb-3 text-[2rem]">
           <Icon />
         </div>
-        <h2 className="text-base-900 mb-2.5 text-2xl">{feature.title}</h2>
-        <p className="text-base-600 text-base text-pretty">
+        <h2 className="text-base-900 mb-2.5 text-xl">{feature.title}</h2>
+        <p className="text-base-600 text-sm text-pretty">
           {feature.description}
         </p>
         <span className="from-carrot-500/0 via-carrot-500 to-carrot-500/0 absolute -bottom-px left-1/2 h-px w-1/2 -translate-x-1/2 bg-gradient-to-r opacity-60"></span>

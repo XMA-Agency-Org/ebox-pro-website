@@ -49,7 +49,10 @@ export default function ReturnsManagement() {
             whileInView="animate"
             viewport={{ once: true, margin: "-100px" }}
           >
-            <motion.div variants={slideInLeft}>
+            <motion.div
+              variants={slideInLeft}
+              className="text-center lg:text-left"
+            >
               <SectionBadge>Returns</SectionBadge>
             </motion.div>
 

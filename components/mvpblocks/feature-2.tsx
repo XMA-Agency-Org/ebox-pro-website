@@ -184,7 +184,7 @@ function FeatureSection({
       {/* Image Gallery - Full Height */}
       <div
         className={cn(
-          "relative order-1 h-[400px] overflow-hidden rounded-xl border md:order-2 md:sticky md:top-32 aspect-square mx-auto md:min-h-[300px]",
+          "relative order-1 h-[250px] sm:h-[300px] md:h-[350px] overflow-hidden rounded-xl border md:order-2 md:sticky md:top-32 aspect-square mx-auto md:min-h-[300px]",
           !textOnLeft && "md:order-1"
         )}
       >

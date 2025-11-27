@@ -93,7 +93,10 @@ export default function WarehousingSection() {
             whileInView="animate"
             viewport={{ once: true, margin: "-100px" }}
           >
-            <motion.div variants={slideInLeft}>
+            <motion.div
+              variants={slideInLeft}
+              className="text-center lg:text-left"
+            >
               <SectionBadge>Warehousing</SectionBadge>
             </motion.div>
 

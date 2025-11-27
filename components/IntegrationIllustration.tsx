@@ -15,7 +15,7 @@ const Circle = forwardRef<
     <div
       ref={ref}
       className={cn(
-        "z-10 flex size-16 items-center justify-center rounded-full border-2 border-primary/20 bg-white p-3 shadow-lg",
+        "z-10 flex size-14 sm:size-16 items-center justify-center rounded-full border-2 border-primary/20 bg-white p-3 shadow-lg",
         className
       )}
     >
@@ -143,13 +143,13 @@ export function IntegrationIllustration() {
 
         {/* Center Hub */}
         <div className="flex flex-row items-center justify-center">
-          <Circle ref={centerRef} className="size-24">
+          <Circle ref={centerRef} className="size-20 sm:size-24">
             <Image
               src={Logo}
               alt="Ebox Logo"
               width={64}
               height={64}
-              className="size-16"
+              className="size-14 sm:size-16"
             />
           </Circle>
         </div>

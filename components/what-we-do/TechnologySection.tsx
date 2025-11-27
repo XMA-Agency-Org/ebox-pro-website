@@ -10,7 +10,7 @@ export default function IntegrationsSection() {
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
             {/* Left Column - Integration Illustration */}
-            <div className="aspect-square group relative mx-auto flex container items-center justify-between w-full max-w-md overflow-visible">
+            <div className="aspect-square group relative mx-auto flex container items-center justify-between w-full max-w-sm sm:max-w-md overflow-visible">
               <div
                 role="presentation"
                 className="bg-linear-to-b border-foreground/5 absolute inset-0 z-10 aspect-square animate-spin items-center justify-center rounded-full border-t from-navy-500/15 to-transparent to-25% opacity-0 duration-[3.5s] group-hover:opacity-100 dark:from-white/5"
@@ -41,7 +41,7 @@ export default function IntegrationsSection() {
               <div className="absolute inset-x-0 bottom-10 mx-auto my-2 flex w-fit justify-center gap-2">
                 <div className="bg-muted relative z-20 rounded-full border p-1">
                   <IntegrationCard
-                    className="shadow-black-950/10 dark:bg-background size-32 p-2 border-black/20 shadow-xl dark:border-white/25 dark:shadow-white/15"
+                    className="shadow-black-950/10 dark:bg-background size-24 sm:size-28 md:size-32 p-2 border-black/20 shadow-xl dark:border-white/25 dark:shadow-white/15"
                     isCenter={true}
                   >
                     <Logo variant="dark" />
@@ -95,11 +95,16 @@ const IntegrationCard = ({
   return (
     <div
       className={cn(
-        "relative z-30 flex size-20 rounded-full border bg-white shadow-sm shadow-black/5 dark:bg-white/5 dark:backdrop-blur-md",
+        "relative z-30 flex size-16 sm:size-[72px] md:size-20 rounded-full border bg-white shadow-sm shadow-black/5 dark:bg-white/5 dark:backdrop-blur-md",
         className
       )}
     >
-      <div className={cn("m-auto size-fit *:size-10", isCenter && "*:size-8")}>
+      <div
+        className={cn(
+          "m-auto size-fit *:size-7 sm:*:size-9 md:*:size-10",
+          isCenter && "*:size-7 sm:*:size-8 md:*:size-8"
+        )}
+      >
         {children}
       </div>
     </div>
