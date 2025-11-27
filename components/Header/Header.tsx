@@ -65,7 +65,7 @@ export default function Header() {
           handleHeaderBackground()
         )}
       >
-        <div className="bg-transparent flex justify-center items-center py-4">
+        <div className="bg-transparent flex justify-center items-center py-2">
           <div className="flex justify-between items-center w-full container-wide gap-8">
             <Logo />
             <DesktopNavigation pathname={pathname} />
