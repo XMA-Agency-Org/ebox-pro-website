@@ -1,9 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { staggerContainer, fadeInUp, slideInRight } from "@/lib/animations";
+
+import {
+  staggerContainer,
+  fadeInUp,
+  slideInLeft,
+  slideInRight,
+} from "@/lib/animations";
+
 import SectionBadge from "@/components/SectionBadge";
+
 import Link from "next/link";
+
 import {
   Thermometer,
   Shield,
@@ -12,6 +21,7 @@ import {
   Eye,
   Layers,
 } from "lucide-react";
+
 import { WarehouseLottie } from "../WarehouseLottie";
 
 interface FeatureItemProps {
@@ -75,40 +85,28 @@ export default function WarehousingSection() {
   return (
     <section id="warehousing" className="section-padding bg-white">
       <div className="container-wide">
-        {/* Badge - Centered across full width */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="flex justify-center mb-4"
-        >
-          <SectionBadge>Warehousing</SectionBadge>
-        </motion.div>
-
-        {/* Heading - Centered below badge */}
-        <motion.h2
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-display-md text-base-900 text-center mb-12"
-        >
-          Warehousing & Inventory Management
-        </motion.h2>
-
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-20 items-start">
-          {/* Left Column - Features */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
+          {/* Left Column - Content */}
           <motion.div
             variants={staggerContainer}
             initial="initial"
             whileInView="animate"
             viewport={{ once: true, margin: "-100px" }}
-            className="lg:col-span-2"
           >
+            <motion.div variants={slideInLeft}>
+              <SectionBadge>Warehousing</SectionBadge>
+            </motion.div>
+
+            <motion.h2
+              variants={slideInLeft}
+              className="text-display-md text-base-900 mt-4"
+            >
+              Warehousing & Inventory Management
+            </motion.h2>
+
             <motion.p
-              variants={fadeInUp}
-              className="text-body-lg text-base-600 mb-8"
+              variants={slideInLeft}
+              className="text-body-lg text-base-600 mt-4"
             >
               Keep your inventory organized and accessible with our
               state-of-the-art fulfillment center based in the UAE.
@@ -120,7 +118,7 @@ export default function WarehousingSection() {
             {/* Features Grid */}
             <motion.div
               variants={fadeInUp}
-              className="grid grid-cols-1 sm:grid-cols-2 gap-6"
+              className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8"
             >
               {features.map((feature) => (
                 <FeatureItem
@@ -131,6 +129,12 @@ export default function WarehousingSection() {
                 />
               ))}
             </motion.div>
+
+            <motion.div variants={fadeInUp} className="mt-14 text-center">
+              <Link href="#contact" className="btn-primary">
+                Get Free Assessment
+              </Link>
+            </motion.div>
           </motion.div>
 
           {/* Right Column - Visual */}
@@ -139,30 +143,15 @@ export default function WarehousingSection() {
             initial="initial"
             whileInView="animate"
             viewport={{ once: true, margin: "-100px" }}
-            className="relative flex items-center justify-center lg:col-span-1"
+            className="relative hidden lg:block"
           >
             {/* Capacity Stats */}
-            <div className="w-full max-w-lg scale-90 sm:scale-100 md:scale-110 lg:scale-125">
-              <WarehouseLottie />
-            </div>
+            <WarehouseLottie />
 
             {/* Decorative Element */}
             <div className="absolute -z-10 -bottom-4 -right-4 w-full h-full rounded-3xl bg-carrot-100" />
           </motion.div>
         </div>
-
-        {/* Button - Centered across full width */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mt-12 flex justify-center"
-        >
-          <Link href="#contact" className="btn-primary">
-            Get Free Assessment
-          </Link>
-        </motion.div>
       </div>
     </section>
   );

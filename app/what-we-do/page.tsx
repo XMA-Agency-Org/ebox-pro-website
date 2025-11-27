@@ -43,7 +43,7 @@ export default function WhatWeDoPage() {
         <ReturnsManagement />
         <ValueAddedServices />
         <ImageSection
-          src="/warehouse-inventory-tracking-with-digital-interface.jpg"
+          src="/futuristic-dubai-landscape.jpg"
           alt="Modern warehouse with inventory tracking and digital interface"
           width={1920}
           height={1080}

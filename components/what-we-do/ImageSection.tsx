@@ -31,7 +31,11 @@ function ImageSection({
 
   // Transform scroll progress to scale values
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1.05, 1]);
-  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0.3, 1, 1, 0.3]);
+  const opacity = useTransform(
+    scrollYProgress,
+    [0, 0.3, 0.7, 1],
+    [0.3, 1, 1, 0.3]
+  );
   const y = useTransform(scrollYProgress, [0, 1], [50, -50]);
 
   return (
@@ -45,7 +49,7 @@ function ImageSection({
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.3 }}
-        className="flex justify-center mb-8"
+        className="flex justify-center md:mb-8"
       >
         <SectionBadge>Distribution & Market Entry Support</SectionBadge>
       </motion.div>
@@ -101,4 +105,3 @@ function ImageSection({
 }
 
 export default ImageSection;
-

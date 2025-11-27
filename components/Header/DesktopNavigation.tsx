@@ -21,26 +21,27 @@ interface NavLinkItemProps {
 
 function NavLinkItem({ href, children, pathname }: NavLinkItemProps) {
   const [hash, setHash] = useState("");
-  
+
   useEffect(() => {
     // Set initial hash
     setHash(window.location.hash);
-    
+
     // Listen for hash changes
     const handleHashChange = () => {
       setHash(window.location.hash);
     };
-    
+
     window.addEventListener("hashchange", handleHashChange);
     return () => window.removeEventListener("hashchange", handleHashChange);
   }, []);
-  
+
   // For contact link, only highlight when on home page AND hash is #contact
   // For other links, do exact match
-  const isActive = href === "#contact" 
-    ? pathname === "/" && hash === "#contact"
-    : href === pathname;
-  
+  const isActive =
+    href === "#contact"
+      ? pathname === "/" && hash === "#contact"
+      : href === pathname;
+
   return (
     <NavigationMenuItem>
       <NavigationMenuLink asChild>
@@ -50,8 +51,8 @@ function NavLinkItem({ href, children, pathname }: NavLinkItemProps) {
             "relative block select-none rounded-sm px-4 py-2 text-white",
             "flex items-center justify-center text-xl font-medium",
             "transition-all duration-300",
-            "hover:bg-primary-400/20",
-            isActive && "text-white",
+            "hover:bg-primary-400",
+            isActive && "text-white"
           )}
         >
           {children}
@@ -72,17 +73,19 @@ interface ServicesDropdownProps {
 }
 
 function ServicesDropdown({ pathname }: ServicesDropdownProps) {
-  const isServiceActive = navigationLinks.services.some(service => service.href === pathname);
-  
+  const isServiceActive = navigationLinks.services.some(
+    (service) => service.href === pathname
+  );
+
   return (
     <NavigationMenuItem>
       <NavigationMenuTrigger
         className={cn(
           "relative rounded-sm bg-transparent text-white px-4 py-5 text-xl",
           "transition-all duration-300",
-          "hover:bg-primary-400/20",
-          "data-[state=open]:bg-primary-400/20",
-          isServiceActive && "text-white",
+          "hover:bg-primary-400",
+          "data-[state=open]:bg-primary-400",
+          isServiceActive && "text-white"
         )}
       >
         Services
@@ -107,7 +110,7 @@ function ServicesDropdown({ pathname }: ServicesDropdownProps) {
                       "transition-all duration-300",
                       "hover:text-primary-400 hover:bg-white/5",
                       "focus:text-primary-400",
-                      isActive && "text-primary-400 font-semibold bg-white/10",
+                      isActive && "text-primary-400 font-semibold bg-white/10"
                     )}
                   >
                     <span className="text-base font-medium">{link.name}</span>
@@ -132,7 +135,9 @@ interface DesktopNavigationProps {
   pathname: string;
 }
 
-export default function DesktopNavigation({ pathname }: DesktopNavigationProps) {
+export default function DesktopNavigation({
+  pathname,
+}: DesktopNavigationProps) {
   return (
     <div className="flex-1 flex justify-center items-center">
       <NavigationMenu className="hidden lg:block" viewport={false}>

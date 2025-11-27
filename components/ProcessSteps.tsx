@@ -105,7 +105,7 @@ export default function ProcessSteps() {
               {/* Card */}
               <div className="bg-background rounded-2xl p-4 sm:p-5 md:p-6 lg:p-8 h-full shadow-sm transition-all duration-300 hover:-translate-y-1 w-full">
                 {step.id === 1 && (
-                  <div className="w-full aspect-square max-h-32 mb-3 sm:mb-4 md:mb-5 lg:mb-6 flex items-center justify-center">
+                  <div className="w-full aspect-square max-h-48 mb-3 sm:mb-4 md:mb-5 lg:mb-6 flex items-center justify-center">
                     <ResponsiveLottie
                       src="https://lottie.host/5715c593-1b30-4c59-b040-d593bf2f8f99/aAxcNN2CbD.lottie"
                       loop
@@ -114,7 +114,7 @@ export default function ProcessSteps() {
                   </div>
                 )}
                 {step.id === 2 && (
-                  <div className="w-full aspect-square max-h-32 mb-3 sm:mb-4 md:mb-5 lg:mb-6 flex items-center justify-center">
+                  <div className="w-full aspect-square max-h-44 mb-3 sm:mb-4 md:mb-5 lg:mb-6 flex items-center justify-center">
                     <ResponsiveLottie
                       src="https://lottie.host/e3ffcd8a-43d3-4d19-86e5-0513e0119db0/U6oIBxxln0.lottie"
                       loop
@@ -123,7 +123,7 @@ export default function ProcessSteps() {
                   </div>
                 )}
                 {step.id === 3 && (
-                  <div className="w-full aspect-square max-h-32 mb-3 sm:mb-4 md:mb-5 lg:mb-6 flex items-center justify-center">
+                  <div className="w-full aspect-square max-h-48 mb-3 sm:mb-4 md:mb-5 lg:mb-6 flex items-center justify-center">
                     <ResponsiveLottie
                       src="https://lottie.host/ff1c2492-42ab-4e30-bcb7-070fad7d0e72/1c4b9XpMhT.lottie"
                       loop
@@ -132,7 +132,7 @@ export default function ProcessSteps() {
                   </div>
                 )}
                 {step.id === 4 && (
-                  <div className="w-full aspect-square max-h-32 mb-3 sm:mb-4 md:mb-5 lg:mb-6 flex items-center justify-center">
+                  <div className="w-full aspect-square max-h-48 mb-3 sm:mb-4 md:mb-5 lg:mb-6 flex items-center justify-center">
                     <ResponsiveLottie
                       src="https://lottie.host/4e0e6604-62f6-4719-88a2-e74c51a1b5af/xwQpDKNYcg.lottie"
                       loop

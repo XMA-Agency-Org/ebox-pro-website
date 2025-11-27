@@ -11,7 +11,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { UAENetworkMap } from "@/components/UAENetworkMap";
+import Image from "next/image";
 import {
   Clock,
   Zap,
@@ -42,9 +42,13 @@ export default function TransportationSection() {
       title: "Next-Day Delivery Across the UAE",
       description:
         "Reliable next-day delivery service ensuring your customers receive their orders the following business day.",
-      features: ["UAE-wide coverage", "Guaranteed delivery window", "Full tracking visibility"],
+      features: [
+        "UAE-wide coverage",
+        "Guaranteed delivery window",
+        "Full tracking visibility",
+      ],
     },
-    "scheduled": {
+    scheduled: {
       icon: Calendar,
       title: "Standard Delivery (2-3 Business Days) Throughout the GCC",
       description:
@@ -85,9 +89,9 @@ export default function TransportationSection() {
             variants={fadeInUp}
             className="text-body-lg text-base-600 mt-4 max-w-2xl"
           >
-            Offer your customers delivery options that match their expectations. Our network
-            of trusted last-mile delivery partners ensures reliable service with full tracking
-            and real-time updates.
+            Offer your customers delivery options that match their expectations.
+            Our network of trusted last-mile delivery partners ensures reliable
+            service with full tracking and real-time updates.
           </motion.p>
         </motion.div>
 
@@ -105,33 +109,42 @@ export default function TransportationSection() {
             onValueChange={(value) => setActiveItem(value as DeliveryOptionKey)}
             className="w-full"
           >
-            {(Object.keys(deliveryOptions) as DeliveryOptionKey[]).map((key) => {
-              const option = deliveryOptions[key];
-              const Icon = option.icon;
-              return (
-                <AccordionItem key={key} value={key} className="border-base-200">
-                  <AccordionTrigger className="hover:no-underline">
-                    <div className="flex items-center gap-3 text-base font-semibold">
-                      <div className="w-8 h-8 rounded-lg bg-carrot-50 flex items-center justify-center text-carrot-500">
-                        <Icon className="w-4 h-4" />
+            {(Object.keys(deliveryOptions) as DeliveryOptionKey[]).map(
+              (key) => {
+                const option = deliveryOptions[key];
+                const Icon = option.icon;
+                return (
+                  <AccordionItem
+                    key={key}
+                    value={key}
+                    className="border-base-200"
+                  >
+                    <AccordionTrigger className="hover:no-underline">
+                      <div className="flex items-center gap-3 text-lg font-semibold">
+                        <div className="w-8 h-8 rounded-lg bg-carrot-50 flex items-center justify-center text-carrot-500">
+                          <Icon className="w-4 h-4" />
+                        </div>
+                        {option.title}
                       </div>
-                      {option.title}
-                    </div>
-                  </AccordionTrigger>
-                  <AccordionContent className="text-base-600">
-                    <p className="mb-4">{option.description}</p>
-                    <ul className="space-y-2">
-                      {option.features.map((feature) => (
-                        <li key={feature} className="flex items-center gap-2 text-sm">
-                          <span className="w-1.5 h-1.5 rounded-full bg-carrot-500" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </AccordionContent>
-                </AccordionItem>
-              );
-            })}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-base text-base-600">
+                      <p className="mb-4">{option.description}</p>
+                      <ul className="space-y-2">
+                        {option.features.map((feature) => (
+                          <li
+                            key={feature}
+                            className="flex items-center gap-2 text-base"
+                          >
+                            <span className="w-1.5 h-1.5 rounded-full bg-carrot-500" />
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+                    </AccordionContent>
+                  </AccordionItem>
+                );
+              }
+            )}
           </Accordion>
 
           {/* Map Visual */}
@@ -140,14 +153,19 @@ export default function TransportationSection() {
             <div className="relative w-full aspect-[4/3] bg-navy-950 rounded-2xl overflow-hidden">
               <AnimatePresence mode="wait">
                 <motion.div
-                  key={`${activeItem}-map`}
+                  key={`${activeItem}-image`}
                   initial={{ opacity: 0, y: 6, scale: 0.98 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 6, scale: 0.98 }}
                   transition={{ duration: 0.2 }}
-                  className="size-full"
+                  className="size-full relative"
                 >
-                  <UAENetworkMap />
+                  <Image
+                    src="/logistics.jpg"
+                    alt="Logistics and transportation"
+                    fill
+                    className="object-cover"
+                  />
                 </motion.div>
               </AnimatePresence>
 
@@ -159,7 +177,7 @@ export default function TransportationSection() {
                     <p className="text-xs text-base-500">Coverage</p>
                   </div>
                   <div>
-                    <p className="text-lg font-bold text-navy-900">KSA</p>
+                    <p className="text-lg font-bold text-navy-900">GCC</p>
                     <p className="text-xs text-base-500">Major Cities</p>
                   </div>
                   <div>
