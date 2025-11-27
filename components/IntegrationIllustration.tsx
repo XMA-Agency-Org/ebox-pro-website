@@ -1,6 +1,6 @@
 "use client";
 
-import React, { forwardRef, useRef } from "react";
+import React, { forwardRef, useRef, useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { AnimatedBeam } from "@/components/AnimatedBeam";
 import Image from "next/image";
@@ -15,7 +15,7 @@ const Circle = forwardRef<
     <div
       ref={ref}
       className={cn(
-        "z-10 flex size-10 sm:size-12 md:size-14 lg:size-16 items-center justify-center rounded-full border-2 border-primary/20 bg-white p-1.5 sm:p-2 md:p-2.5 lg:p-3 shadow-lg",
+        "z-10 flex size-16 items-center justify-center rounded-full border-2 border-primary/20 bg-white p-3 shadow-lg",
         className
       )}
     >
@@ -108,6 +108,22 @@ export function IntegrationIllustration() {
   const shopifyRef = useRef<HTMLDivElement>(null);
   const woocommerceRef = useRef<HTMLDivElement>(null);
   const centerRef = useRef<HTMLDivElement>(null);
+  const [resizeKey, setResizeKey] = useState(0);
+
+  useEffect(() => {
+    const resizeObserver = new ResizeObserver(() => {
+      // Force re-render on resize
+      setResizeKey((prev) => prev + 1);
+    });
+
+    if (containerRef.current) {
+      resizeObserver.observe(containerRef.current);
+    }
+
+    return () => {
+      resizeObserver.disconnect();
+    };
+  }, []);
 
   return (
     <div
@@ -127,16 +143,13 @@ export function IntegrationIllustration() {
 
         {/* Center Hub */}
         <div className="flex flex-row items-center justify-center">
-          <Circle
-            ref={centerRef}
-            className="size-12 sm:size-16 md:size-20 lg:size-24"
-          >
+          <Circle ref={centerRef} className="size-24">
             <Image
               src={Logo}
               alt="Ebox Logo"
               width={64}
               height={64}
-              className="size-6 sm:size-8 md:size-12 lg:size-16"
+              className="size-16"
             />
           </Circle>
         </div>
@@ -154,6 +167,7 @@ export function IntegrationIllustration() {
 
       {/* Animated Beams */}
       <AnimatedBeam
+        key={`amazon-${resizeKey}`}
         containerRef={containerRef}
         fromRef={amazonRef}
         toRef={centerRef}
@@ -164,6 +178,7 @@ export function IntegrationIllustration() {
         gradientStopColor="#F26422"
       />
       <AnimatedBeam
+        key={`noon-${resizeKey}`}
         containerRef={containerRef}
         fromRef={noonRef}
         toRef={centerRef}
@@ -177,6 +192,7 @@ export function IntegrationIllustration() {
         endYOffset={30}
       />
       <AnimatedBeam
+        key={`shopify-${resizeKey}`}
         containerRef={containerRef}
         fromRef={shopifyRef}
         toRef={centerRef}
@@ -189,6 +205,7 @@ export function IntegrationIllustration() {
         endYOffset={30}
       />
       <AnimatedBeam
+        key={`woocommerce-${resizeKey}`}
         containerRef={containerRef}
         fromRef={woocommerceRef}
         toRef={centerRef}
