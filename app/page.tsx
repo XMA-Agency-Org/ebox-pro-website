@@ -2,7 +2,6 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import ProcessSteps from "@/components/ProcessSteps";
-import FulfillmentCalculator from "@/components/FulfillmentCalculator";
 import KeyUSPs from "@/components/KeyUSPs";
 import FAQ from "@/components/FAQ";
 import ContactFormWrapper from "@/components/ContactFormWrapper";
@@ -16,7 +15,7 @@ export default function Home() {
       <KeyUSPs />
       <Services />
       <ProcessSteps />
-      <FulfillmentCalculator />
+      {/* <FulfillmentCalculator /> */}
       <FAQ />
       <ContactFormWrapper />
       <Footer />
