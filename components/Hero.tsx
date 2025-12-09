@@ -19,13 +19,13 @@ export default function Hero() {
               <div className="flex flex-col justify-center gap-6 items-center">
                 <div className="text-center lg:text-left">
                   <div
-                    className={`inline-flex mb-10 lg:mb-16 mx-auto items-center px-4 py-2 rounded-full backdrop-blur-sm bg-white/10 border border-white/20`}
+                    className={`flex w-fit mx-auto mb-10 lg:mb-16 items-center px-4 py-2 rounded-full backdrop-blur-sm bg-white/10 border border-white/20`}
                   >
                     <p className={`text-lg font-bold text-white`}>
                       WE DELIVER. YOU GROW.
                     </p>
                   </div>
-                  <h1 className="text-display-2xl max-w-[100px] mx-auto lg:mb-20 mb-10 h-20 flex items-center justify-center text-center wrap-break-word capitalize text-white text-shadow-md w-full">
+                  <h1 className="text-display-2xl max-w-md mx-auto lg:mb-20 mb-10 h-20 flex items-center justify-center text-center wrap-break-word capitalize text-white text-shadow-md w-full">
                     {/* Scale Your <br/> E-Commerce With <br className="hidden md:block" />{" "} */}
                     {/* All-In-One Fulfillment In GCC  */}
                     {/* All-In-One Fulfillment To Scale Your <br />E-Commerce In GCC  */}
