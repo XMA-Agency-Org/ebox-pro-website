@@ -31,7 +31,7 @@ export default function HeroSection() {
             className="text-display-xl lg:text-display-2xl text-white mt-4 max-w-4xl"
           >
             Why Choose{" "}
-            <span className="text-carrot-400">Ebox Pro Logistics?</span>
+            <span className="text-carrot-400">Ebox Pro?</span>
           </motion.h1>
 
           {/* Subheadline */}
@@ -39,7 +39,7 @@ export default function HeroSection() {
             variants={fadeInUp}
             className="text-body-xl text-white/80 mt-6 max-w-2xl"
           >
-            At Ebox Pro Logistics, we understand that reliable fulfillment is
+            At Ebox Pro, we understand that reliable fulfillment is
             essential to your e-commerce success. Our services are designed to
             help you scale your business while maintaining the quality and
             consistency your customers expect.

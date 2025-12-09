@@ -13,7 +13,7 @@ export default function AboutHighlights() {
           className="absolute inset-0"
           style={{
             backgroundImage: `radial-gradient(circle at 1px 1px, oklch(0.7 0.1 250) 1px, transparent 0)`,
-            backgroundSize: '40px 40px'
+            backgroundSize: "40px 40px",
           }}
         />
       </div>
@@ -30,20 +30,18 @@ export default function AboutHighlights() {
             variants={fadeInUp}
             className="text-display-xl lg:text-display-2xl text-white mt-4 max-w-4xl"
           >
-            Empowering E-commerce Success{" "}
-            <span className="text-carrot-400">Across the GCC</span>
+            Empowering E-commerce Success Across the{" "}
+            <span className="text-carrot-400">UAE</span> &{" "}
+            <span className="text-carrot-400">GCC</span>
           </motion.h1>
 
           {/* Subheadline */}
           <motion.p
             variants={fadeInUp}
-            className="text-body-xl text-white/80 mt-6 max-w-2xl"
+            className="text-body-xl text-white/80 mt-6 max-w-3xl"
           >
-            Ebox Pro Logistics isn't just another fulfillment center—we're your
-            strategic growth partner in the Gulf region. We understand that
-            managing warehousing, inventory, and last-mile delivery shouldn't
-            distract you from what matters most: scaling your brand and
-            delighting your customers.
+            Ebox Pro isn't just another fulfillment center—we're your strategic
+            growth partner in the Gulf region.{" "}
           </motion.p>
 
           {/* CTA Buttons */}
@@ -51,10 +49,7 @@ export default function AboutHighlights() {
             variants={fadeInUp}
             className="flex flex-col sm:flex-row gap-4 mt-10"
           >
-            <Link
-              href="#contact"
-              className="btn-primary text-center px-8 py-4"
-            >
+            <Link href="#contact" className="btn-primary text-center px-8 py-4">
               Discover More
             </Link>
           </motion.div>

@@ -30,7 +30,7 @@ export default function WhatWeDoHero() {
             variants={fadeInUp}
             className="text-display-xl lg:text-display-2xl text-white mt-4 max-w-4xl"
           >
-            End-to-End{" "}
+            All-In-One <br />
             <span className="text-carrot-400">E-commerce Fulfillment Solutions</span>
           </motion.h1>
 

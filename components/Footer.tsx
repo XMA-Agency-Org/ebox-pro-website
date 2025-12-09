@@ -7,11 +7,15 @@ import Link from "next/link";
 
 const navigationLinks = {
   services: [
-    { name: "Warehousing & Fulfillment", href: "#services" },
-    { name: "Multi-Platform Integration", href: "#services" },
-    { name: "UAE Market Entry Support", href: "#services" },
+    { name: "Warehousing & Storage", href: "/services/warehousing" },
+    { name: "Order Fulfillment", href: "/services/order-fulfillment" },
+    { name: "Marketplace Fulfillment", href: "/services/marketplace-fulfillment" },
+    { name: "Distribution & Market Entry", href: "/services/distribution" },
+    { name: "Customization & Branding", href: "/services/customization" },
   ],
   company: [
+    { name: "What We Do", href: "/what-we-do" },
+    { name: "Why Ebox Pro", href: "/why-ebox-pro" },
     { name: "About Us", href: "/about" },
     { name: "Contact Us", href: "#contact" },
   ],
@@ -126,11 +130,11 @@ export default function Footer() {
             <div className="">
               <Link href="/" className="inline-block">
                 <Image
-                  src="/Ebox - Final Logo/ebox - final logo -08.svg"
+                  src="/Ebox - Final Logo/ebox pro logistics blue.png"
                   alt="Ebox Pro Footer Logo"
                   width={280}
                   height={84}
-                  className="md:h-20 w-auto"
+                  className="h-14 w-auto mb-2"
                 />
               </Link>
               <p className="text-sm leading-relaxed footer-text max-w-xs mb-6">
@@ -214,12 +218,11 @@ export default function Footer() {
                     />
                   </svg>
                   <div className="flex flex-col gap-1">
-                    <div className="text-sm footer-text">Dubai Industrial Park</div>
                     <div className="text-sm footer-text">Dubai, UAE</div>
                   </div>
                 </div>
                 <a
-                  href="tel:+971501234567"
+                  href="tel:+971563562153"
                   className="flex items-center gap-3 transition-colors hover:opacity-80"
                 >
                   <svg
@@ -236,10 +239,10 @@ export default function Footer() {
                       strokeWidth="1.5"
                     />
                   </svg>
-                  <div className="text-sm footer-text">+971 50 123 4567</div>
+                  <div className="text-sm footer-text">+971 56 356 2153</div>
                 </a>
                 <a
-                  href="mailto:contact@eboxpro.ae"
+                  href="mailto:hi@eboxprologistics.com"
                   className="flex items-center gap-3 transition-colors hover:opacity-80"
                 >
                   <svg
@@ -256,7 +259,7 @@ export default function Footer() {
                       strokeWidth="1.5"
                     />
                   </svg>
-                  <div className="text-sm footer-text">contact@eboxpro.ae</div>
+                  <div className="text-sm footer-text">hi@eboxprologistics.com</div>
                 </a>
               </div>
             </div>

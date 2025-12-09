@@ -16,6 +16,7 @@ import {
   ServiceData,
 } from "@/lib/services-data";
 import { TbArrowRight } from "react-icons/tb";
+import IntegrationIllustrationV2 from "./IntegrationIllustrationV2";
 
 interface ServicesProps {
   className?: string;
@@ -26,7 +27,7 @@ function getIllustration(type: IllustrationType) {
     case "warehouse":
       return <WarehouseLottie />;
     case "integration":
-      return <IntegrationIllustration />;
+      return <IntegrationIllustrationV2 />;
     case "compliance":
       return <ComplianceLottie />;
     case "fulfillment":

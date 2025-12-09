@@ -25,25 +25,27 @@ export interface AnimatedBeamProps {
   endYOffset?: number;
 }
 
-export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
-  className,
-  containerRef,
-  fromRef,
-  toRef,
-  curvature = 0,
-  reverse = false, // Include the reverse prop
-  duration = Math.random() * 3 + 4,
-  delay = 0,
-  pathColor = "gray",
-  pathWidth = 2,
-  pathOpacity = 0.2,
-  gradientStartColor = "#ffaa40",
-  gradientStopColor = "#9c40ff",
-  startXOffset = 0,
-  startYOffset = 0,
-  endXOffset = 0,
-  endYOffset = 0,
-}) => {
+export const AnimatedBeam: React.FC<AnimatedBeamProps> = (props) => {
+  const {
+    className,
+    containerRef,
+    fromRef,
+    toRef,
+    curvature = 0,
+    reverse = false, // Include the reverse prop
+    duration = Math.random() * 3 + 4,
+    delay = 0,
+    pathColor = "gray",
+    pathWidth = 2,
+    pathOpacity = 0.2,
+    gradientStartColor = "#ffaa40",
+    gradientStopColor = "#9c40ff",
+    startXOffset = 0,
+    startYOffset = 0,
+    endXOffset = 0,
+    endYOffset = 0,
+  } = props;
+
   const id = useId();
   const [pathD, setPathD] = useState("");
   const [svgDimensions, setSvgDimensions] = useState({ width: 0, height: 0 });
