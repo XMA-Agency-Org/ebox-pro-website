@@ -36,7 +36,7 @@ export default function JumpToTop() {
       onClick={scrollToTop}
       aria-label="Scroll to top"
       className={cn(
-        "fixed cursor-pointer bottom-8 right-8 z-50 p-3 rounded-full bg-navy-900 text-white shadow-lg hover:shadow-xl hover:scale-110 hover:bg-navy-800 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy-700 focus-visible:ring-offset-2",
+        "fixed cursor-pointer bottom-28 right-10 z-50 p-3 rounded-full bg-navy-900 text-white shadow-lg hover:shadow-xl hover:scale-110 hover:bg-navy-800 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy-700 focus-visible:ring-offset-2",
         isVisible
           ? "opacity-100 translate-y-0"
           : "opacity-0 translate-y-4 pointer-events-none"
