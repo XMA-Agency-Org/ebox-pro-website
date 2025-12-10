@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Logo from "./Logo";
 import { navigationLinks } from "./constants";
+import { useContactModal } from "@/components/ContactModal";
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -19,22 +20,17 @@ export default function MobileMenu({
   onClose,
   pathname,
 }: MobileMenuProps) {
-  const [hash, setHash] = useState("");
   const [mounted, setMounted] = useState(false);
+  const { openModal } = useContactModal();
 
   useEffect(() => {
     setMounted(true);
-    // Set initial hash
-    setHash(window.location.hash);
-
-    // Listen for hash changes
-    const handleHashChange = () => {
-      setHash(window.location.hash);
-    };
-
-    window.addEventListener("hashchange", handleHashChange);
-    return () => window.removeEventListener("hashchange", handleHashChange);
   }, []);
+
+  const handleContactClick = () => {
+    onClose();
+    openModal();
+  };
 
   const menuContent = (
     <AnimatePresence>
@@ -231,24 +227,12 @@ export default function MobileMenu({
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.3 }}
                 >
-                  <Link
-                    href={navigationLinks.contact.href}
-                    className={cn(
-                      "relative flex items-center rounded-lg px-4 py-4 text-lg font-medium transition-all border-b border-base-200",
-                      pathname === "/" && hash === "#contact"
-                        ? "text-primary-600 bg-primary-50 font-semibold"
-                        : "text-base-900 hover:text-primary-600"
-                    )}
-                    onClick={onClose}
+                  <button
+                    onClick={handleContactClick}
+                    className="relative flex items-center rounded-lg px-4 py-4 text-lg font-medium transition-all border-b border-base-200 text-base-900 hover:text-primary-600 w-full text-left"
                   >
                     {navigationLinks.contact.name}
-                    {pathname === "/" && hash === "#contact" && (
-                      <span
-                        className="absolute right-4 top-1/2 -translate-y-1/2 h-2 w-2 bg-primary-600 rounded-full"
-                        aria-hidden="true"
-                      />
-                    )}
-                  </Link>
+                  </button>
                 </motion.div>
               </nav>
             </div>
@@ -260,13 +244,12 @@ export default function MobileMenu({
               transition={{ delay: 0.3 }}
               className="p-6 border-t border-base-200"
             >
-              <Link
-                href="#contact"
+              <button
+                onClick={handleContactClick}
                 className="btn-primary rounded-full text-white text-center px-6 py-4 text-2xl font-medium leading-6 no-underline w-full block transition-all duration-300 hover:bg-primary-hover"
-                onClick={onClose}
               >
                 Get Free Assessment
-              </Link>
+              </button>
             </motion.div>
           </motion.div>
         </>

@@ -1,18 +1,19 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import { cn } from "@/lib/utils";
 import Logo from "./Logo";
 import DesktopNavigation from "./DesktopNavigation";
 import MobileMenuButton from "./MobileMenuButton";
 import MobileMenu from "./MobileMenu";
 import { usePathname } from "next/navigation";
+import { useContactModal } from "@/components/ContactModal";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const pathname = usePathname()
+  const pathname = usePathname();
+  const { openModal } = useContactModal();
 
   // Handle scroll to make header sticky
   useEffect(() => {
@@ -73,12 +74,12 @@ export default function Header() {
             {/* CTA and Mobile Menu Right */}
             <div className="flex items-center gap-2">
               <div className="hidden lg:flex items-center gap-2">
-                <Link
-                  href="#contact"
+                <button
+                  onClick={openModal}
                   className="btn-primary rounded-full text-white text-center px-4 py-3 text-2xl font-medium leading-6 no-underline transition-all duration-300 hover:bg-primary-hover"
                 >
                   Get Free Assessment
-                </Link>
+                </button>
               </div>
 
               {!isMobileMenuOpen && (

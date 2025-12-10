@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Logo from "@/components/Logo";
+import { useContactModal } from "@/components/ContactModal";
 
 const navigationLinks = {
   services: [
@@ -17,7 +17,6 @@ const navigationLinks = {
     { name: "What We Do", href: "/what-we-do" },
     { name: "Why Ebox Pro", href: "/why-ebox-pro" },
     { name: "About Us", href: "/about" },
-    { name: "Contact Us", href: "#contact" },
   ],
 };
 
@@ -61,22 +60,7 @@ const socialLinks = [
 ];
 
 export default function Footer() {
-  const [email, setEmail] = useState("");
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [hasError, setHasError] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    try {
-      console.log("Newsletter signup:", email);
-      setIsSubmitted(true);
-      setHasError(false);
-      setEmail("");
-    } catch (error) {
-      setHasError(true);
-      setIsSubmitted(false);
-    }
-  };
+  const { openModal } = useContactModal();
 
   return (
     <motion.section
@@ -146,6 +130,12 @@ export default function Footer() {
                     {link.name}
                   </Link>
                 ))}
+                <button
+                  onClick={openModal}
+                  className="transition-colors text-sm hover:opacity-80 footer-text text-left"
+                >
+                  Contact Us
+                </button>
               </div>
             </div>
 

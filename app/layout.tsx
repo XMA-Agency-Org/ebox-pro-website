@@ -3,6 +3,7 @@ import { Inter, Krub } from "next/font/google";
 import "./globals.css";
 import JumpToTop from "@/components/JumpToTop";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import { ContactModalProvider } from "@/components/ContactModal";
 
 const fontPrimary = Inter({
   subsets: ["latin"],
@@ -39,9 +40,11 @@ export default function RootLayout({
       <body
         className={`${fontPrimary.variable} ${fontSecondary.variable} antialiased`}
       >
-        {children}
-        <JumpToTop />
-        <WhatsAppButton />
+        <ContactModalProvider>
+          {children}
+          <JumpToTop />
+          <WhatsAppButton />
+        </ContactModalProvider>
       </body>
     </html>
   );

@@ -1,9 +1,11 @@
 "use client";
 
-import Link from "next/link";
 import { FlipWords } from "@/components/ui/flip-words";
+import { useContactModal } from "@/components/ContactModal";
 
 export default function Hero() {
+  const { openModal } = useContactModal();
+
   return (
     <>
       <section
@@ -46,15 +48,15 @@ export default function Hero() {
               <div
                 className="flex items-center justify-center gap-4 text-white w-full flex-col mx-auto"
               >
-                <Link
-                  href="#contact"
+                <button
+                  onClick={openModal}
                   className="btn-primary text-center leading-6 no-underline flex items-center justify-center w-fit whitespace-nowrap"
                   style={{
                     minWidth: "fit-content",
                   }}
                 >
                   Get Free Fulfillment Assessment
-                </Link>
+                </button>
               </div>
             </div>
             {/* Right Column - Hero Video */}

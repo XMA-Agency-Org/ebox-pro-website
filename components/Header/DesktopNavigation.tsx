@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 import { navigationLinks } from "./constants";
+import { useContactModal } from "@/components/ContactModal";
 
 interface NavLinkItemProps {
   href: string;
@@ -131,6 +132,26 @@ function ServicesDropdown({ pathname }: ServicesDropdownProps) {
   );
 }
 
+function ContactNavItem() {
+  const { openModal } = useContactModal();
+
+  return (
+    <NavigationMenuItem>
+      <button
+        onClick={openModal}
+        className={cn(
+          "relative block select-none rounded-sm px-4 py-2 text-white",
+          "flex items-center justify-center text-base font-medium",
+          "transition-all duration-300",
+          "hover:bg-primary-400"
+        )}
+      >
+        {navigationLinks.contact.name}
+      </button>
+    </NavigationMenuItem>
+  );
+}
+
 interface DesktopNavigationProps {
   pathname: string;
 }
@@ -155,9 +176,7 @@ export default function DesktopNavigation({
           <NavLinkItem href={navigationLinks.about.href} pathname={pathname}>
             {navigationLinks.about.name}
           </NavLinkItem>
-          <NavLinkItem href={navigationLinks.contact.href} pathname={pathname}>
-            {navigationLinks.contact.name}
-          </NavLinkItem>
+          <ContactNavItem />
         </NavigationMenuList>
       </NavigationMenu>
     </div>
