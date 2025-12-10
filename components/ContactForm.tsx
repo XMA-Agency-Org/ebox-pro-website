@@ -7,7 +7,10 @@ interface FormData {
   name: string;
   email: string;
   company: string;
-  volume: string;
+  phone: string;
+  industry: string;
+  website: string;
+  message: string;
 }
 
 interface ContactFormProps {
@@ -102,7 +105,10 @@ export default function ContactForm({
     name: "",
     email: "",
     company: "",
-    volume: "",
+    phone: "",
+    industry: "",
+    website: "",
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -125,7 +131,7 @@ export default function ContactForm({
       }
 
       setIsSubmitted(true);
-      setFormData({ name: "", email: "", company: "", volume: "" });
+      setFormData({ name: "", email: "", company: "", phone: "", industry: "", website: "", message: "" });
     } catch {
       setHasError(true);
     } finally {
@@ -133,7 +139,7 @@ export default function ContactForm({
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -158,66 +164,125 @@ export default function ContactForm({
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.2 }}
               onSubmit={handleSubmit}
-              className="flex flex-col gap-6 w-full"
+              className="flex flex-col gap-4 w-full"
             >
-              <div>
-                <label htmlFor="name" className="form-label text-white">
-                  Full Name
-                </label>
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  required
-                  placeholder="John Smith"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="form-input w-full bg-white/10 border border-white/5 text-white placeholder:text-white/50 focus:border-primary focus:ring-2 focus:ring-primary/20"
-                />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="name" className="form-label text-white">
+                    Full Name <span className="text-red-400">*</span>
+                  </label>
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    required
+                    placeholder="John Smith"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="form-input w-full bg-white/10 border border-white/5 text-white placeholder:text-white/50 focus:border-primary focus:ring-2 focus:ring-primary/20"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email" className="form-label text-white">
+                    Email Address <span className="text-red-400">*</span>
+                  </label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    required
+                    placeholder="john@company.com"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="form-input w-full bg-white/10 border border-white/5 text-white placeholder:text-white/50 focus:border-primary focus:ring-2 focus:ring-primary/20"
+                  />
+                </div>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="company" className="form-label text-white">
+                    Company Name <span className="text-red-400">*</span>
+                  </label>
+                  <input
+                    id="company"
+                    name="company"
+                    type="text"
+                    required
+                    placeholder="Your Company Ltd."
+                    value={formData.company}
+                    onChange={handleChange}
+                    className="form-input w-full bg-white/10 border border-white/5 text-white placeholder:text-white/50 focus:border-primary focus:ring-2 focus:ring-primary/20"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="phone" className="form-label text-white">
+                    Phone Number <span className="text-red-400">*</span>
+                  </label>
+                  <input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    required
+                    placeholder="+971 50 123 4567"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    className="form-input w-full bg-white/10 border border-white/5 text-white placeholder:text-white/50 focus:border-primary focus:ring-2 focus:ring-primary/20"
+                  />
+                </div>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="industry" className="form-label text-white">
+                    Industry <span className="text-red-400">*</span>
+                  </label>
+                  <select
+                    id="industry"
+                    name="industry"
+                    required
+                    value={formData.industry}
+                    onChange={handleChange}
+                    className="form-input w-full bg-white/10 border border-white/5 text-white focus:border-primary focus:ring-2 focus:ring-primary/20"
+                  >
+                    <option value="" disabled className="text-neutral-900">Select one...</option>
+                    <option value="Fashion/Apparel" className="text-neutral-900">Fashion/Apparel</option>
+                    <option value="Cosmetics/Beauty Products" className="text-neutral-900">Cosmetics/Beauty Products</option>
+                    <option value="Perfumes/Fragrance" className="text-neutral-900">Perfumes/Fragrance</option>
+                    <option value="Electronics" className="text-neutral-900">Electronics</option>
+                    <option value="Health Supplements" className="text-neutral-900">Health Supplements</option>
+                    <option value="Homeware/Furniture" className="text-neutral-900">Homeware/Furniture</option>
+                    <option value="Fresh Food" className="text-neutral-900">Fresh Food</option>
+                    <option value="Long Life Food" className="text-neutral-900">Long Life Food</option>
+                    <option value="Other" className="text-neutral-900">Other</option>
+                  </select>
+                </div>
+                <div>
+                  <label htmlFor="website" className="form-label text-white">
+                    Website <span className="text-white/50">(optional)</span>
+                  </label>
+                  <input
+                    id="website"
+                    name="website"
+                    type="url"
+                    placeholder="https://yourcompany.com"
+                    value={formData.website}
+                    onChange={handleChange}
+                    className="form-input w-full bg-white/10 border border-white/5 text-white placeholder:text-white/50 focus:border-primary focus:ring-2 focus:ring-primary/20"
+                  />
+                </div>
               </div>
               <div>
-                <label htmlFor="email" className="form-label text-white">
-                  Email Address
+                <label htmlFor="message" className="form-label text-white">
+                  Message <span className="text-red-400">*</span>
                 </label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
+                <textarea
+                  id="message"
+                  name="message"
                   required
-                  placeholder="john@company.com"
-                  value={formData.email}
+                  rows={3}
+                  placeholder="Tell us about your fulfillment needs..."
+                  value={formData.message}
                   onChange={handleChange}
-                  className="form-input w-full bg-white/10 border border-white/5 text-white placeholder:text-white/50 focus:border-primary focus:ring-2 focus:ring-primary/20"
-                />
-              </div>
-              <div>
-                <label htmlFor="company" className="form-label text-white">
-                  Company Name
-                </label>
-                <input
-                  id="company"
-                  name="company"
-                  type="text"
-                  required
-                  placeholder="Your Company Ltd."
-                  value={formData.company}
-                  onChange={handleChange}
-                  className="form-input w-full bg-white/10 border border-white/5 text-white placeholder:text-white/50 focus:border-primary focus:ring-2 focus:ring-primary/20"
-                />
-              </div>
-              <div>
-                <label htmlFor="volume" className="form-label text-white">
-                  Monthly Order Volume
-                </label>
-                <input
-                  id="volume"
-                  name="volume"
-                  type="text"
-                  required
-                  placeholder="e.g., 500"
-                  value={formData.volume}
-                  onChange={handleChange}
-                  className="form-input w-full bg-white/10 border border-white/5 text-white placeholder:text-white/50 focus:border-primary focus:ring-2 focus:ring-primary/20"
+                  className="form-input w-full bg-white/10 border border-white/5 text-white placeholder:text-white/50 focus:border-primary focus:ring-2 focus:ring-primary/20 resize-none"
                 />
               </div>
               <button

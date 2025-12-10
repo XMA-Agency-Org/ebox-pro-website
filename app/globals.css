@@ -414,7 +414,7 @@ button,
 
   /* Form Elements */
   .form-input {
-    @apply w-full py-2.5 px-4 text-sm lg:text-base rounded-lg
+    @apply w-full py-2.5 px-4 text-sm lg:text-base rounded-sm
            focus:outline-none transition-colors;
   }
 

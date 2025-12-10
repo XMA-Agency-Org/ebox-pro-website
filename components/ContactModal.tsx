@@ -49,15 +49,15 @@ function ContactModal() {
             className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100]"
             onClick={closeModal}
           />
-          <div className="fixed inset-0 z-[101] flex items-center justify-center p-4 pointer-events-none">
+          <div className="fixed inset-0 z-[101] flex items-center justify-center p-0 sm:p-4 pointer-events-none">
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
-              className="relative w-full max-w-md pointer-events-auto"
+              className="relative w-full h-full sm:h-auto sm:max-w-xl pointer-events-auto"
             >
-              <div className="relative bg-navy-900 rounded-2xl shadow-2xl border border-white/10 overflow-hidden">
+              <div className="relative bg-navy-900 sm:rounded-2xl shadow-2xl border-0 sm:border border-white/10 overflow-hidden h-full sm:h-auto overflow-y-auto">
                 <button
                   onClick={closeModal}
                   className="absolute top-4 right-4 z-10 w-8 h-8 flex items-center justify-center rounded-full bg-white/10 text-white/70 hover:bg-white/20 hover:text-white transition-colors"
