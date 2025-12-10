@@ -4,6 +4,7 @@ import "./globals.css";
 import JumpToTop from "@/components/JumpToTop";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { ContactModalProvider } from "@/components/ContactModal";
+import { Analytics } from "@vercel/analytics/next";
 
 const fontPrimary = Inter({
   subsets: ["latin"],
@@ -19,7 +20,8 @@ const fontSecondary = Krub({
 
 export const metadata: Metadata = {
   title: "Ebox Pro - Premium Logistics & 3PL Services",
-  description: "Leading 3PL logistics provider offering warehousing, fulfillment, transportation, and supply chain solutions. Ebox Pro delivers reliable, scalable logistics services for businesses of all sizes.",
+  description:
+    "Leading 3PL logistics provider offering warehousing, fulfillment, transportation, and supply chain solutions. Ebox Pro delivers reliable, scalable logistics services for businesses of all sizes.",
 };
 
 export default function RootLayout({
@@ -45,6 +47,7 @@ export default function RootLayout({
           <JumpToTop />
           <WhatsAppButton />
         </ContactModalProvider>
+        <Analytics />
       </body>
     </html>
   );
