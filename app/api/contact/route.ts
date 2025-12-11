@@ -9,6 +9,7 @@ interface ContactFormData {
   company: string;
   phone: string;
   industry: string;
+  volume: string;
   website?: string;
   message: string;
 }
@@ -16,9 +17,9 @@ interface ContactFormData {
 export async function POST(request: Request) {
   try {
     const body: ContactFormData = await request.json();
-    const { name, email, company, phone, industry, website, message } = body;
+    const { name, email, company, phone, industry, volume, website, message } = body;
 
-    if (!name || !email || !company || !phone || !industry || !message) {
+    if (!name || !email || !company || !phone || !industry || !volume || !message) {
       return NextResponse.json(
         { error: "All required fields must be filled" },
         { status: 400 }
@@ -57,6 +58,10 @@ export async function POST(request: Request) {
           <tr>
             <td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Industry:</strong></td>
             <td style="padding: 8px; border-bottom: 1px solid #eee;">${industry}</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Monthly Order Volume:</strong></td>
+            <td style="padding: 8px; border-bottom: 1px solid #eee;">${volume}</td>
           </tr>
           ${website ? `
           <tr>

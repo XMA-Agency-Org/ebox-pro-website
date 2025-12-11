@@ -19,7 +19,7 @@ const fontSecondary = Krub({
 });
 
 export const metadata: Metadata = {
-  title: "Ebox Pro - Premium Logistics & 3PL Services",
+  title: "Ebox Pro - Premium All-In-One E-commerce Fulfillment Services",
   description:
     "Leading 3PL logistics provider offering warehousing, fulfillment, transportation, and supply chain solutions. Ebox Pro delivers reliable, scalable logistics services for businesses of all sizes.",
 };

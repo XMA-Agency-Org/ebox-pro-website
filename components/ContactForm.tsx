@@ -9,6 +9,7 @@ interface FormData {
   company: string;
   phone: string;
   industry: string;
+  volume: string;
   website: string;
   message: string;
 }
@@ -107,6 +108,7 @@ export default function ContactForm({
     company: "",
     phone: "",
     industry: "",
+    volume: "",
     website: "",
     message: "",
   });
@@ -131,7 +133,7 @@ export default function ContactForm({
       }
 
       setIsSubmitted(true);
-      setFormData({ name: "", email: "", company: "", phone: "", industry: "", website: "", message: "" });
+      setFormData({ name: "", email: "", company: "", phone: "", industry: "", volume: "", website: "", message: "" });
     } catch {
       setHasError(true);
     } finally {
@@ -256,19 +258,34 @@ export default function ContactForm({
                   </select>
                 </div>
                 <div>
-                  <label htmlFor="website" className="form-label text-white">
-                    Website <span className="text-white/50">(optional)</span>
+                  <label htmlFor="volume" className="form-label text-white">
+                    Monthly Order Volume <span className="text-red-400">*</span>
                   </label>
                   <input
-                    id="website"
-                    name="website"
-                    type="url"
-                    placeholder="https://yourcompany.com"
-                    value={formData.website}
+                    id="volume"
+                    name="volume"
+                    type="text"
+                    required
+                    placeholder="e.g., 500"
+                    value={formData.volume}
                     onChange={handleChange}
                     className="form-input w-full bg-white/10 border border-white/5 text-white placeholder:text-white/50 focus:border-primary focus:ring-2 focus:ring-primary/20"
                   />
                 </div>
+              </div>
+              <div>
+                <label htmlFor="website" className="form-label text-white">
+                  Website <span className="text-white/50">(optional)</span>
+                </label>
+                <input
+                  id="website"
+                  name="website"
+                  type="url"
+                  placeholder="https://yourcompany.com"
+                  value={formData.website}
+                  onChange={handleChange}
+                  className="form-input w-full bg-white/10 border border-white/5 text-white placeholder:text-white/50 focus:border-primary focus:ring-2 focus:ring-primary/20"
+                />
               </div>
               <div>
                 <label htmlFor="message" className="form-label text-white">
