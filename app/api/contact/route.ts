@@ -14,10 +14,20 @@ interface ContactFormData {
   message: string;
 }
 
+function normalizeWebsiteUrl(url: string | undefined): string | undefined {
+  if (!url || url.trim() === "") return undefined;
+  const trimmed = url.trim();
+  if (trimmed.startsWith("http://") || trimmed.startsWith("https://")) {
+    return trimmed;
+  }
+  return `https://${trimmed}`;
+}
+
 export async function POST(request: Request) {
   try {
     const body: ContactFormData = await request.json();
-    const { name, email, company, phone, industry, volume, website, message } = body;
+    const { name, email, company, phone, industry, volume, website: rawWebsite, message } = body;
+    const website = normalizeWebsiteUrl(rawWebsite);
 
     if (!name || !email || !company || !phone || !industry || !volume || !message) {
       return NextResponse.json(

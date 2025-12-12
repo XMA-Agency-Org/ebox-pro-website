@@ -280,8 +280,8 @@ export default function ContactForm({
                 <input
                   id="website"
                   name="website"
-                  type="url"
-                  placeholder="https://yourcompany.com"
+                  type="text"
+                  placeholder="yourcompany.com"
                   value={formData.website}
                   onChange={handleChange}
                   className="form-input w-full bg-white/10 border border-white/5 text-white placeholder:text-white/50 focus:border-primary focus:ring-2 focus:ring-primary/20"
