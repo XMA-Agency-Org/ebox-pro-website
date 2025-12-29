@@ -50,6 +50,22 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'AW-17763076208');`}
         </Script>
+        <Script id="gtag-conversion" strategy="afterInteractive">
+          {`function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+    'send_to': 'AW-17763076208/DBrACJ-vmdkbEPCQjJZC',
+    'value': 1.0,
+    'currency': 'AED',
+    'event_callback': callback
+  });
+  return false;
+}`}
+        </Script>
         <link
           rel="preload"
           as="video"

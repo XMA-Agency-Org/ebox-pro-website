@@ -3,6 +3,12 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
+declare global {
+  interface Window {
+    gtag_report_conversion?: (url?: string) => boolean;
+  }
+}
+
 interface FormData {
   name: string;
   email: string;
@@ -130,6 +136,10 @@ export default function ContactForm({
 
       if (!response.ok) {
         throw new Error("Failed to submit");
+      }
+
+      if (typeof window !== "undefined" && window.gtag_report_conversion) {
+        window.gtag_report_conversion();
       }
 
       setIsSubmitted(true);
